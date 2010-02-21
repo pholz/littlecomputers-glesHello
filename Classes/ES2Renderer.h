@@ -18,7 +18,7 @@
 typedef struct _vertexStruct
 {
 	GLfloat position[4];
-	GLubyte color[4];
+	GLfloat color[4];
 } vertexStruct;
 
 @interface ES2Renderer : NSObject <ESRenderer>
@@ -31,13 +31,13 @@ typedef struct _vertexStruct
 	GLint backingHeight;
 	
 	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
-	GLuint defaultFramebuffer, colorRenderbuffer;
+	GLuint defaultFramebuffer, colorRenderbuffer, depthRenderbuffer;
 	
 	GLuint program;
 	
 	
 	vertexStruct vertices[8];
-	GLubyte indices[24];
+	GLubyte indices[14];
 	
 	GLuint    vertexBuffer;
 	GLuint    indexBuffer;

@@ -279,7 +279,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 857}}</string>
+							<string>{{0, 0}, {186, 815}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -291,14 +291,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {203, 875}}</string>
+						<string>{{0, 0}, {203, 833}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>184 34 1424 916 0 0 1680 1028 </string>
+						<string>309 154 1202 874 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -328,11 +328,10 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>66D5BEE31130EF08007E67CE</string>
+										<string>66D5BF2611319BC3007E67CE</string>
 										<key>history</key>
 										<array>
 											<string>66D5BD21112F4AC1007E67CE</string>
-											<string>66D5BD27112F4AC1007E67CE</string>
 											<string>66D5BD4B112F4F72007E67CE</string>
 											<string>66D5BD5B1130CBF4007E67CE</string>
 											<string>66D5BD5C1130CBF4007E67CE</string>
@@ -340,13 +339,14 @@
 											<string>66D5BE681130E526007E67CE</string>
 											<string>66D5BE691130E526007E67CE</string>
 											<string>66D5BE6A1130E526007E67CE</string>
-											<string>66D5BE8E1130E690007E67CE</string>
-											<string>66D5BEA41130E849007E67CE</string>
 											<string>66D5BEA51130E849007E67CE</string>
-											<string>66D5BEB71130ECA2007E67CE</string>
-											<string>66D5BEC91130EDCA007E67CE</string>
-											<string>66D5BEE11130EF08007E67CE</string>
-											<string>66D5BEE21130EF08007E67CE</string>
+											<string>66D5BEE911319578007E67CE</string>
+											<string>66D5BEF0113195F1007E67CE</string>
+											<string>66D5BF0B1131972B007E67CE</string>
+											<string>66D5BF2111319BA0007E67CE</string>
+											<string>66D5BF2211319BA0007E67CE</string>
+											<string>66D5BF2311319BA0007E67CE</string>
+											<string>66D5BF2411319BA0007E67CE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -358,14 +358,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1216, 754}}</string>
+								<string>{{0, 0}, {994, 712}}</string>
 								<key>RubberWindowFrame</key>
-								<string>184 34 1424 916 0 0 1680 1028 </string>
+								<string>309 154 1202 874 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>754pt</string>
+							<string>712pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -378,9 +378,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 759}, {1216, 116}}</string>
+								<string>{{0, 717}, {994, 116}}</string>
 								<key>RubberWindowFrame</key>
-								<string>184 34 1424 916 0 0 1680 1028 </string>
+								<string>309 154 1202 874 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -389,7 +389,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>1216pt</string>
+					<string>994pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -548,12 +548,12 @@
 		<string>66D5BE4C1130E153007E67CE</string>
 		<string>66D5BE491130E153007E67CE</string>
 		<string>66D5BD14112F4A83007E67CE</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/holz/code/glesHello/glesHello.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>184 34 1424 916 0 0 1680 1028 </string>
+	<string>309 154 1202 874 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

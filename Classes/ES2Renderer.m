@@ -55,6 +55,9 @@ enum {
 		glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
 		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);
 		[self glerr:@"genbuffers"];
+		
+		
+		
 	}
 	
 	positionLoc = glGetAttribLocation ( program, "position" );
@@ -74,17 +77,17 @@ enum {
 
 - (void) initScene
 {
-	vertexStruct v0 = { { -0.5f, -0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[0] =  v0;
-	vertexStruct v1 = { { -0.5f, -0.5f,  0.5f, 1.0f }, {255, 255,   0, 255} };	vertices[1] =  v1;	// 1
-	vertexStruct v2 = 	{{ -0.5f, 0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[2] =  v2;// 2
-	vertexStruct v3 = 	{{ -0.5f, 0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[3] =  v3;// 3
+	vertexStruct v0 = { { -0.5f, -0.5f,  0.5f, 1.0f }, {1.0f, 0.0f,   0, 1.0f}};	vertices[0] =  v0;
+	vertexStruct v1 = { { 0.5f, -0.5f,  0.5f, 1.0f }, {0.0f, 1.0f,   0, 1.0f} };	vertices[1] =  v1;	// 1
+	vertexStruct v2 = 	{{ -0.5f, 0.5f,  0.5f, 1.0f }, {1.0f, 1.0f,   0, 1.0f}};	vertices[2] =  v2;// 2
+	vertexStruct v3 = 	{{ 0.5f, 0.5f,  0.5f, 1.0f }, {0.0f, 0.0f,   0, 1.0f}};	vertices[3] =  v3;// 3
 		
-	vertexStruct v4 = 	{{ 0.5f, -0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[4] =  v4;	// 4
-	vertexStruct v5 = 	{{ 0.5f, -0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[5] =  v5;	// 5
-	vertexStruct v6 = 	{{ 0.5f, 0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[6] =  v6;// 6
-	vertexStruct v7 = 	{{ 0.5f, 0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[7] =  v7;// 7
+	vertexStruct v4 = 	{{ -0.5f, -0.5f,  -0.5f, 1.0f }, {1.0f, 1.0f,   1.0f, 1.0f}};	vertices[4] =  v4;	// 4
+	vertexStruct v5 = 	{{ 0.5f, -0.5f,  -0.5f, 1.0f }, {0.0f, 0.0f,   1.0f, 1.0f}};	vertices[5] =  v5;	// 5
+	vertexStruct v6 = 	{{ -0.5f, 0.5f,  -0.5f, 1.0f }, {0.0f, 1.0f,   1.0f, 1.0f}};	vertices[6] =  v6;// 6
+	vertexStruct v7 = 	{{ 0.5f, 0.5f,  -0.5f, 1.0f }, {1.0f, 0.0f,   1.0f, 1.0f}};	vertices[7] =  v7;// 7
 	
-	GLubyte _indices[] = { 1, 5, 3, 7, 0, 2, 4, 6, 1, 3, 0, 2, 4, 6, 5, 7, 3, 7, 2, 6, 1, 0, 5, 4};
+	GLubyte _indices[] = { 0, 1, 2, 3,  7, 1, 5, 4,  7, 6, 2, 4,  0, 1};
 	memcpy(indices, _indices, sizeof(indices));
 	
 	glGenBuffers(1, &vertexBuffer);
@@ -137,7 +140,7 @@ enum {
 	
 	esMatrixLoadIdentity( &modelview );
 	esTranslate( &modelview, 0.0, 0.0, -2.0 );
-	esRotate( &modelview, accTime * (360.0/5.0), 1.0, 0.0, 1.0 );
+	esRotate( &modelview, 35.0f + accTime * (360.0/5.0), 0.0, 1.0, 0.0 );
 	
 	esMatrixMultiply( &mvpMatrix, &modelview, &perspective );
     
@@ -149,7 +152,7 @@ enum {
     [self glerr:@"enable depth"];
 	
     glViewport(0, 0, backingWidth, backingHeight);
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	[self glerr:@"clear"];
 	
@@ -176,7 +179,7 @@ enum {
 	glUniformMatrix4fv( mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
 	[self glerr:@"uniform"];
 	
-    glDrawElements(GL_TRIANGLE_STRIP, 24, GL_UNSIGNED_BYTE, (void*)0);
+    glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);
 	[self glerr:@"draw"];
 
     
@@ -337,11 +340,17 @@ enum {
 
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer
 {
+	NSLog(@"resize");
 	// Allocate color buffer backing based on the current layer size
     glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
     [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
 	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
+	
+	glGenRenderbuffers(1, &depthRenderbuffer);
+	glBindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, backingWidth, backingHeight);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
 	
     if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 	{

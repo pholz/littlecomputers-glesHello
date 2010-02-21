@@ -67,7 +67,6 @@ enum {
 	
 	[self initScene];
 	
-	last = clock();
 	accTime = 0.0;
 	
 	return self;
@@ -113,84 +112,72 @@ enum {
 	//NSLog(@"%@",[NSString stringWithFormat:@"glError: %@ --> %d", msg, glGetError()]);
 }
 
-- (void) render
+- (void) update:(double)dt
 {
 	ESMatrix perspective;
 	ESMatrix modelview;
 	float    aspect;
 	
-	now = clock();
-	elapsed = ((double) (now - last)) / CLOCKS_PER_SEC;
-	//NSLog(@"%f",elapsed);
-	accTime += elapsed;
+	accTime += dt;
 	if(accTime >= 5.0) accTime = 0.0;
-	last = now;
-	
-	//NSLog(@"render");
 
 	aspect = (GLfloat) backingWidth / (GLfloat) backingHeight;
-	
-	// This application only creates a single context which is already set current at this point.
-	// This call is redundant, but needed if dealing with multiple contexts.
-    [EAGLContext setCurrentContext:context];
 	
 	esMatrixLoadIdentity( &perspective );
 	esPerspective( &perspective, 60.0f, aspect, 1.0f, 80.0f );
 	
 	esMatrixLoadIdentity( &modelview );
 	esTranslate( &modelview, 0.0, 0.0, -2.0 );
-	esRotate( &modelview, 35.0f + accTime * (360.0/5.0), 0.0, 1.0, 0.0 );
+	esRotate( &modelview, 35.0f + accTime * (360.0/5.0) * 3.0, 0.0, 1.0, 0.0 );
 	
 	esMatrixMultiply( &mvpMatrix, &modelview, &perspective );
-    
+}
+
+- (void) render
+{
+	// This application only creates a single context which is already set current at this point.
+	// This call is redundant, but needed if dealing with multiple contexts.
+   // [EAGLContext setCurrentContext:context];
+	
 	// This application only creates a single default framebuffer which is already bound at this point.
 	// This call is redundant, but needed if dealing with multiple framebuffers.
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
-	[self glerr:@"bindbf"];
-	glEnable(GL_DEPTH_TEST);
-    [self glerr:@"enable depth"];
+	//[self glerr:@"bindbf"];
 	
     glViewport(0, 0, backingWidth, backingHeight);
-    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+    
+	
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	[self glerr:@"clear"];
+//	[self glerr:@"clear"];
 	
 	// Use shader program
     glUseProgram(program);
-	[self glerr:@"useprog"];
+//	[self glerr:@"useprog"];
 	
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-	[self glerr:@"bindbf"];
+//	[self glerr:@"bindbf"];
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	[self glerr:@"bindbf"];
+//	[self glerr:@"bindbf"];
 	
 	glEnableVertexAttribArray(positionLoc);
-	[self glerr:@"enableVAA"];
+//	[self glerr:@"enableVAA"];
 	glEnableVertexAttribArray(colorLoc);
-	[self glerr:@"enableVAA"];
+//	[self glerr:@"enableVAA"];
 	
     glVertexAttribPointer(positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
-	[self glerr:@"VAAptr"];
+//	[self glerr:@"VAAptr"];
 	glVertexAttribPointer(colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
-	[self glerr:@"VAAptr"];
+//	[self glerr:@"VAAptr"];
     
 	
 	glUniformMatrix4fv( mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
-	[self glerr:@"uniform"];
+//	[self glerr:@"uniform"];
 	
     glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);
-	[self glerr:@"draw"];
+//	[self glerr:@"draw"];
 
     
-	// Validate program before drawing. This is a good check, but only really necessary in a debug build.
-	// DEBUG macro must be defined in your debug configurations if that's not already the case.
-#if defined(DEBUG)
-	if (![self validateProgram:program])
-	{
-		NSLog(@"Failed to validate program: %d", program);
-		return;
-	}
-#endif
+
 	
 	
 	// This application only creates a single color renderbuffer which is already bound at this point.
@@ -345,6 +332,11 @@ enum {
     [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
 	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
+	
+	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+	
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
 	
 	glGenRenderbuffers(1, &depthRenderbuffer);
 	glBindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);

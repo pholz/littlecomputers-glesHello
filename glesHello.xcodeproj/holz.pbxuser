@@ -29,36 +29,37 @@
 	};
 	2514C26E10084DB100A42282 /* ES1Renderer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {873, 1936}}";
+			sepNavIntBoundsRect = "{{0, 0}, {933, 2144}}";
 			sepNavSelRange = "{248, 0}";
 			sepNavVisRange = "{1657, 1800}";
 		};
 	};
 	2514C26F10084DB100A42282 /* ES2Renderer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {933, 1024}}";
-			sepNavSelRange = "{998, 0}";
-			sepNavVisRange = "{376, 782}";
+			sepNavIntBoundsRect = "{{0, 0}, {933, 992}}";
+			sepNavSelRange = "{681, 0}";
+			sepNavVisRange = "{376, 746}";
 		};
 	};
 	2514C27010084DB100A42282 /* ES2Renderer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {933, 5936}}";
-			sepNavSelRange = "{3355, 0}";
-			sepNavVisRange = "{3117, 1190}";
+			sepNavIntBoundsRect = "{{0, 0}, {1044, 6304}}";
+			sepNavSelRange = "{1394, 0}";
+			sepNavVisRange = "{305, 386}";
 		};
 	};
 	2514C27110084DB100A42282 /* ESRenderer.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {933, 655}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 342}";
+			sepNavSelRange = "{316, 0}";
+			sepNavVisRange = "{0, 370}";
+			sepNavWindowFrame = "{{15, 286}, {1264, 737}}";
 		};
 	};
 	2514C27910084DCA00A42282 /* Shader.fsh */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1155, 697}}";
-			sepNavSelRange = "{217, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {933, 655}}";
+			sepNavSelRange = "{185, 0}";
 			sepNavVisRange = "{0, 220}";
 		};
 	};
@@ -71,28 +72,29 @@
 	};
 	28FD14FC0DC6FC130079059D /* EAGLView.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1155, 697}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1228}";
+			sepNavIntBoundsRect = "{{0, 0}, {933, 688}}";
+			sepNavSelRange = "{198, 0}";
+			sepNavVisRange = "{18, 1238}";
 		};
 	};
 	28FD14FD0DC6FC130079059D /* EAGLView.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1223, 2416}}";
-			sepNavSelRange = "{1691, 0}";
-			sepNavVisRange = "{1447, 1127}";
+			sepNavIntBoundsRect = "{{0, 0}, {1223, 2432}}";
+			sepNavSelRange = "{1708, 0}";
+			sepNavVisRange = "{1195, 1149}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 66D5BCE1112F375E007E67CE /* glesHello */;
+		activeSDKPreference = iphoneos3.1.2;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* glesHello */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* glesHello */,
 		);
 		breakpoints = (
 			66D5BE411130E147007E67CE /* EAGLView.m:28 */,
-			66D5BED41130EE15007E67CE /* ES2Renderer.m:122 */,
+			66D5BED41130EE15007E67CE /* ES2Renderer.m:149 */,
 		);
 		codeSenseManager = 66D5BCEE112F377F007E67CE /* Code sense */;
 		executables = (
@@ -376,6 +378,32 @@
 			66D5BF4E1131A05E007E67CE /* PBXTextBookmark */ = 66D5BF4E1131A05E007E67CE /* PBXTextBookmark */;
 			66D5BF4F1131A05E007E67CE /* PBXTextBookmark */ = 66D5BF4F1131A05E007E67CE /* PBXTextBookmark */;
 			66D5BF501131A05E007E67CE /* PBXTextBookmark */ = 66D5BF501131A05E007E67CE /* PBXTextBookmark */;
+			66D5BF6B1131A63B007E67CE /* PBXTextBookmark */ = 66D5BF6B1131A63B007E67CE /* PBXTextBookmark */;
+			66D5BF6C1131A63B007E67CE /* PBXTextBookmark */ = 66D5BF6C1131A63B007E67CE /* PBXTextBookmark */;
+			66D5BF6D1131A63B007E67CE /* PBXTextBookmark */ = 66D5BF6D1131A63B007E67CE /* PBXTextBookmark */;
+			66D5BF801131A82B007E67CE /* PBXTextBookmark */ = 66D5BF801131A82B007E67CE /* PBXTextBookmark */;
+			66D5BF811131A82B007E67CE /* PBXTextBookmark */ = 66D5BF811131A82B007E67CE /* PBXTextBookmark */;
+			66D5BF821131A82B007E67CE /* PBXTextBookmark */ = 66D5BF821131A82B007E67CE /* PBXTextBookmark */;
+			66D5BF831131A82B007E67CE /* PBXTextBookmark */ = 66D5BF831131A82B007E67CE /* PBXTextBookmark */;
+			66D5BF841131A82B007E67CE /* XCBuildMessageTextBookmark */ = 66D5BF841131A82B007E67CE /* XCBuildMessageTextBookmark */;
+			66D5BF851131A82B007E67CE /* PBXTextBookmark */ = 66D5BF851131A82B007E67CE /* PBXTextBookmark */;
+			66D5BF891131A882007E67CE /* PBXTextBookmark */ = 66D5BF891131A882007E67CE /* PBXTextBookmark */;
+			66D5BF8A1131A882007E67CE /* PBXTextBookmark */ = 66D5BF8A1131A882007E67CE /* PBXTextBookmark */;
+			66D5BF8B1131A882007E67CE /* PBXTextBookmark */ = 66D5BF8B1131A882007E67CE /* PBXTextBookmark */;
+			66D5BF8C1131A882007E67CE /* PBXTextBookmark */ = 66D5BF8C1131A882007E67CE /* PBXTextBookmark */;
+			66D5BF931131AA84007E67CE /* PBXTextBookmark */ = 66D5BF931131AA84007E67CE /* PBXTextBookmark */;
+			66D5BF941131AA84007E67CE /* PBXTextBookmark */ = 66D5BF941131AA84007E67CE /* PBXTextBookmark */;
+			66D5BF951131AA84007E67CE /* PBXTextBookmark */ = 66D5BF951131AA84007E67CE /* PBXTextBookmark */;
+			66D5BF961131AA84007E67CE /* PBXTextBookmark */ = 66D5BF961131AA84007E67CE /* PBXTextBookmark */;
+			66D5BF971131AA84007E67CE /* PBXTextBookmark */ = 66D5BF971131AA84007E67CE /* PBXTextBookmark */;
+			66D5BFA31131AC0B007E67CE /* PBXTextBookmark */ = 66D5BFA31131AC0B007E67CE /* PBXTextBookmark */;
+			66D5BFA41131AC0B007E67CE /* PBXTextBookmark */ = 66D5BFA41131AC0B007E67CE /* PBXTextBookmark */;
+			66D5BFA51131AC0B007E67CE /* PBXTextBookmark */ = 66D5BFA51131AC0B007E67CE /* PBXTextBookmark */;
+			66D5BFA61131AC0B007E67CE /* PBXTextBookmark */ = 66D5BFA61131AC0B007E67CE /* PBXTextBookmark */;
+			66D5BFA71131AC5C007E67CE /* PBXTextBookmark */ = 66D5BFA71131AC5C007E67CE /* PBXTextBookmark */;
+			66D5BFA81131AC5C007E67CE /* PBXTextBookmark */ = 66D5BFA81131AC5C007E67CE /* PBXTextBookmark */;
+			66D5BFA91131AC5C007E67CE /* PBXTextBookmark */ = 66D5BFA91131AC5C007E67CE /* PBXTextBookmark */;
+			66D5BFAA1131AC5C007E67CE /* PBXTextBookmark */ = 66D5BFAA1131AC5C007E67CE /* PBXTextBookmark */;
 		};
 		sourceControlManager = 66D5BCED112F377F007E67CE /* Source Control */;
 		userBuildSettings = {
@@ -386,6 +414,13 @@
 			sepNavIntBoundsRect = "{{0, 0}, {959, 474}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 366}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* glesHello_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {933, 655}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 316}";
 		};
 	};
 	66D5BCE1112F375E007E67CE /* glesHello */ = {
@@ -450,7 +485,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 0;
-		rLoc = 76;
+		rLoc = 75;
 		rType = 1;
 	};
 	66D5BD13112F4A83007E67CE /* PBXTextBookmark */ = {
@@ -458,7 +493,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 67";
 		rLen = 0;
-		rLoc = 1689;
+		rLoc = 1672;
 		rType = 0;
 		vrLen = 335;
 		vrLoc = 1379;
@@ -548,7 +583,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 86";
 		rLen = 0;
-		rLoc = 2528;
+		rLoc = 2511;
 		rType = 0;
 		vrLen = 736;
 		vrLoc = 1850;
@@ -624,7 +659,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 73";
 		rLen = 0;
-		rLoc = 1689;
+		rLoc = 1672;
 		rType = 0;
 		vrLen = 856;
 		vrLoc = 1378;
@@ -644,7 +679,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 61";
 		rLen = 0;
-		rLoc = 1689;
+		rLoc = 1672;
 		rType = 0;
 		vrLen = 904;
 		vrLoc = 0;
@@ -654,7 +689,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 67";
 		rLen = 0;
-		rLoc = 1689;
+		rLoc = 1672;
 		rType = 0;
 		vrLen = 1035;
 		vrLoc = 1338;
@@ -664,7 +699,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 129";
 		rLen = 0;
-		rLoc = 3215;
+		rLoc = 3198;
 		rType = 0;
 		vrLen = 1168;
 		vrLoc = 193;
@@ -785,7 +820,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 114";
 		rLen = 0;
-		rLoc = 3978;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1725;
 		vrLoc = 2465;
@@ -796,7 +831,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 0;
-		rLoc = 76;
+		rLoc = 75;
 		rType = 1;
 	};
 	66D5BD641130CED8007E67CE /* PBXTextBookmark */ = {
@@ -804,7 +839,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 62";
 		rLen = 0;
-		rLoc = 1689;
+		rLoc = 1672;
 		rType = 0;
 		vrLen = 427;
 		vrLoc = 1362;
@@ -824,7 +859,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 120";
 		rLen = 0;
-		rLoc = 4200;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1161;
 		vrLoc = 217;
@@ -834,7 +869,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 120";
 		rLen = 0;
-		rLoc = 4200;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1877;
 		vrLoc = 2830;
@@ -854,7 +889,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 120";
 		rLen = 0;
-		rLoc = 4200;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1180;
 		vrLoc = 1943;
@@ -864,7 +899,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 137";
 		rLen = 0;
-		rLoc = 4947;
+		rLoc = 4745;
 		rType = 0;
 		vrLen = 1741;
 		vrLoc = 2929;
@@ -874,7 +909,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 144";
 		rLen = 0;
-		rLoc = 5352;
+		rLoc = 5158;
 		rType = 0;
 		vrLen = 1793;
 		vrLoc = 3012;
@@ -955,7 +990,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 178;
+		rLoc = 173;
 		rType = 1;
 	};
 	66D5BD801130D544007E67CE /* PBXTextBookmark */ = {
@@ -963,7 +998,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 147";
 		rLen = 0;
-		rLoc = 5405;
+		rLoc = 5211;
 		rType = 0;
 		vrLen = 673;
 		vrLoc = 3896;
@@ -973,7 +1008,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 54";
 		rLen = 0;
-		rLoc = 1100;
+		rLoc = 1063;
 		rType = 0;
 		vrLen = 774;
 		vrLoc = 275;
@@ -983,7 +1018,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 147";
 		rLen = 0;
-		rLoc = 5372;
+		rLoc = 5178;
 		rType = 0;
 		vrLen = 1639;
 		vrLoc = 2940;
@@ -993,7 +1028,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 147";
 		rLen = 0;
-		rLoc = 5372;
+		rLoc = 5178;
 		rType = 0;
 		vrLen = 1639;
 		vrLoc = 2940;
@@ -1004,7 +1039,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 178;
+		rLoc = 173;
 		rType = 1;
 	};
 	66D5BD891130D58D007E67CE /* PBXTextBookmark */ = {
@@ -1012,7 +1047,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 148";
 		rLen = 0;
-		rLoc = 5372;
+		rLoc = 5178;
 		rType = 0;
 		vrLen = 690;
 		vrLoc = 3885;
@@ -1042,7 +1077,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 69";
 		rLen = 0;
-		rLoc = 2528;
+		rLoc = 2511;
 		rType = 0;
 		vrLen = 1359;
 		vrLoc = 915;
@@ -1052,7 +1087,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 78";
 		rLen = 0;
-		rLoc = 2528;
+		rLoc = 2511;
 		rType = 0;
 		vrLen = 1316;
 		vrLoc = 1233;
@@ -1062,7 +1097,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 69";
 		rLen = 0;
-		rLoc = 2528;
+		rLoc = 2511;
 		rType = 0;
 		vrLen = 1309;
 		vrLoc = 1339;
@@ -1072,7 +1107,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 68";
 		rLen = 0;
-		rLoc = 2528;
+		rLoc = 2511;
 		rType = 0;
 		vrLen = 884;
 		vrLoc = 1339;
@@ -1122,7 +1157,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 68";
 		rLen = 0;
-		rLoc = 2528;
+		rLoc = 2511;
 		rType = 0;
 		vrLen = 866;
 		vrLoc = 1339;
@@ -1132,7 +1167,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 68";
 		rLen = 0;
-		rLoc = 1806;
+		rLoc = 1789;
 		rType = 0;
 		vrLen = 817;
 		vrLoc = 8716;
@@ -1152,7 +1187,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 68";
 		rLen = 0;
-		rLoc = 1806;
+		rLoc = 1789;
 		rType = 0;
 		vrLen = 1322;
 		vrLoc = 1341;
@@ -1172,7 +1207,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 72";
 		rLen = 726;
-		rLoc = 1802;
+		rLoc = 1785;
 		rType = 0;
 		vrLen = 1452;
 		vrLoc = 751;
@@ -1261,7 +1296,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 79";
 		rLen = 0;
-		rLoc = 2645;
+		rLoc = 2628;
 		rType = 0;
 		vrLen = 1710;
 		vrLoc = 1118;
@@ -1301,7 +1336,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 66";
 		rLen = 0;
-		rLoc = 1688;
+		rLoc = 1671;
 		rType = 0;
 		vrLen = 1839;
 		vrLoc = 1073;
@@ -1351,7 +1386,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 66";
 		rLen = 0;
-		rLoc = 1688;
+		rLoc = 1671;
 		rType = 0;
 		vrLen = 1839;
 		vrLoc = 1073;
@@ -1361,7 +1396,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 79";
 		rLen = 0;
-		rLoc = 2541;
+		rLoc = 2524;
 		rType = 0;
 		vrLen = 1847;
 		vrLoc = 1073;
@@ -1371,7 +1406,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 80";
 		rLen = 0;
-		rLoc = 2645;
+		rLoc = 2628;
 		rType = 0;
 		vrLen = 1734;
 		vrLoc = 1233;
@@ -1421,7 +1456,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 80";
 		rLen = 0;
-		rLoc = 2645;
+		rLoc = 2628;
 		rType = 0;
 		vrLen = 1238;
 		vrLoc = 353;
@@ -1605,7 +1640,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 126";
 		rLen = 0;
-		rLoc = 4606;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1483;
 		vrLoc = 2995;
@@ -1615,7 +1650,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 106";
 		rLen = 0;
-		rLoc = 3607;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1299;
 		vrLoc = 2991;
@@ -1665,7 +1700,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 55";
 		rLen = 0;
-		rLoc = 1150;
+		rLoc = 1113;
 		rType = 0;
 		vrLen = 818;
 		vrLoc = 248;
@@ -1675,7 +1710,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 135";
 		rLen = 0;
-		rLoc = 4705;
+		rLoc = 4497;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 2747;
@@ -1685,7 +1720,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 135";
 		rLen = 0;
-		rLoc = 4705;
+		rLoc = 4497;
 		rType = 0;
 		vrLen = 1650;
 		vrLoc = 3219;
@@ -1706,7 +1741,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 112;
+		rLoc = 111;
 		rType = 1;
 	};
 	66D5BE711130E540007E67CE /* PBXTextBookmark */ = {
@@ -1714,7 +1749,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 101";
 		rLen = 0;
-		rLoc = 3251;
+		rLoc = 3234;
 		rType = 0;
 		vrLen = 384;
 		vrLoc = 2833;
@@ -1724,7 +1759,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 97";
 		rLen = 0;
-		rLoc = 3109;
+		rLoc = 3092;
 		rType = 0;
 		vrLen = 1701;
 		vrLoc = 1646;
@@ -1734,7 +1769,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 168";
 		rLen = 0;
-		rLoc = 5544;
+		rLoc = 5354;
 		rType = 0;
 		vrLen = 1369;
 		vrLoc = 3148;
@@ -1744,7 +1779,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 140";
 		rLen = 0;
-		rLoc = 4600;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1506;
 		vrLoc = 3600;
@@ -1784,7 +1819,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 140";
 		rLen = 0;
-		rLoc = 4606;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1461;
 		vrLoc = 3645;
@@ -1794,7 +1829,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 140";
 		rLen = 0;
-		rLoc = 4606;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1478;
 		vrLoc = 3785;
@@ -1814,7 +1849,7 @@
 		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
 		name = "EAGLView.m: 69";
 		rLen = 0;
-		rLoc = 1711;
+		rLoc = 1909;
 		rType = 0;
 		vrLen = 980;
 		vrLoc = 1083;
@@ -1824,7 +1859,7 @@
 		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
 		name = "EAGLView.m: 69";
 		rLen = 0;
-		rLoc = 1711;
+		rLoc = 1909;
 		rType = 0;
 		vrLen = 1204;
 		vrLoc = 211;
@@ -1834,7 +1869,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 140";
 		rLen = 0;
-		rLoc = 4606;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1341;
 		vrLoc = 5106;
@@ -1844,7 +1879,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 167";
 		rLen = 0;
-		rLoc = 5456;
+		rLoc = 5264;
 		rType = 0;
 		vrLen = 1405;
 		vrLoc = 4179;
@@ -1874,7 +1909,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 55";
 		rLen = 0;
-		rLoc = 1150;
+		rLoc = 1113;
 		rType = 0;
 		vrLen = 818;
 		vrLoc = 247;
@@ -1884,7 +1919,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 160";
 		rLen = 0;
-		rLoc = 5306;
+		rLoc = 5110;
 		rType = 0;
 		vrLen = 1397;
 		vrLoc = 4204;
@@ -1894,7 +1929,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 158";
 		rLen = 0;
-		rLoc = 5137;
+		rLoc = 4939;
 		rType = 0;
 		vrLen = 1384;
 		vrLoc = 4230;
@@ -1904,7 +1939,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 160";
 		rLen = 0;
-		rLoc = 5316;
+		rLoc = 5120;
 		rType = 0;
 		vrLen = 1385;
 		vrLoc = 4264;
@@ -1914,7 +1949,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 160";
 		rLen = 0;
-		rLoc = 5316;
+		rLoc = 5120;
 		rType = 0;
 		vrLen = 1383;
 		vrLoc = 4266;
@@ -1924,7 +1959,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 167";
 		rLen = 0;
-		rLoc = 5494;
+		rLoc = 5302;
 		rType = 0;
 		vrLen = 1551;
 		vrLoc = 4359;
@@ -1934,7 +1969,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 55";
 		rLen = 0;
-		rLoc = 1150;
+		rLoc = 1113;
 		rType = 0;
 		vrLen = 818;
 		vrLoc = 247;
@@ -1944,7 +1979,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 158";
 		rLen = 0;
-		rLoc = 5137;
+		rLoc = 4939;
 		rType = 0;
 		vrLen = 1533;
 		vrLoc = 4266;
@@ -1954,7 +1989,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 160";
 		rLen = 0;
-		rLoc = 5279;
+		rLoc = 5083;
 		rType = 0;
 		vrLen = 1446;
 		vrLoc = 4415;
@@ -1964,7 +1999,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 93";
 		rLen = 0;
-		rLoc = 2921;
+		rLoc = 2904;
 		rType = 0;
 		vrLen = 1676;
 		vrLoc = 1607;
@@ -1994,7 +2029,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 52";
 		rLen = 0;
-		rLoc = 1016;
+		rLoc = 981;
 		rType = 0;
 		vrLen = 851;
 		vrLoc = 248;
@@ -2004,7 +2039,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 67";
 		rLen = 0;
-		rLoc = 1668;
+		rLoc = 1651;
 		rType = 0;
 		vrLen = 1457;
 		vrLoc = 624;
@@ -2014,7 +2049,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 121";
 		rLen = 0;
-		rLoc = 3584;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1344;
 		vrLoc = 3090;
@@ -2024,8 +2059,8 @@
 		comments = "Cannot convert to a pointer type";
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 123;
+		rLen = 0;
+		rLoc = 148;
 		rType = 1;
 	};
 	66D5BEC01130ED9D007E67CE /* PBXTextBookmark */ = {
@@ -2033,7 +2068,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 122";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 370;
 		vrLoc = 3355;
@@ -2043,8 +2078,8 @@
 		comments = "Invalid receiver type 'NSTimeInterval'";
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 123;
+		rLen = 0;
+		rLoc = 148;
 		rType = 1;
 	};
 	66D5BEC41130EDB1007E67CE /* PBXTextBookmark */ = {
@@ -2052,7 +2087,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 122";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 370;
 		vrLoc = 3355;
@@ -2062,7 +2097,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 53";
 		rLen = 0;
-		rLoc = 1033;
+		rLoc = 996;
 		rType = 0;
 		vrLen = 812;
 		vrLoc = 304;
@@ -2072,8 +2107,8 @@
 		comments = "Cannot convert to a pointer type";
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 123;
+		rLen = 0;
+		rLoc = 148;
 		rType = 1;
 	};
 	66D5BECB1130EDCA007E67CE /* PBXTextBookmark */ = {
@@ -2081,7 +2116,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 121";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1364;
 		vrLoc = 3353;
@@ -2091,7 +2126,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 139";
 		rLen = 0;
-		rLoc = 4070;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1564;
 		vrLoc = 3627;
@@ -2101,12 +2136,12 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 121";
 		rLen = 0;
-		rLoc = 3439;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1377;
 		vrLoc = 3355;
 	};
-	66D5BED41130EE15007E67CE /* ES2Renderer.m:122 */ = {
+	66D5BED41130EE15007E67CE /* ES2Renderer.m:149 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -2118,7 +2153,7 @@
 		functionName = "-render";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 122;
+		lineNumber = 149;
 		location = glesHello;
 		modificationTime = 288419565.308282;
 		originalNumberOfMultipleMatches = 1;
@@ -2127,8 +2162,8 @@
 	66D5BED51130EE15007E67CE /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
-		rLen = 1;
-		rLoc = 121;
+		rLen = 0;
+		rLoc = 148;
 		rType = 1;
 	};
 	66D5BED61130EE18007E67CE /* PBXTextBookmark */ = {
@@ -2136,7 +2171,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 121";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 325;
 		vrLoc = 3355;
@@ -2146,7 +2181,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 120";
 		rLen = 0;
-		rLoc = 3437;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 3234;
@@ -2166,7 +2201,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 120";
 		rLen = 0;
-		rLoc = 3437;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 3234;
@@ -2176,7 +2211,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 125";
 		rLen = 0;
-		rLoc = 3584;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 3267;
@@ -2216,7 +2251,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 53";
 		rLen = 0;
-		rLoc = 1033;
+		rLoc = 996;
 		rType = 0;
 		vrLen = 841;
 		vrLoc = 275;
@@ -2226,7 +2261,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 86";
 		rLen = 0;
-		rLoc = 2530;
+		rLoc = 2513;
 		rType = 0;
 		vrLen = 1608;
 		vrLoc = 1530;
@@ -2236,7 +2271,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 179";
 		rLen = 0;
-		rLoc = 5490;
+		rLoc = 5298;
 		rType = 0;
 		vrLen = 1340;
 		vrLoc = 4546;
@@ -2266,7 +2301,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 87";
 		rLen = 0;
-		rLoc = 2598;
+		rLoc = 2581;
 		rType = 0;
 		vrLen = 1504;
 		vrLoc = 1602;
@@ -2276,7 +2311,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 179";
 		rLen = 0;
-		rLoc = 5493;
+		rLoc = 5301;
 		rType = 0;
 		vrLen = 1392;
 		vrLoc = 4765;
@@ -2286,7 +2321,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 179";
 		rLen = 0;
-		rLoc = 5490;
+		rLoc = 5298;
 		rType = 0;
 		vrLen = 1397;
 		vrLoc = 4765;
@@ -2306,7 +2341,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 172";
 		rLen = 0;
-		rLoc = 5258;
+		rLoc = 5062;
 		rType = 0;
 		vrLen = 1362;
 		vrLoc = 4687;
@@ -2346,7 +2381,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 172";
 		rLen = 0;
-		rLoc = 5258;
+		rLoc = 5062;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 1627;
@@ -2356,7 +2391,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 85";
 		rLen = 0;
-		rLoc = 2502;
+		rLoc = 2485;
 		rType = 0;
 		vrLen = 1618;
 		vrLoc = 1625;
@@ -2366,7 +2401,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 85";
 		rLen = 0;
-		rLoc = 2502;
+		rLoc = 2485;
 		rType = 0;
 		vrLen = 1620;
 		vrLoc = 1625;
@@ -2406,7 +2441,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 85";
 		rLen = 0;
-		rLoc = 2502;
+		rLoc = 2485;
 		rType = 0;
 		vrLen = 1618;
 		vrLoc = 1627;
@@ -2416,7 +2451,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 140";
 		rLen = 0;
-		rLoc = 4100;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1350;
 		vrLoc = 3383;
@@ -2426,7 +2461,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 140";
 		rLen = 0;
-		rLoc = 4100;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1400;
 		vrLoc = 3383;
@@ -2436,7 +2471,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 82";
 		rLen = 0;
-		rLoc = 2180;
+		rLoc = 2163;
 		rType = 0;
 		vrLen = 1580;
 		vrLoc = 1698;
@@ -2446,7 +2481,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 140";
 		rLen = 0;
-		rLoc = 4134;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1553;
 		vrLoc = 3793;
@@ -2536,7 +2571,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 342";
 		rLen = 0;
-		rLoc = 9652;
+		rLoc = 9134;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 9572;
@@ -2546,7 +2581,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 155";
 		rLen = 0;
-		rLoc = 4614;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1456;
 		vrLoc = 3625;
@@ -2556,7 +2591,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 124";
 		rLen = 0;
-		rLoc = 3490;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1315;
 		vrLoc = 3255;
@@ -2566,7 +2601,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 125";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1192;
 		vrLoc = 3252;
@@ -2576,7 +2611,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 125";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 297;
 		vrLoc = 3371;
@@ -2586,7 +2621,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 114";
 		rLen = 0;
-		rLoc = 3254;
+		rLoc = 3237;
 		rType = 0;
 		vrLen = 1183;
 		vrLoc = 2462;
@@ -2596,7 +2631,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 114";
 		rLen = 0;
-		rLoc = 3254;
+		rLoc = 3237;
 		rType = 0;
 		vrLen = 1119;
 		vrLoc = 2827;
@@ -2606,7 +2641,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 391";
 		rLen = 0;
-		rLoc = 11022;
+		rLoc = 10598;
 		rType = 0;
 		vrLen = 665;
 		vrLoc = 10482;
@@ -2616,7 +2651,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 51";
 		rLen = 0;
-		rLoc = 1016;
+		rLoc = 981;
 		rType = 0;
 		vrLen = 765;
 		vrLoc = 358;
@@ -2626,7 +2661,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 70";
 		rLen = 0;
-		rLoc = 1652;
+		rLoc = 1651;
 		rType = 0;
 		vrLen = 1431;
 		vrLoc = 796;
@@ -2636,7 +2671,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 126";
 		rLen = 0;
-		rLoc = 3577;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1316;
 		vrLoc = 3261;
@@ -2646,7 +2681,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 122";
 		rLen = 0;
-		rLoc = 3490;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1675;
 		vrLoc = 1423;
@@ -2656,7 +2691,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 51";
 		rLen = 0;
-		rLoc = 1016;
+		rLoc = 981;
 		rType = 0;
 		vrLen = 787;
 		vrLoc = 336;
@@ -2666,7 +2701,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 53";
 		rLen = 0;
-		rLoc = 1016;
+		rLoc = 981;
 		rType = 0;
 		vrLen = 784;
 		vrLoc = 376;
@@ -2676,7 +2711,7 @@
 		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
 		name = "ES2Renderer.h: 52";
 		rLen = 0;
-		rLoc = 998;
+		rLoc = 981;
 		rType = 0;
 		vrLen = 782;
 		vrLoc = 376;
@@ -2686,7 +2721,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 70";
 		rLen = 0;
-		rLoc = 1652;
+		rLoc = 1651;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 805;
@@ -2696,7 +2731,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 125";
 		rLen = 0;
-		rLoc = 3535;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1204;
 		vrLoc = 2791;
@@ -2706,7 +2741,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 120";
 		rLen = 0;
-		rLoc = 3419;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1107;
 		vrLoc = 3088;
@@ -2716,7 +2751,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 113";
 		rLen = 0;
-		rLoc = 3254;
+		rLoc = 3237;
 		rType = 0;
 		vrLen = 1087;
 		vrLoc = 3115;
@@ -2726,7 +2761,7 @@
 		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
 		name = "EAGLView.m: 69";
 		rLen = 0;
-		rLoc = 1691;
+		rLoc = 1879;
 		rType = 0;
 		vrLen = 1127;
 		vrLoc = 1447;
@@ -2736,7 +2771,7 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 119";
 		rLen = 0;
-		rLoc = 3401;
+		rLoc = 4413;
 		rType = 0;
 		vrLen = 1192;
 		vrLoc = 3115;
@@ -2746,9 +2781,268 @@
 		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
 		name = "ES2Renderer.m: 116";
 		rLen = 0;
-		rLoc = 3355;
+		rLoc = 3868;
 		rType = 0;
 		vrLen = 1190;
 		vrLoc = 3117;
+	};
+	66D5BF6B1131A63B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
+		name = "ES2Renderer.m: 349";
+		rLen = 0;
+		rLoc = 9571;
+		rType = 0;
+		vrLen = 1025;
+		vrLoc = 2646;
+	};
+	66D5BF6C1131A63B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* glesHello_Prefix.pch */;
+		name = "glesHello_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 316;
+		vrLoc = 0;
+	};
+	66D5BF6D1131A63B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
+		name = "ES2Renderer.h: 52";
+		rLen = 0;
+		rLoc = 981;
+		rType = 0;
+		vrLen = 808;
+		vrLoc = 0;
+	};
+	66D5BF801131A82B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
+		name = "ES2Renderer.h: 52";
+		rLen = 0;
+		rLoc = 996;
+		rType = 0;
+		vrLen = 770;
+		vrLoc = 352;
+	};
+	66D5BF811131A82B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28FD14FC0DC6FC130079059D /* EAGLView.h */;
+		name = "EAGLView.h: 12";
+		rLen = 0;
+		rLoc = 199;
+		rType = 0;
+		vrLen = 1253;
+		vrLoc = 32;
+	};
+	66D5BF821131A82B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
+		name = "ES2Renderer.m: 121";
+		rLen = 0;
+		rLoc = 3431;
+		rType = 0;
+		vrLen = 1257;
+		vrLoc = 3096;
+	};
+	66D5BF831131A82B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
+		name = "EAGLView.m: 73";
+		rLen = 0;
+		rLoc = 1879;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 1598;
+	};
+	66D5BF841131A82B007E67CE /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Expected ';' before '-' token";
+		fRef = 2514C27110084DB100A42282 /* ESRenderer.h */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 17;
+		rType = 1;
+	};
+	66D5BF851131A82B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27110084DB100A42282 /* ESRenderer.h */;
+		name = "ESRenderer.h: 17";
+		rLen = 0;
+		rLoc = 316;
+		rType = 0;
+		vrLen = 370;
+		vrLoc = 0;
+	};
+	66D5BF891131A882007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27110084DB100A42282 /* ESRenderer.h */;
+		name = "ESRenderer.h: 17";
+		rLen = 0;
+		rLoc = 316;
+		rType = 0;
+		vrLen = 370;
+		vrLoc = 0;
+	};
+	66D5BF8A1131A882007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27A10084DCA00A42282 /* Shader.vsh */;
+		name = "Shader.vsh: 12";
+		rLen = 0;
+		rLoc = 208;
+		rType = 0;
+		vrLen = 209;
+		vrLoc = 0;
+	};
+	66D5BF8B1131A882007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27910084DCA00A42282 /* Shader.fsh */;
+		name = "Shader.fsh: 13";
+		rLen = 0;
+		rLoc = 204;
+		rType = 0;
+		vrLen = 220;
+		vrLoc = 0;
+	};
+	66D5BF8C1131A882007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27910084DCA00A42282 /* Shader.fsh */;
+		name = "Shader.fsh: 11";
+		rLen = 0;
+		rLoc = 185;
+		rType = 0;
+		vrLen = 220;
+		vrLoc = 0;
+	};
+	66D5BF931131AA84007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27910084DCA00A42282 /* Shader.fsh */;
+		name = "Shader.fsh: 11";
+		rLen = 0;
+		rLoc = 185;
+		rType = 0;
+		vrLen = 220;
+		vrLoc = 0;
+	};
+	66D5BF941131AA84007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C26E10084DB100A42282 /* ES1Renderer.m */;
+		name = "ES1Renderer.m: 16";
+		rLen = 0;
+		rLoc = 248;
+		rType = 0;
+		vrLen = 1800;
+		vrLoc = 1657;
+	};
+	66D5BF951131AA84007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
+		name = "ES2Renderer.h: 35";
+		rLen = 0;
+		rLoc = 681;
+		rType = 0;
+		vrLen = 746;
+		vrLoc = 376;
+	};
+	66D5BF961131AA84007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
+		name = "ES2Renderer.m: 131";
+		rLen = 0;
+		rLoc = 3768;
+		rType = 0;
+		vrLen = 1256;
+		vrLoc = 3100;
+	};
+	66D5BF971131AA84007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
+		name = "ES2Renderer.m: 116";
+		rLen = 0;
+		rLoc = 3351;
+		rType = 0;
+		vrLen = 1282;
+		vrLoc = 2986;
+	};
+	66D5BFA31131AC0B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C26F10084DB100A42282 /* ES2Renderer.h */;
+		name = "ES2Renderer.h: 35";
+		rLen = 0;
+		rLoc = 681;
+		rType = 0;
+		vrLen = 746;
+		vrLoc = 376;
+	};
+	66D5BFA41131AC0B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27010084DB100A42282 /* ES2Renderer.m */;
+		name = "ES2Renderer.m: 337";
+		rLen = 0;
+		rLoc = 9569;
+		rType = 0;
+		vrLen = 1587;
+		vrLoc = 1615;
+	};
+	66D5BFA51131AC0B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
+		name = "EAGLView.m: 73";
+		rLen = 0;
+		rLoc = 1879;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 1598;
+	};
+	66D5BFA61131AC0B007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
+		name = "EAGLView.m: 71";
+		rLen = 0;
+		rLoc = 1879;
+		rType = 0;
+		vrLen = 1244;
+		vrLoc = 1273;
+	};
+	66D5BFA71131AC5C007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2514C27110084DB100A42282 /* ESRenderer.h */;
+		name = "ESRenderer.h: 17";
+		rLen = 0;
+		rLoc = 316;
+		rType = 0;
+		vrLen = 370;
+		vrLoc = 0;
+	};
+	66D5BFA81131AC5C007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28FD14FC0DC6FC130079059D /* EAGLView.h */;
+		name = "EAGLView.h: 10";
+		rLen = 0;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 1238;
+		vrLoc = 18;
+	};
+	66D5BFA91131AC5C007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
+		name = "EAGLView.m: 71";
+		rLen = 0;
+		rLoc = 1879;
+		rType = 0;
+		vrLen = 1149;
+		vrLoc = 1195;
+	};
+	66D5BFAA1131AC5C007E67CE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28FD14FD0DC6FC130079059D /* EAGLView.m */;
+		name = "EAGLView.m: 71";
+		rLen = 0;
+		rLoc = 1879;
+		rType = 0;
+		vrLen = 1149;
+		vrLoc = 1195;
 	};
 }

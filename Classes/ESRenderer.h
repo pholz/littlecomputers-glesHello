@@ -14,6 +14,7 @@
 @protocol ESRenderer <NSObject>
 
 - (void) render;
+- (void) update:(double)dt;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 
 @end

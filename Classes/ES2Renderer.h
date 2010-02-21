@@ -49,8 +49,6 @@ typedef struct _vertexStruct
 	
 	ESMatrix  mvpMatrix;
 	
-	clock_t last, now;
-	double elapsed;
 	double accTime;
 }
 

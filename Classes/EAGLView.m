@@ -61,12 +61,17 @@
 			displayLinkSupported = TRUE;
     }
 	
+	prevTick = [NSDate timeIntervalSinceReferenceDate];
+	
     return self;
 }
 
 - (void) drawView:(id)sender
 {
-//	NSLog(@"drawView");
+	NSTimeInterval curTick = [NSDate timeIntervalSinceReferenceDate];
+	NSTimeInterval deltaTime = curTick - prevTick;
+	prevTick = curTick;
+	[renderer update:deltaTime];
     [renderer render];
 }
 
@@ -89,7 +94,7 @@
 	// frame interval setting of one will fire 60 times a second when the display refreshes
 	// at 60 times a second. A frame interval setting of less than one results in undefined
 	// behavior.
-	if (frameInterval >= 1)
+	if (frameInterval >= 2)
 	{
 		animationFrameInterval = frameInterval;
 		

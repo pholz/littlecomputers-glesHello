@@ -21,6 +21,8 @@
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		66D5BD591130CB2B007E67CE /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD561130CB2B007E67CE /* esTransform.c */; };
 		66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD571130CB2B007E67CE /* esUtil.c */; };
+		66D5BFB01131AF55007E67CE /* Obj3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.m */; };
+		66D5BFB31131BA43007E67CE /* Cube3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFB21131BA43007E67CE /* Cube3D.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,10 @@
 		66D5BD561130CB2B007E67CE /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
 		66D5BD571130CB2B007E67CE /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esUtil.c; sourceTree = "<group>"; };
 		66D5BD581130CB2B007E67CE /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil.h; sourceTree = "<group>"; };
+		66D5BFAE1131AF55007E67CE /* Obj3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obj3D.h; sourceTree = "<group>"; };
+		66D5BFAF1131AF55007E67CE /* Obj3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obj3D.m; sourceTree = "<group>"; };
+		66D5BFB11131BA43007E67CE /* Cube3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube3D.h; sourceTree = "<group>"; };
+		66D5BFB21131BA43007E67CE /* Cube3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cube3D.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* glesHello-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "glesHello-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +85,10 @@
 				28FD14FD0DC6FC130079059D /* EAGLView.m */,
 				1D3623240D0F684500981E51 /* glesHelloAppDelegate.h */,
 				1D3623250D0F684500981E51 /* glesHelloAppDelegate.m */,
+				66D5BFAE1131AF55007E67CE /* Obj3D.h */,
+				66D5BFAF1131AF55007E67CE /* Obj3D.m */,
+				66D5BFB11131BA43007E67CE /* Cube3D.h */,
+				66D5BFB21131BA43007E67CE /* Cube3D.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -204,6 +214,8 @@
 				2514C27310084DB100A42282 /* ES2Renderer.m in Sources */,
 				66D5BD591130CB2B007E67CE /* esTransform.c in Sources */,
 				66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */,
+				66D5BFB01131AF55007E67CE /* Obj3D.m in Sources */,
+				66D5BFB31131BA43007E67CE /* Cube3D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

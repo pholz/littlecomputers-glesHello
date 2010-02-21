@@ -43,7 +43,7 @@ typedef struct _vertexStruct
 	GLuint    vertexBuffer;
 	GLuint    indexBuffer;
 	// Attribute locations
-	GLuint  positionLoc, colorLoc;
+	GLuint	  positionLoc, colorLoc;
 	// Uniform locations
 	GLuint  mvpLoc;
 	

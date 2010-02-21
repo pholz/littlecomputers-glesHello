@@ -90,17 +90,17 @@ enum {
 	
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
-	[self glerr:@"genbf"];
+//	[self glerr:@"genbf"];
 	
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-	[self glerr:@"bindbf"];
+///	[self glerr:@"bindbf"];
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	[self glerr:@"bfdata"];
+//	[self glerr:@"bfdata"];
 	
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	[self glerr:@"bindbf"];
+//	[self glerr:@"bindbf"];
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-	[self glerr:@"bfdata"];
+//	[self glerr:@"bfdata"];
 	
 	
 //	ESMatrix persp = [self perspective: 90 aspect:(backingWidth/backingHeight) near:0.1 far:100];

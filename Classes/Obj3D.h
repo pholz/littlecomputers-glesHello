@@ -13,11 +13,7 @@
 
 @interface Obj3D : NSObject 
 {
-	vertexStruct	*vertices;
-	GLubyte			*indices;
 	
-	GLuint    vertexBuffer;
-	GLuint    indexBuffer;
 	
 	// Attribute locations
 	GLuint	  positionLoc, colorLoc;

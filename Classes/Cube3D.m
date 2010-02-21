@@ -22,8 +22,8 @@
 	
 	accTime = 0.0;
 	
-	vertices =	(vertexStruct*)	malloc(8 * sizeof(vertexStruct));
-	indices =	(GLubyte*)		malloc(14 * sizeof(GLubyte));
+	//vertices =	(vertexStruct*)	malloc(8 * sizeof(vertexStruct));
+	//indices =	(GLubyte*)		malloc(14 * sizeof(GLubyte));
 	
 	vertexStruct v0 = { { -0.5f, -0.5f,  0.5f, 1.0f }, {1.0f, 0.0f,   0, 1.0f}};	vertices[0] =  v0;
 	vertexStruct v1 = { { 0.5f, -0.5f,  0.5f, 1.0f }, {0.0f, 1.0f,   0, 1.0f} };	vertices[1] =  v1;	// 1
@@ -36,21 +36,21 @@
 	vertexStruct v7 = 	{{ 0.5f, 0.5f,  -0.5f, 1.0f }, {1.0f, 0.0f,   1.0f, 1.0f}};	vertices[7] =  v7;// 7
 	
 	GLubyte _indices[] = { 0, 1, 2, 3,  7, 1, 5, 4,  7, 6, 2, 4,  0, 1};
-	memcpy(indices, _indices, sizeof(*indices));
+	memcpy(indices, _indices, sizeof(indices));
 	
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
-		[renderer glerr:@"genbf"];
+	//	[renderer glerr:@"genbf"];
 	
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-		[renderer glerr:@"bindbf"];
+	//	[renderer glerr:@"bindbf"];
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-		[renderer glerr:@"bfdata"];
+	//	[renderer glerr:@"bfdata"];
 	
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-		[renderer glerr:@"bindbf"];
+	//	[renderer glerr:@"bindbf"];
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-		[renderer glerr:@"bfdata"];
+	//	[renderer glerr:@"bfdata"];
 	
 	
 	return self;
@@ -58,7 +58,7 @@
 
 -(void) update:(double)dt pMatrix:(ESMatrix*)p
 {
-	NSLog(@"upd cube");
+//	NSLog(@"upd cube");
 	ESMatrix modelview;
 	
 	accTime += dt;
@@ -68,34 +68,34 @@
 	esTranslate( &modelview, 0.0, 0.0, -2.0 );
 	esRotate( &modelview, 35.0f + accTime * (360.0/5.0) * 3.0, 0.0, 1.0, 0.0 );
 	
-	NSLog(@"%f",vertices[4]);
+//	NSLog(@"%f",vertices[4]);
 	esMatrixMultiply( &mvpMatrix, &modelview, p );
 }
 
 -(void) render
 {
-	NSLog(@"render cube");
+//	NSLog(@"render cube");
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-	[renderer glerr:@"bindbf"];
+//	[renderer glerr:@"bindbf"];
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	[renderer glerr:@"bindbf"];
+//	[renderer glerr:@"bindbf"];
 	
 	glEnableVertexAttribArray(renderer->positionLoc);
-	[renderer glerr:@"enableVAA"];
+//	[renderer glerr:@"enableVAA"];
 	glEnableVertexAttribArray(renderer->colorLoc);
-	[renderer glerr:@"enableVAA"];
+//	[renderer glerr:@"enableVAA"];
 	
     glVertexAttribPointer(renderer->positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
-	[renderer glerr:@"VAAptr"];
+//	[renderer glerr:@"VAAptr"];
 	glVertexAttribPointer(renderer->colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
-	[renderer glerr:@"VAAptr"];
+//	[renderer glerr:@"VAAptr"];
     
 	
 	glUniformMatrix4fv( renderer->mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
-	[renderer glerr:@"uniform"];
+//	[renderer glerr:@"uniform"];
 	
     glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);
-	[renderer glerr:@"draw"];
+//	[renderer glerr:@"draw"];
 }
 
 @end

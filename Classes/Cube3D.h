@@ -13,6 +13,12 @@
 @interface Cube3D : Obj3D {
 	double accTime;
 	ES2Renderer *renderer;
+	
+	vertexStruct	vertices[8];
+	GLubyte			indices[14];
+	
+	GLuint    vertexBuffer;
+	GLuint    indexBuffer;
 }
 
 -(id) init:(ES2Renderer*)_renderer;

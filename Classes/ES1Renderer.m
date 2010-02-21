@@ -13,6 +13,8 @@
 // Create an ES 1.1 context
 - (id) init
 {
+	NSLog(@"ES1 renderer");
+	
 	if (self = [super init])
 	{
 		context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];

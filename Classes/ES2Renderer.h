@@ -7,9 +7,13 @@
 //
 
 #import "ESRenderer.h"
+#include "esUtil.h"
 
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+
+#define VERTEX_POS_INDX	0 
+#define VERTEX_COLOR_INDX	1 
 
 typedef struct _vertexStruct
 {
@@ -32,18 +36,27 @@ typedef struct _vertexStruct
 	GLuint program;
 	
 	
-	
-	const vertexStruct vertices[8];
-	const GLubyte indices[24];
+	vertexStruct vertices[8];
+	GLubyte indices[24];
 	
 	GLuint    vertexBuffer;
 	GLuint    indexBuffer;
+	// Attribute locations
+	GLuint  positionLoc, colorLoc;
+	// Uniform locations
+	GLuint  mvpLoc;
+	
+	ESMatrix  mvpMatrix;
+	
+	NSDate* lastDate;
+	NSDate* curDate;
+	double accTime;
 }
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
-- (void) perspective:(double)fovy aspect:(double)aspect near:(double)zNear far:(double)zFar;
 - (void) initScene;
+- (void) glerr:(NSString*)msg;
 
 @end
 

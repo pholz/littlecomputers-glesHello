@@ -66,6 +66,7 @@
 
 - (void) drawView:(id)sender
 {
+	NSLog(@"drawView");
     [renderer render];
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "ES2Renderer.h"
+#include <time.h>
+
 
 // uniform index
 enum {
@@ -34,6 +36,8 @@ enum {
 // Create an ES 2.0 context
 - (id) init
 {
+	NSLog(@"ES2 renderer");
+	
 	if (self = [super init])
 	{
 		context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
@@ -50,93 +54,131 @@ enum {
 		glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
 		glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
 		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, colorRenderbuffer);
+		[self glerr:@"genbuffers"];
 	}
 	
+	positionLoc = glGetAttribLocation ( program, "position" );
+	colorLoc = glGetAttribLocation ( program, "color" );
+	mvpLoc = glGetUniformLocation( program, "modelViewProjectionMatrix" );
+	
+	
 	[self initScene];
+	
+	lastDate = [NSDate date];
+	curDate = [NSDate date];
+	accTime = 0.0;
 	
 	return self;
 }
 
 
-- (void) perspective: (double) fovy aspect: (double) aspect near: (double) zNear far:(double) zFar
-{
-	double xmin, xmax, ymin, ymax;
-	
-	ymax = zNear * tan(fovy * M_PI / 360.0);
-	ymin = -ymax;
-	xmin = ymin * aspect;
-	xmax = ymax * aspect;
-		
-	glFrustumf(xmin, xmax, ymin, ymax, zNear, zFar);
-	
-	glDepthMask(GL_TRUE);
-}
-
 - (void) initScene
 {
-	vertices = {
-		{{ -0.5f, -0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}}, // 0
-		{{ -0.5f, -0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}},	// 1
-		{{ -0.5f, 0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}},	// 2
-		{{ -0.5f, 0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}},	// 3
+	vertexStruct v0 = { { -0.5f, -0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[0] =  v0;
+	vertexStruct v1 = { { -0.5f, -0.5f,  0.5f, 1.0f }, {255, 255,   0, 255} };	vertices[1] =  v1;	// 1
+	vertexStruct v2 = 	{{ -0.5f, 0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[2] =  v2;// 2
+	vertexStruct v3 = 	{{ -0.5f, 0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[3] =  v3;// 3
 		
-		{{ 0.5f, -0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}},	// 4
-		{{ 0.5f, -0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}},	// 5
-		{{ 0.5f, 0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}},	// 6
-		{{ 0.5f, 0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}}		// 7
-	};
+	vertexStruct v4 = 	{{ 0.5f, -0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[4] =  v4;	// 4
+	vertexStruct v5 = 	{{ 0.5f, -0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[5] =  v5;	// 5
+	vertexStruct v6 = 	{{ 0.5f, 0.5f,  -0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[6] =  v6;// 6
+	vertexStruct v7 = 	{{ 0.5f, 0.5f,  0.5f, 1.0f }, {255, 255,   0, 255}};	vertices[7] =  v7;// 7
 	
-	indices = {
-		1, 5, 3, 7,
-		0, 2, 4, 6,
-		1, 3, 0, 2,
-		4, 6, 5, 7,
-		3, 7, 2, 6,
-		1, 0, 5, 4
-	};
+	GLubyte _indices[] = { 1, 5, 3, 7, 0, 2, 4, 6, 1, 3, 0, 2, 4, 6, 5, 7, 3, 7, 2, 6, 1, 0, 5, 4};
+	memcpy(indices, _indices, sizeof(indices));
 	
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
+	[self glerr:@"genbf"];
 	
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+	[self glerr:@"bindbf"];
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	[self glerr:@"bfdata"];
 	
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+	[self glerr:@"bindbf"];
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	[self glerr:@"bfdata"];
 	
 	
-	[self perspective: 90 aspect:(backingWidth/backingHeight) near:0.1 far:100];
+//	ESMatrix persp = [self perspective: 90 aspect:(backingWidth/backingHeight) near:0.1 far:100];
+	
 }
 
-
+- (void) glerr:(NSString*)msg
+{
+	NSLog(@"%@",[NSString stringWithFormat:@"glError: %@ --> %d", msg, glGetError()]);
+}
 
 - (void) render
 {
+	ESMatrix perspective;
+	ESMatrix modelview;
+	float    aspect;
+	/*
+	curDate = [NSDate date];
+	double dt = [curDate timeIntervalSinceDate:lastDate];
+	lastDate = [curDate copy];
+	accTime += dt;
+	if(accTime >= 5.0) accTime = 0.0;
+	 */
+	
+	NSLog(@"render");
 
+	aspect = (GLfloat) backingWidth / (GLfloat) backingHeight;
 	
 	// This application only creates a single context which is already set current at this point.
 	// This call is redundant, but needed if dealing with multiple contexts.
     [EAGLContext setCurrentContext:context];
+	
+	esMatrixLoadIdentity( &perspective );
+	esPerspective( &perspective, 60.0f, aspect, 1.0f, 80.0f );
+	
+	esMatrixLoadIdentity( &modelview );
+	esTranslate( &modelview, 0.0, 0.0, -2.0 );
+	esRotate( &modelview, accTime * (360.0/5.0), 1.0, 0.0, 1.0 );
+	
+	esMatrixMultiply( &mvpMatrix, &modelview, &perspective );
     
 	// This application only creates a single default framebuffer which is already bound at this point.
 	// This call is redundant, but needed if dealing with multiple framebuffers.
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
-    glViewport(0, 0, backingWidth, backingHeight);
-    
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	[self glerr:@"bindbf"];
 	glEnable(GL_DEPTH_TEST);
-    
+    [self glerr:@"enable depth"];
+	
+    glViewport(0, 0, backingWidth, backingHeight);
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	[self glerr:@"clear"];
+	
 	// Use shader program
     glUseProgram(program);
+	[self glerr:@"useprog"];
 	
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+	[self glerr:@"bindbf"];
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glVertexPointer(4, GL_FLOAT, sizeof(vertexStruct), (void*)offsetof(vertexStruct,position));
-    glEnableClientState(GL_COLOR_ARRAY);
-    glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(vertexStruct), (void*)offsetof(vertexStruct,color));
-    glDrawElements(GL_TRIANGLE_STRIP, sizeof(indices)/sizeof(GLubyte), GL_UNSIGNED_BYTE, (void*)0);
+	[self glerr:@"bindbf"];
+	
+	glEnableVertexAttribArray(positionLoc);
+	[self glerr:@"enableVAA"];
+	glEnableVertexAttribArray(colorLoc);
+	[self glerr:@"enableVAA"];
+	
+    glVertexAttribPointer(positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
+	[self glerr:@"VAAptr"];
+	glVertexAttribPointer(colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
+	[self glerr:@"VAAptr"];
+    
+	
+	glUniformMatrix4fv( mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
+	[self glerr:@"uniform"];
+	
+    glDrawElements(GL_TRIANGLE_STRIP, 24, GL_UNSIGNED_BYTE, (void*)0);
+	[self glerr:@"draw"];
+
     
 	// Validate program before drawing. This is a good check, but only really necessary in a debug build.
 	// DEBUG macro must be defined in your debug configurations if that's not already the case.

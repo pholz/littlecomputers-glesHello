@@ -67,8 +67,7 @@ enum {
 	
 	[self initScene];
 	
-	lastDate = [NSDate date];
-	curDate = [NSDate date];
+	last = clock();
 	accTime = 0.0;
 	
 	return self;
@@ -111,7 +110,7 @@ enum {
 
 - (void) glerr:(NSString*)msg
 {
-	NSLog(@"%@",[NSString stringWithFormat:@"glError: %@ --> %d", msg, glGetError()]);
+	//NSLog(@"%@",[NSString stringWithFormat:@"glError: %@ --> %d", msg, glGetError()]);
 }
 
 - (void) render
@@ -119,15 +118,15 @@ enum {
 	ESMatrix perspective;
 	ESMatrix modelview;
 	float    aspect;
-	/*
-	curDate = [NSDate date];
-	double dt = [curDate timeIntervalSinceDate:lastDate];
-	lastDate = [curDate copy];
-	accTime += dt;
-	if(accTime >= 5.0) accTime = 0.0;
-	 */
 	
-	NSLog(@"render");
+	now = clock();
+	elapsed = ((double) (now - last)) / CLOCKS_PER_SEC;
+	//NSLog(@"%f",elapsed);
+	accTime += elapsed;
+	if(accTime >= 5.0) accTime = 0.0;
+	last = now;
+	
+	//NSLog(@"render");
 
 	aspect = (GLfloat) backingWidth / (GLfloat) backingHeight;
 	

@@ -328,7 +328,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>66D5BF2611319BC3007E67CE</string>
+										<string>66D5BF501131A05E007E67CE</string>
 										<key>history</key>
 										<array>
 											<string>66D5BD21112F4AC1007E67CE</string>
@@ -343,10 +343,10 @@
 											<string>66D5BEE911319578007E67CE</string>
 											<string>66D5BEF0113195F1007E67CE</string>
 											<string>66D5BF0B1131972B007E67CE</string>
-											<string>66D5BF2111319BA0007E67CE</string>
 											<string>66D5BF2211319BA0007E67CE</string>
-											<string>66D5BF2311319BA0007E67CE</string>
-											<string>66D5BF2411319BA0007E67CE</string>
+											<string>66D5BF431131A006007E67CE</string>
+											<string>66D5BF4E1131A05E007E67CE</string>
+											<string>66D5BF4F1131A05E007E67CE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -547,8 +547,8 @@
 		<string>66D5BE561130E1BB007E67CE</string>
 		<string>66D5BE4C1130E153007E67CE</string>
 		<string>66D5BE491130E153007E67CE</string>
-		<string>66D5BD14112F4A83007E67CE</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>66D5BD14112F4A83007E67CE</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/holz/code/glesHello/glesHello.xcodeproj</string>
 	</array>
@@ -769,7 +769,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
@@ -901,7 +901,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {650, 209}}</string>
 								<key>RubberWindowFrame</key>
-								<string>87 441 650 250 0 0 1680 1028 </string>
+								<string>77 438 650 250 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -930,7 +930,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>87 441 650 250 0 0 1680 1028 </string>
+			<string>77 438 650 250 0 0 1680 1028 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>

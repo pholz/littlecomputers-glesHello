@@ -8,6 +8,7 @@
 
 #import "ESRenderer.h"
 #include "esUtil.h"
+#include <time.h>
 
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
@@ -48,8 +49,8 @@ typedef struct _vertexStruct
 	
 	ESMatrix  mvpMatrix;
 	
-	NSDate* lastDate;
-	NSDate* curDate;
+	clock_t last, now;
+	double elapsed;
 	double accTime;
 }
 

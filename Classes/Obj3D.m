@@ -10,7 +10,7 @@
 
 
 @implementation Obj3D
--(void) update:(double)dt
+-(void) update:(double)dt pMatrix:(ESMatrix*)p
 {
 	
 }

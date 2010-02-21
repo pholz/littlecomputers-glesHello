@@ -52,6 +52,7 @@
 		66D5BFAF1131AF55007E67CE /* Obj3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obj3D.m; sourceTree = "<group>"; };
 		66D5BFB11131BA43007E67CE /* Cube3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube3D.h; sourceTree = "<group>"; };
 		66D5BFB21131BA43007E67CE /* Cube3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cube3D.m; sourceTree = "<group>"; };
+		66D5BFF91131CB41007E67CE /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* glesHello-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "glesHello-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +90,7 @@
 				66D5BFAF1131AF55007E67CE /* Obj3D.m */,
 				66D5BFB11131BA43007E67CE /* Cube3D.h */,
 				66D5BFB21131BA43007E67CE /* Cube3D.m */,
+				66D5BFF91131CB41007E67CE /* common.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

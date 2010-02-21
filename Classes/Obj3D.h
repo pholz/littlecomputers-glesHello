@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "ES2Renderer.h"
 
 
@@ -17,9 +18,20 @@
 	
 	GLuint    vertexBuffer;
 	GLuint    indexBuffer;
+	
+	// Attribute locations
+	GLuint	  positionLoc, colorLoc;
+	// Uniform locations
+	GLuint  mvpLoc;
+	
+	GLuint program;
+	
+	ESMatrix  mvpMatrix;
+	
+	
 }
 
--(void) update:(double)dt mvpMatrix:(ESMatrix*)mvp pMatrix:(ESMatrix*)p;
+-(void) update:(double)dt pMatrix:(ESMatrix*)p;
 -(void) render;
 
 @end

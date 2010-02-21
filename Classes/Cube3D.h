@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "Obj3D.h"
+#import "ES2Renderer.h"
 
 @interface Cube3D : Obj3D {
 	double accTime;
+	ES2Renderer *renderer;
 }
 
--(void) update:(double)dt mvpMatrix:(ESMatrix*)mvp pMatrix:(ESMatrix*)p;
+-(id) init:(ES2Renderer*)_renderer;
+-(void) update:(double)dt pMatrix:(ESMatrix*)p;
 -(void) render;
 
 

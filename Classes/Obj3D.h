@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "ES2Renderer.h"
+//#import "ArcBall.h"
 
 
 @interface Obj3D : NSObject 
@@ -24,10 +25,20 @@
 	
 	ESMatrix  mvpMatrix;
 	
+	Vec3f position, velocity, acceleration;
+//	Matrix3fT rotation;
+	float rx, ry, rz;
+	
 	
 }
 
+@property float rx;
+@property float ry;
+@property float rz;
+
 -(void) update:(double)dt pMatrix:(ESMatrix*)p;
 -(void) render;
+-(void) setPos:(Vec3f)pos;
+-(Vec3f) pos;
 
 @end

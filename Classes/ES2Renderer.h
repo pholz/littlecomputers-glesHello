@@ -40,11 +40,17 @@
 	GLuint  mvpLoc;
 	
 	NSMutableArray *objects;
+	
+	// handle touch
+	CGPoint last, now;
+	float rotx, roty;
 }
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) glerr:(NSString*)msg;
+
+
 
 @end
 

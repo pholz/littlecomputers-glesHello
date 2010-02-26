@@ -9,6 +9,7 @@
 #import "ESRenderer.h"
 #include "esUtil.h"
 #include <time.h>
+#include "ArcBall.h"
 
 #import "common.h"
 
@@ -42,8 +43,19 @@
 	NSMutableArray *objects;
 	
 	// handle touch
-	CGPoint last, now;
+	CGPoint last;
 	float rotx, roty;
+	
+	Matrix4fT	Transform ;
+	
+	Matrix3fT	LastRot;   
+	
+	Matrix3fT	ThisRot;   
+	
+	Point2fT	MousePt;
+
+	
+	ArcBallT arcball;
 }
 
 - (void) render;

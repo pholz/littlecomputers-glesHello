@@ -28,6 +28,7 @@
 #else
 # define assert(x) { }
 #endif
+#include "common.h"
 
 //Math types derived from the KempoApi tMath library
     typedef union Tuple2f_t
@@ -426,7 +427,7 @@
 
         assert(NewObj && m1);
 
-        scale = Matrix4fSVD(NewObj, NULL, NULL);
+        scale = Matrix4fSVD(NewObj, 0, 0);
 
         Matrix4fSetRotationScaleFromMatrix3f(NewObj, m1);
         Matrix4fMulRotationScale(NewObj, scale);
@@ -462,7 +463,7 @@
             //Mouse drag, calculate rotation
             void    drag(const Point2fT* NewPt, Quat4fT* NewRot);
 
-        protected:
+
             Vector3fT   StVec;          //Saved click vector
             Vector3fT   EnVec;          //Saved drag vector
             GLfloat     AdjustWidth;    //Mouse bounds width

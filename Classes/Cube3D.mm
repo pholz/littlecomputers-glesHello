@@ -57,6 +57,8 @@
 	acceleration = Vec3f(0.0,0.0,0.0);
 	rx = ry = rz = 0.0f;
 	
+	esMatrixLoadIdentity(&tfMatrix);
+	
 	return self;
 }
 
@@ -70,9 +72,11 @@
 	
 	esMatrixLoadIdentity( &modelview );
 	esTranslate( &modelview, position.x, position.y, position.z );
+	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
+	
 //	esRotate( &modelview, 35.0f + accTime * (360.0/5.0) * 3.0, 0.0, 1.0, 0.0 );
-	esRotate( &modelview, rx, 1.0, 0.0, 0.0 );
-	esRotate( &modelview, ry, 0.0, 1.0, 0.0 );
+//	esRotate( &modelview, rx, 1.0, 0.0, 0.0 );
+//	esRotate( &modelview, ry, 0.0, 1.0, 0.0 );
 	
 //	NSLog(@"%f",vertices[4]);
 	esMatrixMultiply( &mvpMatrix, &modelview, p );

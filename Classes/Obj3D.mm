@@ -32,4 +32,8 @@
 {
 	return position;
 }
+-(ESMatrix*) tfMatrix
+{
+	return &tfMatrix;
+}
 @end

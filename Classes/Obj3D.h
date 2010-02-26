@@ -24,6 +24,7 @@
 	GLuint program;
 	
 	ESMatrix  mvpMatrix;
+	ESMatrix  tfMatrix;
 	
 	Vec3f position, velocity, acceleration;
 //	Matrix3fT rotation;
@@ -40,5 +41,6 @@
 -(void) render;
 -(void) setPos:(Vec3f)pos;
 -(Vec3f) pos;
+-(ESMatrix*) tfMatrix;
 
 @end

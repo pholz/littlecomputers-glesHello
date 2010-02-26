@@ -23,6 +23,7 @@
 		66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD571130CB2B007E67CE /* esUtil.c */; };
 		66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.mm */; };
 		66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFB21131BA43007E67CE /* Cube3D.mm */; };
+		66E619521136FBD300D17097 /* ArcBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E618281136CD2300D17097 /* ArcBall.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -224,6 +225,7 @@
 				66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */,
 				66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */,
 				66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */,
+				66E619521136FBD300D17097 /* ArcBall.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

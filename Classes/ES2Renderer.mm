@@ -74,6 +74,24 @@ enum {
 	
 	rotx = roty = 0.0f;
 	
+	GLfloat tfm[16] = {  1.0f,  0.0f,  0.0f,  0.0f,
+		0.0f,  1.0f,  0.0f,  0.0f,
+		0.0f,  0.0f,  1.0f,  0.0f,
+		0.0f,  0.0f,  0.0f,  1.0f };
+	memcpy(&Transform.M, &tfm, sizeof(tfm));
+	
+	GLfloat lrot[9] = {  1.0f,  0.0f,  0.0f,					// Last Rotation
+		0.0f,  1.0f,  0.0f,
+		0.0f,  0.0f,  1.0f };
+	memcpy(&LastRot.M, lrot, sizeof(lrot));
+	
+	GLfloat trot[9] = {  1.0f,  0.0f,  0.0f,					// This Rotation
+		0.0f,  1.0f,  0.0f,
+		0.0f,  0.0f,  1.0f };
+	memcpy(&ThisRot.M, trot, sizeof(trot));
+	
+	arcball = ArcBallT(320.0f, 480.0f);
+	
 	return self;
 }
 
@@ -98,8 +116,18 @@ enum {
 	NSEnumerator *enumerator = [objects objectEnumerator];
 	id obj;
 	
+	
+	
 	while (obj = [enumerator nextObject]) 
 	{
+	//	Vec3f po = [obj pos];
+	//	[obj setPos:(po)+Vec3f(0.0f,0.0f,-0.001f)];
+		
+	//	ESMatrix esmTf;
+		memcpy(&[obj tfMatrix]->m[0][0], &Transform.M, sizeof(Transform.M));
+		
+	//	esMatrixLoadIdentity(&esmTf);
+	//	esMatrixMultiply([obj tfMatrix], &esmTf, &perspective);
 		[obj update:dt pMatrix:&perspective];
 	}
 	
@@ -139,8 +167,7 @@ enum {
 	while (obj = [enumerator nextObject]) 
 	{
 		
-		Vec3f po = [obj pos];
-		[obj setPos:(po)+Vec3f(0.0f,0.0f,-0.001f)];
+		
 		[obj render];
 	}
 
@@ -320,14 +347,25 @@ enum {
 
 - (void) singleTouchBegan:(CGPoint) loc
 {
+	/*
 	CGPoint p;
 	p.x = 2.0f * loc.x / backingWidth - 1.0f;
 	p.y = 2.0f * loc.y / backingHeight - 1.0f;
 	last = p;
+	*/
+	
+	MousePt.s.X = loc.x;
+	MousePt.s.Y = loc.y;
+	LastRot = ThisRot;
+	arcball.click(&MousePt);
+	
+	//NSLog(@"arcball %f,%f",arcball.AdjustWidth,arcball.AdjustHeight);
+	
 }
 
 - (void) singleTouchMoved:(CGPoint) loc
 {
+	/*
 	CGPoint p;
 	p.x = 2.0f * loc.x / backingWidth - 1.0f;
 	p.y = 2.0f * loc.y / backingHeight - 1.0f;
@@ -351,6 +389,17 @@ enum {
 	}
 	
 	last = p;
+	 */
+	
+	MousePt.s.X = loc.x;
+	MousePt.s.Y = loc.y;
+//	NSLog(@"%f,%f",MousePt.s.X,MousePt.s.Y);
+	
+	Quat4fT ThisQuat;
+	arcball.drag(&MousePt, &ThisQuat);
+	Matrix3fSetRotationFromQuat4f(&ThisRot, &ThisQuat);
+	Matrix3fMulMatrix3f(&ThisRot, &LastRot);				// Accumulate Last Rotation Into This One
+	Matrix4fSetRotationFromMatrix3f(&Transform, &ThisRot);
 }
 
 - (void) singleTouchEnded

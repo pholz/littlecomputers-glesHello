@@ -17,4 +17,8 @@
 - (void) update:(double)dt;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 
+- (void) singleTouchBegan:(CGPoint) loc;
+- (void) singleTouchMoved:(CGPoint) loc;
+- (void) singleTouchEnded;
+
 @end

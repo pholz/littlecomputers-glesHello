@@ -146,6 +146,28 @@
 	}
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	NSLog(@"%@", touches);
+	
+	CGPoint loc = [[touches anyObject] locationInView:self];
+	
+	[renderer singleTouchBegan:loc];
+	
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	CGPoint loc = [[touches anyObject] locationInView:self];
+	[renderer singleTouchMoved:loc];
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	CGPoint loc = [[touches anyObject] locationInView:self];
+	[renderer singleTouchEnded];
+}
+
 - (void) dealloc
 {
     [renderer release];

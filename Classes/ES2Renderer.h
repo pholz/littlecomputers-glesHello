@@ -9,22 +9,21 @@
 #import "ESRenderer.h"
 #include "esUtil.h"
 #include <time.h>
+#include "ArcBall.h"
 
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
+#import "common.h"
+
+//#import "Cube3D.h"
 
 #define VERTEX_POS_INDX	0 
 #define VERTEX_COLOR_INDX	1 
 
-typedef struct _vertexStruct
-{
-	GLfloat position[4];
-	GLfloat color[4];
-} vertexStruct;
+
+
 
 @interface ES2Renderer : NSObject <ESRenderer>
 {
-@private
+@public
 	EAGLContext *context;
 	
 	// The pixel dimensions of the CAEAGLLayer
@@ -36,26 +35,34 @@ typedef struct _vertexStruct
 	
 	GLuint program;
 	
-	
-	vertexStruct vertices[8];
-	GLubyte indices[14];
-	
-	GLuint    vertexBuffer;
-	GLuint    indexBuffer;
 	// Attribute locations
-	GLuint  positionLoc, colorLoc;
+	GLuint	  positionLoc, colorLoc;
 	// Uniform locations
 	GLuint  mvpLoc;
 	
-	ESMatrix  mvpMatrix;
+	NSMutableArray *objects;
 	
-	double accTime;
+	// handle touch
+	CGPoint last;
+	float rotx, roty;
+	
+	Matrix4fT	Transform ;
+	
+	Matrix3fT	LastRot;   
+	
+	Matrix3fT	ThisRot;   
+	
+	Point2fT	MousePt;
+
+	
+	ArcBallT arcball;
 }
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
-- (void) initScene;
 - (void) glerr:(NSString*)msg;
+
+
 
 @end
 

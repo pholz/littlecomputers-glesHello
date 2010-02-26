@@ -9,6 +9,7 @@
 #import "ES2Renderer.h"
 #include <time.h>
 
+#import "Cube3D.h"
 
 // uniform index
 enum {
@@ -65,72 +66,76 @@ enum {
 	mvpLoc = glGetUniformLocation( program, "modelViewProjectionMatrix" );
 	
 	
-	[self initScene];
+//	[self initScene];
 	
-	accTime = 0.0;
+	objects = [[NSMutableArray	alloc] init];
+	Cube3D *c = [[Cube3D alloc] init:self];
+	[objects addObject:c];
+	
+	rotx = roty = 0.0f;
+	
+	GLfloat tfm[16] = {  1.0f,  0.0f,  0.0f,  0.0f,
+		0.0f,  1.0f,  0.0f,  0.0f,
+		0.0f,  0.0f,  1.0f,  0.0f,
+		0.0f,  0.0f,  0.0f,  1.0f };
+	memcpy(&Transform.M, &tfm, sizeof(tfm));
+	
+	GLfloat lrot[9] = {  1.0f,  0.0f,  0.0f,					// Last Rotation
+		0.0f,  1.0f,  0.0f,
+		0.0f,  0.0f,  1.0f };
+	memcpy(&LastRot.M, lrot, sizeof(lrot));
+	
+	GLfloat trot[9] = {  1.0f,  0.0f,  0.0f,					// This Rotation
+		0.0f,  1.0f,  0.0f,
+		0.0f,  0.0f,  1.0f };
+	memcpy(&ThisRot.M, trot, sizeof(trot));
+	
+	arcball = ArcBallT(320.0f, 480.0f);
 	
 	return self;
 }
 
 
-- (void) initScene
-{
-	vertexStruct v0 = { { -0.5f, -0.5f,  0.5f, 1.0f }, {1.0f, 0.0f,   0, 1.0f}};	vertices[0] =  v0;
-	vertexStruct v1 = { { 0.5f, -0.5f,  0.5f, 1.0f }, {0.0f, 1.0f,   0, 1.0f} };	vertices[1] =  v1;	// 1
-	vertexStruct v2 = 	{{ -0.5f, 0.5f,  0.5f, 1.0f }, {1.0f, 1.0f,   0, 1.0f}};	vertices[2] =  v2;// 2
-	vertexStruct v3 = 	{{ 0.5f, 0.5f,  0.5f, 1.0f }, {0.0f, 0.0f,   0, 1.0f}};	vertices[3] =  v3;// 3
-		
-	vertexStruct v4 = 	{{ -0.5f, -0.5f,  -0.5f, 1.0f }, {1.0f, 1.0f,   1.0f, 1.0f}};	vertices[4] =  v4;	// 4
-	vertexStruct v5 = 	{{ 0.5f, -0.5f,  -0.5f, 1.0f }, {0.0f, 0.0f,   1.0f, 1.0f}};	vertices[5] =  v5;	// 5
-	vertexStruct v6 = 	{{ -0.5f, 0.5f,  -0.5f, 1.0f }, {0.0f, 1.0f,   1.0f, 1.0f}};	vertices[6] =  v6;// 6
-	vertexStruct v7 = 	{{ 0.5f, 0.5f,  -0.5f, 1.0f }, {1.0f, 0.0f,   1.0f, 1.0f}};	vertices[7] =  v7;// 7
-	
-	GLubyte _indices[] = { 0, 1, 2, 3,  7, 1, 5, 4,  7, 6, 2, 4,  0, 1};
-	memcpy(indices, _indices, sizeof(indices));
-	
-	glGenBuffers(1, &vertexBuffer);
-    glGenBuffers(1, &indexBuffer);
-	[self glerr:@"genbf"];
-	
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-	[self glerr:@"bindbf"];
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	[self glerr:@"bfdata"];
-	
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	[self glerr:@"bindbf"];
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-	[self glerr:@"bfdata"];
-	
-	
-//	ESMatrix persp = [self perspective: 90 aspect:(backingWidth/backingHeight) near:0.1 far:100];
-	
-}
 
 - (void) glerr:(NSString*)msg
 {
-	//NSLog(@"%@",[NSString stringWithFormat:@"glError: %@ --> %d", msg, glGetError()]);
+	NSLog(@"%@",[NSString stringWithFormat:@"glError: %@ --> %d", msg, glGetError()]);
 }
 
 - (void) update:(double)dt
 {
 	ESMatrix perspective;
-	ESMatrix modelview;
+
 	float    aspect;
-	
-	accTime += dt;
-	if(accTime >= 5.0) accTime = 0.0;
 
 	aspect = (GLfloat) backingWidth / (GLfloat) backingHeight;
 	
 	esMatrixLoadIdentity( &perspective );
 	esPerspective( &perspective, 60.0f, aspect, 1.0f, 80.0f );
 	
-	esMatrixLoadIdentity( &modelview );
-	esTranslate( &modelview, 0.0, 0.0, -2.0 );
-	esRotate( &modelview, 35.0f + accTime * (360.0/5.0) * 3.0, 0.0, 1.0, 0.0 );
+	NSEnumerator *enumerator = [objects objectEnumerator];
+	id obj;
 	
-	esMatrixMultiply( &mvpMatrix, &modelview, &perspective );
+	
+	
+	while (obj = [enumerator nextObject]) 
+	{
+	//	Vec3f po = [obj pos];
+	//	[obj setPos:(po)+Vec3f(0.0f,0.0f,-0.001f)];
+		
+	//	ESMatrix esmTf;
+		memcpy(&[obj tfMatrix]->m[0][0], &Transform.M, sizeof(Transform.M));
+		
+	//	esMatrixLoadIdentity(&esmTf);
+	//	esMatrixMultiply([obj tfMatrix], &esmTf, &perspective);
+		[obj update:dt pMatrix:&perspective];
+	}
+	
+//	esMatrixLoadIdentity( &modelview );
+//	esTranslate( &modelview, 0.0, 0.0, -2.0 );
+//	esRotate( &modelview, 35.0f + accTime * (360.0/5.0) * 3.0, 0.0, 1.0, 0.0 );
+	
+//	esMatrixMultiply( &mvpMatrix, &modelview, &perspective );
 }
 
 - (void) render
@@ -154,29 +159,17 @@ enum {
     glUseProgram(program);
 //	[self glerr:@"useprog"];
 	
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-//	[self glerr:@"bindbf"];
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-//	[self glerr:@"bindbf"];
 	
-	glEnableVertexAttribArray(positionLoc);
-//	[self glerr:@"enableVAA"];
-	glEnableVertexAttribArray(colorLoc);
-//	[self glerr:@"enableVAA"];
-	
-    glVertexAttribPointer(positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
-//	[self glerr:@"VAAptr"];
-	glVertexAttribPointer(colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
-//	[self glerr:@"VAAptr"];
-    
-	
-	glUniformMatrix4fv( mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
-//	[self glerr:@"uniform"];
-	
-    glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);
-//	[self glerr:@"draw"];
 
-    
+    NSEnumerator *enumerator = [objects objectEnumerator];
+	id obj;
+	
+	while (obj = [enumerator nextObject]) 
+	{
+		
+		
+		[obj render];
+	}
 
 	
 	
@@ -350,6 +343,68 @@ enum {
     }
 	
     return YES;
+}
+
+- (void) singleTouchBegan:(CGPoint) loc
+{
+	/*
+	CGPoint p;
+	p.x = 2.0f * loc.x / backingWidth - 1.0f;
+	p.y = 2.0f * loc.y / backingHeight - 1.0f;
+	last = p;
+	*/
+	
+	MousePt.s.X = loc.x;
+	MousePt.s.Y = loc.y;
+	LastRot = ThisRot;
+	arcball.click(&MousePt);
+	
+	//NSLog(@"arcball %f,%f",arcball.AdjustWidth,arcball.AdjustHeight);
+	
+}
+
+- (void) singleTouchMoved:(CGPoint) loc
+{
+	/*
+	CGPoint p;
+	p.x = 2.0f * loc.x / backingWidth - 1.0f;
+	p.y = 2.0f * loc.y / backingHeight - 1.0f;
+	
+	float dx = p.x - last.x;
+	float dy = p.y - last.y;
+	NSLog(@"last: %f/%f, p: %f/%f, delta: %f/%f",last.x,last.y,p.x,p.y,dx,dy);
+	
+	rotx += dx * 360;
+	roty += dy * 360;
+	
+	//NSLog(@"%f/%f",rotx,roty);
+	
+	NSEnumerator *enumerator = [objects objectEnumerator];
+	id obj;
+	
+	while (obj = [enumerator nextObject]) 
+	{
+		[obj setRx:rotx];
+		[obj setRy:roty];
+	}
+	
+	last = p;
+	 */
+	
+	MousePt.s.X = loc.x;
+	MousePt.s.Y = loc.y;
+//	NSLog(@"%f,%f",MousePt.s.X,MousePt.s.Y);
+	
+	Quat4fT ThisQuat;
+	arcball.drag(&MousePt, &ThisQuat);
+	Matrix3fSetRotationFromQuat4f(&ThisRot, &ThisQuat);
+	Matrix3fMulMatrix3f(&ThisRot, &LastRot);				// Accumulate Last Rotation Into This One
+	Matrix4fSetRotationFromMatrix3f(&Transform, &ThisRot);
+}
+
+- (void) singleTouchEnded
+{
+	
 }
 
 - (void) dealloc

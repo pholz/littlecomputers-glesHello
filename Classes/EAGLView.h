@@ -30,6 +30,10 @@
     NSTimer *animationTimer;
 	
 	NSTimeInterval prevTick;
+	
+	// handling touches
+	
+	float lastx, dx, lasty, dy;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;

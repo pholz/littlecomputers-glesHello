@@ -10,8 +10,10 @@
 #include "esUtil.h"
 #include <time.h>
 #include "ArcBall.h"
-
 #import "common.h"
+#import "Shader.h"
+
+
 
 //#import "Cube3D.h"
 
@@ -33,6 +35,7 @@
 	// The OpenGL names for the framebuffer and renderbuffer used to render to this view
 	GLuint defaultFramebuffer, colorRenderbuffer, depthRenderbuffer;
 	
+	NSMutableDictionary *shaders;
 	GLuint program;
 	
 	// Attribute locations

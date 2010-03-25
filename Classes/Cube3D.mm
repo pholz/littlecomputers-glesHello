@@ -12,6 +12,8 @@
 
 @implementation Cube3D
 
+@synthesize shader;
+
 -(id) init:(ES2Renderer*) _renderer
 {
 	NSLog(@"init cube");
@@ -84,24 +86,26 @@
 
 -(void) render
 {
+	glUseProgram(shader.program);
+	
 //	NSLog(@"render cube");
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 //	[renderer glerr:@"bindbf"];
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 //	[renderer glerr:@"bindbf"];
 	
-	glEnableVertexAttribArray(renderer->positionLoc);
+	glEnableVertexAttribArray(shader.positionLoc);
 //	[renderer glerr:@"enableVAA"];
-	glEnableVertexAttribArray(renderer->colorLoc);
+	glEnableVertexAttribArray(shader.colorLoc);
 //	[renderer glerr:@"enableVAA"];
 	
-    glVertexAttribPointer(renderer->positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
+    glVertexAttribPointer(shader.positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
 //	[renderer glerr:@"VAAptr"];
-	glVertexAttribPointer(renderer->colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
+	glVertexAttribPointer(shader.colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
 //	[renderer glerr:@"VAAptr"];
     
 	
-	glUniformMatrix4fv( renderer->mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
+	glUniformMatrix4fv( shader.mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
 //	[renderer glerr:@"uniform"];
 	
     glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);

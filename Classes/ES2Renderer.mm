@@ -7,6 +7,7 @@
 //
 
 #import "ES2Renderer.h"
+
 #include <time.h>
 
 #import "Cube3D.h"
@@ -61,15 +62,31 @@ enum {
 		
 	}
 	
+	/*
 	positionLoc = glGetAttribLocation ( program, "position" );
 	colorLoc = glGetAttribLocation ( program, "color" );
 	mvpLoc = glGetUniformLocation( program, "modelViewProjectionMatrix" );
+	*/
+	
+	NSEnumerator* en = [shaders objectEnumerator];
+	id ob;
+	while((ob = [en nextObject]) != nil)
+	{
+		Shader* sh = (Shader*)ob;
+		sh.positionLoc = glGetAttribLocation ( sh.program, "position" );
+		sh.colorLoc = glGetAttribLocation ( sh.program, "color" );
+		sh.mvpLoc = glGetUniformLocation( sh.program, "modelViewProjectionMatrix" );
+	}
+
+		
+	
 	
 	
 //	[self initScene];
 	
 	objects = [[NSMutableArray	alloc] init];
 	Cube3D *c = [[Cube3D alloc] init:self];
+	c.shader = [shaders objectForKey:@"PassColor"];
 	[objects addObject:c];
 	
 	rotx = roty = 0.0f;
@@ -156,7 +173,7 @@ enum {
 //	[self glerr:@"clear"];
 	
 	// Use shader program
-    glUseProgram(program);
+  //  glUseProgram(program);
 //	[self glerr:@"useprog"];
 	
 	
@@ -265,54 +282,72 @@ enum {
 
 - (BOOL) loadShaders
 {
-    GLuint vertShader, fragShader;
-	NSString *vertShaderPathname, *fragShaderPathname;
-    
-    // create shader program
-    program = glCreateProgram();
+	shaders = [[NSMutableDictionary alloc] init];
 	
-    // create and compile vertex shader
-	vertShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
-	if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname])
+	NSArray *names =[[NSArray alloc] initWithObjects:@"PassColor", nil];
+	
+	for(int i = 0; i < [names count]; i++)
 	{
-		NSLog(@"Failed to compile vertex shader");
-		return FALSE;
+		NSString* name = [names objectAtIndex:i];
+		
+		GLuint vertShader, fragShader;
+		NSString *vertShaderPathname, *fragShaderPathname;
+		
+		// create shader program
+		GLuint curProgram = glCreateProgram();
+		Shader* sh = [[Shader alloc] initWithName:name];
+		[sh setProgram:curProgram];
+		[shaders setObject:sh forKey:name];
+		
+		// create and compile vertex shader
+		vertShaderPathname = [[NSBundle mainBundle] pathForResource:name ofType:@"vsh"];
+		if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname])
+		{
+			NSLog(@"Failed to compile vertex shader");
+			return FALSE;
+		}
+		
+		// create and compile fragment shader
+		fragShaderPathname = [[NSBundle mainBundle] pathForResource:name ofType:@"fsh"];
+		if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname])
+		{
+			NSLog(@"Failed to compile fragment shader");
+			return FALSE;
+		}
+		
+		// attach vertex shader to program
+		glAttachShader(curProgram, vertShader);
+		
+		// attach fragment shader to program
+		glAttachShader(curProgram, fragShader);
+		
+		// bind attribute locations
+		// this needs to be done prior to linking
+		glBindAttribLocation(curProgram, ATTRIB_VERTEX, "position");
+		glBindAttribLocation(curProgram, ATTRIB_COLOR, "color");
+		
+		// link program
+		if (![self linkProgram:curProgram])
+		{
+			NSLog(@"Failed to link program: %d", curProgram);
+			return FALSE;
+		}
+		
+		// get uniform locations
+		uniforms[UNIFORM_TRANSLATE] = glGetUniformLocation(curProgram, "translate");
+		
+		// release vertex and fragment shaders
+		if (vertShader)
+			glDeleteShader(vertShader);
+		if (fragShader)
+			glDeleteShader(fragShader);
+		
+		
+		
+		
 	}
 	
-    // create and compile fragment shader
-	fragShaderPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"];
-	if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname])
-	{
-		NSLog(@"Failed to compile fragment shader");
-		return FALSE;
-	}
     
-    // attach vertex shader to program
-    glAttachShader(program, vertShader);
-    
-    // attach fragment shader to program
-    glAttachShader(program, fragShader);
-    
-    // bind attribute locations
-    // this needs to be done prior to linking
-    glBindAttribLocation(program, ATTRIB_VERTEX, "position");
-    glBindAttribLocation(program, ATTRIB_COLOR, "color");
-    
-    // link program
-	if (![self linkProgram:program])
-	{
-		NSLog(@"Failed to link program: %d", program);
-		return FALSE;
-	}
-    
-    // get uniform locations
-    uniforms[UNIFORM_TRANSLATE] = glGetUniformLocation(program, "translate");
-    
-    // release vertex and fragment shaders
-    if (vertShader)
-		glDeleteShader(vertShader);
-    if (fragShader)
-		glDeleteShader(fragShader);
 	
 	return TRUE;
 }

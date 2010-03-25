@@ -17,7 +17,7 @@
 	
 	
 	// Attribute locations
-	GLuint	  positionLoc, colorLoc;
+	GLuint	positionLoc, colorLoc;
 	// Uniform locations
 	GLuint  mvpLoc;
 	
@@ -36,6 +36,7 @@
 @property float rx;
 @property float ry;
 @property float rz;
+@property GLuint program;
 
 -(void) update:(double)dt pMatrix:(ESMatrix*)p;
 -(void) render;

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Obj3D.h"
 #import "ES2Renderer.h"
+#import "Shader.h"
 
 @interface Cube3D : Obj3D {
 	double accTime;
@@ -19,7 +20,11 @@
 	
 	GLuint    vertexBuffer;
 	GLuint    indexBuffer;
+	
+	Shader *shader;
 }
+
+@property(nonatomic,retain) Shader *shader;
 
 -(id) init:(ES2Renderer*)_renderer;
 -(void) update:(double)dt pMatrix:(ESMatrix*)p;

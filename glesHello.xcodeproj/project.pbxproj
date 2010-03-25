@@ -13,12 +13,13 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2514C27210084DB100A42282 /* ES1Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2514C26E10084DB100A42282 /* ES1Renderer.mm */; };
 		2514C27310084DB100A42282 /* ES2Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2514C27010084DB100A42282 /* ES2Renderer.mm */; };
-		2514C27B10084DCA00A42282 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27910084DCA00A42282 /* Shader.fsh */; };
-		2514C27C10084DCA00A42282 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27A10084DCA00A42282 /* Shader.vsh */; };
+		2514C27B10084DCA00A42282 /* PassColor.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27910084DCA00A42282 /* PassColor.fsh */; };
+		2514C27C10084DCA00A42282 /* PassColor.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2514C27A10084DCA00A42282 /* PassColor.vsh */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28FD14FE0DC6FC130079059D /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28FD14FD0DC6FC130079059D /* EAGLView.mm */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		66469957115B02BE0030CE5D /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66469956115B02BE0030CE5D /* Shader.mm */; };
 		66D5BD591130CB2B007E67CE /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD561130CB2B007E67CE /* esTransform.c */; };
 		66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD571130CB2B007E67CE /* esUtil.c */; };
 		66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.mm */; };
@@ -37,8 +38,8 @@
 		2514C26F10084DB100A42282 /* ES2Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES2Renderer.h; sourceTree = "<group>"; };
 		2514C27010084DB100A42282 /* ES2Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ES2Renderer.mm; sourceTree = "<group>"; };
 		2514C27110084DB100A42282 /* ESRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRenderer.h; sourceTree = "<group>"; };
-		2514C27910084DCA00A42282 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		2514C27A10084DCA00A42282 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		2514C27910084DCA00A42282 /* PassColor.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = PassColor.fsh; path = Shaders/PassColor.fsh; sourceTree = "<group>"; };
+		2514C27A10084DCA00A42282 /* PassColor.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = PassColor.vsh; path = Shaders/PassColor.vsh; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28FD14FC0DC6FC130079059D /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		28FD14FD0DC6FC130079059D /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
@@ -46,6 +47,8 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* glesHello_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glesHello_Prefix.pch; sourceTree = "<group>"; };
+		66469955115B02BE0030CE5D /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		66469956115B02BE0030CE5D /* Shader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
 		66D5BD561130CB2B007E67CE /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
 		66D5BD571130CB2B007E67CE /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esUtil.c; sourceTree = "<group>"; };
 		66D5BD581130CB2B007E67CE /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				66D5BFB11131BA43007E67CE /* Cube3D.h */,
 				66D5BFB21131BA43007E67CE /* Cube3D.mm */,
 				66D5BFF91131CB41007E67CE /* common.h */,
+				66469955115B02BE0030CE5D /* Shader.h */,
+				66469956115B02BE0030CE5D /* Shader.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -113,8 +118,8 @@
 		2514C27610084DB600A42282 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				2514C27910084DCA00A42282 /* Shader.fsh */,
-				2514C27A10084DCA00A42282 /* Shader.vsh */,
+				2514C27910084DCA00A42282 /* PassColor.fsh */,
+				2514C27A10084DCA00A42282 /* PassColor.vsh */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -203,8 +208,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2514C27B10084DCA00A42282 /* Shader.fsh in Resources */,
-				2514C27C10084DCA00A42282 /* Shader.vsh in Resources */,
+				2514C27B10084DCA00A42282 /* PassColor.fsh in Resources */,
+				2514C27C10084DCA00A42282 /* PassColor.vsh in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +231,7 @@
 				66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */,
 				66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */,
 				66E619521136FBD300D17097 /* ArcBall.cpp in Sources */,
+				66469957115B02BE0030CE5D /* Shader.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -88,15 +88,17 @@ enum {
 	
 	for(int i = 0; i < 6; i++){
 		Cube3D *c = new Cube3D();
+		c->init();
 		c->shader = [shaders objectForKey:@"PassColor"];
 		
 		btCollisionShape *boxShape = new btBoxShape(btVector3(.5f,.5f,.5f));
-		btDefaultMotionState *boxMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(float(i)-3.0f, 0.0f, -4.0f)));
+		btDefaultMotionState *boxMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(float(i)-3.0f, 0.0f, 20.0f)));
 		btVector3 inertia(0,0,0);
 		float mass = .5f * .5f * .5f;
 		boxShape->calculateLocalInertia(mass, inertia);
 		btRigidBody::btRigidBodyConstructionInfo boxCI(mass, boxMotionState, boxShape, inertia);
 		btRigidBody* body = new btRigidBody(boxCI);
+		physics->m_dynamicsWorld->addRigidBody(body);
 		c->body = body;
 		objects.push_back(c);
 	}

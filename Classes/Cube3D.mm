@@ -73,9 +73,10 @@ void Cube3D::render(ESMatrix* p)
 	
 	esMatrixLoadIdentity( &modelview );
 	
-	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
 	esMatrixMultiply(&modelview, &matrix, &modelview );
-	esMatrixMultiply( &mvpMatrix, &modelview, p );
+	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
+	
+	esMatrixMultiply(&mvpMatrix, &modelview, p );
 	
 	
 	glUseProgram(shader.program);

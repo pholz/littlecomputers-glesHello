@@ -10,14 +10,9 @@
 
 
 
-@implementation Cube3D
-
-@synthesize shader;
-
--(id) init:(ES2Renderer*) _renderer
+void Cube3D::init()
 {
-	NSLog(@"init cube");
-	renderer = _renderer;
+
 	//positionLoc = glGetAttribLocation ( renderer->program, "position" );
 //	colorLoc = glGetAttribLocation ( renderer->program, "color" );
 //	mvpLoc = glGetUniformLocation( renderer->program, "modelViewProjectionMatrix" );
@@ -60,32 +55,29 @@
 	rx = ry = rz = 0.0f;
 	
 	esMatrixLoadIdentity(&tfMatrix);
-	
-	return self;
 }
 
--(void) update:(double)dt pMatrix:(ESMatrix*)p
+void Cube3D::update(double dt)
 {
-//	NSLog(@"upd cube");
+
+}
+
+void Cube3D::render(ESMatrix* p)
+{
 	ESMatrix modelview;
-	
-	accTime += dt;
-	if(accTime >= 5.0) accTime = 0.0;
+
+	btTransform trans;
+	body->getMotionState()->getWorldTransform(trans);
+	ESMatrix matrix;
+	trans.getOpenGLMatrix(&matrix.m[0][0]);
 	
 	esMatrixLoadIdentity( &modelview );
-	esTranslate( &modelview, position.x, position.y, position.z );
+	
 	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
-	
-//	esRotate( &modelview, 35.0f + accTime * (360.0/5.0) * 3.0, 0.0, 1.0, 0.0 );
-//	esRotate( &modelview, rx, 1.0, 0.0, 0.0 );
-//	esRotate( &modelview, ry, 0.0, 1.0, 0.0 );
-	
-//	NSLog(@"%f",vertices[4]);
+	esMatrixMultiply(&modelview, &matrix, &modelview );
 	esMatrixMultiply( &mvpMatrix, &modelview, p );
-}
-
--(void) render
-{
+	
+	
 	glUseProgram(shader.program);
 	
 //	NSLog(@"render cube");
@@ -112,11 +104,5 @@
 //	[renderer glerr:@"draw"];
 }
 
--(void) dealloc
-{
-//	delete position;
-//	delete velocity;
-//	delete acceleration;
-	[super dealloc];
-}
-@end
+
+

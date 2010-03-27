@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ES2Renderer.h"
 #import "btBulletDynamicsCommon.h"
 //#import "ArcBall.h"
+#include "ES2Renderer.h"
 
 
-@interface Obj3D : NSObject 
+
+class Obj3D
 {
-	
+public:
 	
 	// Attribute locations
 	GLuint	positionLoc, colorLoc;
@@ -33,18 +34,10 @@
 	float rx, ry, rz;
 	
 	btRigidBody *body;
-}
+	
+	virtual void update(double dt) = 0;
+	virtual void render(ESMatrix* p) = 0;
+	virtual void init() = 0;
+};
 
-@property float rx;
-@property float ry;
-@property float rz;
-@property GLuint program;
-@property Vec3f position;
 
--(void) update:(double)dt pMatrix:(ESMatrix*)p;
--(void) render;
--(void) setPos:(Vec3f)pos;
--(Vec3f) pos;
--(ESMatrix*) tfMatrix;
-
-@end

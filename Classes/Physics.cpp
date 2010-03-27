@@ -32,6 +32,6 @@ void Physics::init()
 	btDefaultMotionState * groundMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(0,-1,0)));
 	btRigidBody::btRigidBodyConstructionInfo groundRigidBodyCI(0,groundMotionState,groundShape,btVector3(0,0,0));
 	
-	m_groundRigidBody = new btRigidBody(groundRigidBodyCI);
-	m_dynamicsWorld->addRigidBody(m_groundRigidBody);
+	btRigidBody *groundRigidBody = new btRigidBody(groundRigidBodyCI);
+	m_dynamicsWorld->addRigidBody(groundRigidBody);
 }

@@ -7,10 +7,7 @@
 //
 
 #import "ES2Renderer.h"
-
-#include <time.h>
-
-#import "Cube3D.h"
+#include "Cube3D.h"
 
 #include "btBulletDynamicsCommon.h"
 
@@ -87,12 +84,11 @@ enum {
 //	[self initScene];
 	[self initPhysics];
 	
-	objects = [[NSMutableArray	alloc] init];
+	objects = std::vector<Obj3D*>();
 	
 	for(int i = 0; i < 6; i++){
-		Cube3D *c = [[Cube3D alloc] init:self];
+		Cube3D *c = new Cube3D();
 		c->shader = [shaders objectForKey:@"PassColor"];
-	//	c.position = Vec3f(float(i)-3.0f, 0.0f, -4.0f);
 		
 		btCollisionShape *boxShape = new btBoxShape(btVector3(.5f,.5f,.5f));
 		btDefaultMotionState *boxMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(float(i)-3.0f, 0.0f, -4.0f)));
@@ -102,7 +98,7 @@ enum {
 		btRigidBody::btRigidBodyConstructionInfo boxCI(mass, boxMotionState, boxShape, inertia);
 		btRigidBody* body = new btRigidBody(boxCI);
 		c->body = body;
-		[objects addObject:c];
+		objects.push_back(c);
 	}
 	
 	
@@ -146,31 +142,20 @@ enum {
 
 - (void) update:(double)dt
 {
-	ESMatrix perspective;
-
-	float    aspect;
-
-	aspect = (GLfloat) backingWidth / (GLfloat) backingHeight;
-	
-	esMatrixLoadIdentity( &perspective );
-	esPerspective( &perspective, 60.0f, aspect, 1.0f, 80.0f );
-	
-	NSEnumerator *enumerator = [objects objectEnumerator];
-	id obj;
+	physics->m_dynamicsWorld->stepSimulation(1.0f, 10);
 	
 	
 	
-	while (obj = [enumerator nextObject]) 
+	
+	
+	for (int i = 0; i < objects.size(); i++) 
 	{
-	//	Vec3f po = [obj pos];
-	//	[obj setPos:(po)+Vec3f(0.0f,0.0f,-0.001f)];
+		Obj3D *o = objects[i];
 		
-	//	ESMatrix esmTf;
-		memcpy(&[obj tfMatrix]->m[0][0], &Transform.M, sizeof(Transform.M));
 		
 	//	esMatrixLoadIdentity(&esmTf);
 	//	esMatrixMultiply([obj tfMatrix], &esmTf, &perspective);
-		[obj update:dt pMatrix:&perspective];
+		o->update(dt);
 	}
 	
 //	esMatrixLoadIdentity( &modelview );
@@ -182,6 +167,16 @@ enum {
 
 - (void) render
 {
+	ESMatrix perspective;
+	
+	float    aspect;
+	
+	aspect = (GLfloat) backingWidth / (GLfloat) backingHeight;
+	
+	esMatrixLoadIdentity( &perspective );
+	esPerspective( &perspective, 60.0f, aspect, 1.0f, 80.0f );
+	
+	
 	// This application only creates a single context which is already set current at this point.
 	// This call is redundant, but needed if dealing with multiple contexts.
    // [EAGLContext setCurrentContext:context];
@@ -203,14 +198,11 @@ enum {
 	
 	
 
-    NSEnumerator *enumerator = [objects objectEnumerator];
-	id obj;
-	
-	while (obj = [enumerator nextObject]) 
+    for (int i = 0; i < objects.size(); i++) 
 	{
-		
-		
-		[obj render];
+		Obj3D *o = objects[i];
+		memcpy(&o->tfMatrix.m[0][0], &Transform.M, sizeof(Transform.M));
+		o->render(&perspective);
 	}
 
 	

@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Obj3D.h"
-#import "ES2Renderer.h"
 #import "Shader.h"
 
-@interface Cube3D : Obj3D {
+class Cube3D : public Obj3D {
+public:
 	double accTime;
 	ES2Renderer *renderer;
 	
@@ -22,13 +22,9 @@
 	GLuint    indexBuffer;
 	
 	Shader *shader;
-}
+	
+	virtual void update(double dt);
+	virtual void render(ESMatrix* p);
+	virtual void init();
+};
 
-@property(nonatomic,retain) Shader *shader;
-
--(id) init:(ES2Renderer*)_renderer;
--(void) update:(double)dt pMatrix:(ESMatrix*)p;
--(void) render;
-
-
-@end

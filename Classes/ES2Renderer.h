@@ -6,22 +6,19 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
+#include <vector.h>
 #import "ESRenderer.h"
 #include "esUtil.h"
-#include <time.h>
 #include "ArcBall.h"
 #import "common.h"
 #import "Shader.h"
 #import "Physics.h"
-
-
-
-//#import "Cube3D.h"
+//#include "Obj3D.h"
 
 #define VERTEX_POS_INDX	0 
 #define VERTEX_COLOR_INDX	1 
 
-
+class Obj3D;
 
 
 @interface ES2Renderer : NSObject <ESRenderer>
@@ -44,7 +41,7 @@
 	// Uniform locations
 	GLuint  mvpLoc;
 	
-	NSMutableArray *objects;
+	std::vector<Obj3D*> objects;
 	
 	// handle touch
 	CGPoint last;

@@ -19,9 +19,11 @@
 
 -(id)initWithName:(NSString*)_name
 {
+	self = [super init];
 	name = _name;
 	[name retain];
-	[super init];
+	
+	return self;
 }
 
 @end

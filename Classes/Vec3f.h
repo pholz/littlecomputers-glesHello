@@ -8,6 +8,7 @@
  *
  */
 #include <math.h>
+#include "btBulletDynamicsCommon.h"
 
 class Vec3f
 {
@@ -55,6 +56,8 @@ public:
 	Vec3f cross(Vec3f v) {
 		return Vec3f(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
 	}
+	
+
 	
 	
 };

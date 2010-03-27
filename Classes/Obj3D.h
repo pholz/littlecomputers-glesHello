@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "ES2Renderer.h"
+#import "btBulletDynamicsCommon.h"
 //#import "ArcBall.h"
 
 
@@ -26,17 +27,19 @@
 	ESMatrix  mvpMatrix;
 	ESMatrix  tfMatrix;
 	
-	Vec3f position, velocity, acceleration;
+	Vec3f position;
+	Vec3f velocity, acceleration;
 //	Matrix3fT rotation;
 	float rx, ry, rz;
 	
-	
+	btRigidBody *body;
 }
 
 @property float rx;
 @property float ry;
 @property float rz;
 @property GLuint program;
+@property Vec3f position;
 
 -(void) update:(double)dt pMatrix:(ESMatrix*)p;
 -(void) render;

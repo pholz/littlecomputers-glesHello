@@ -12,6 +12,8 @@
 
 #import "Cube3D.h"
 
+#include "btBulletDynamicsCommon.h"
+
 // uniform index
 enum {
     UNIFORM_TRANSLATE,
@@ -83,11 +85,26 @@ enum {
 	
 	
 //	[self initScene];
+	[self initPhysics];
 	
 	objects = [[NSMutableArray	alloc] init];
-	Cube3D *c = [[Cube3D alloc] init:self];
-	c.shader = [shaders objectForKey:@"PassColor"];
-	[objects addObject:c];
+	
+	for(int i = 0; i < 6; i++){
+		Cube3D *c = [[Cube3D alloc] init:self];
+		c->shader = [shaders objectForKey:@"PassColor"];
+	//	c.position = Vec3f(float(i)-3.0f, 0.0f, -4.0f);
+		
+		btCollisionShape *boxShape = new btBoxShape(btVector3(.5f,.5f,.5f));
+		btDefaultMotionState *boxMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(float(i)-3.0f, 0.0f, -4.0f)));
+		btVector3 inertia(0,0,0);
+		float mass = .5f * .5f * .5f;
+		boxShape->calculateLocalInertia(mass, inertia);
+		btRigidBody::btRigidBodyConstructionInfo boxCI(mass, boxMotionState, boxShape, inertia);
+		btRigidBody* body = new btRigidBody(boxCI);
+		c->body = body;
+		[objects addObject:c];
+	}
+	
 	
 	rotx = roty = 0.0f;
 	
@@ -109,7 +126,15 @@ enum {
 	
 	arcball = ArcBallT(320.0f, 480.0f);
 	
+	
+	
+	
 	return self;
+}
+
+- (void) initPhysics
+{
+	physics = new Physics();
 }
 
 
@@ -341,14 +366,9 @@ enum {
 			glDeleteShader(vertShader);
 		if (fragShader)
 			glDeleteShader(fragShader);
-		
-		
-		
-		
+
 	}
-	
-    
-	
+
 	return TRUE;
 }
 

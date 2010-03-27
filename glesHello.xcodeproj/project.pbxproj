@@ -20,6 +20,7 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		66469957115B02BE0030CE5D /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66469956115B02BE0030CE5D /* Shader.mm */; };
+		66469AA3115BEC860030CE5D /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66469AA2115BEC860030CE5D /* Physics.cpp */; };
 		66D5BD591130CB2B007E67CE /* esTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD561130CB2B007E67CE /* esTransform.c */; };
 		66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD571130CB2B007E67CE /* esUtil.c */; };
 		66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.mm */; };
@@ -49,6 +50,8 @@
 		32CA4F630368D1EE00C91783 /* glesHello_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glesHello_Prefix.pch; sourceTree = "<group>"; };
 		66469955115B02BE0030CE5D /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		66469956115B02BE0030CE5D /* Shader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
+		66469AA1115BEC860030CE5D /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
+		66469AA2115BEC860030CE5D /* Physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Physics.cpp; sourceTree = "<group>"; };
 		66D5BD561130CB2B007E67CE /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
 		66D5BD571130CB2B007E67CE /* esUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esUtil.c; sourceTree = "<group>"; };
 		66D5BD581130CB2B007E67CE /* esUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = esUtil.h; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				66D5BFF91131CB41007E67CE /* common.h */,
 				66469955115B02BE0030CE5D /* Shader.h */,
 				66469956115B02BE0030CE5D /* Shader.mm */,
+				66469AA1115BEC860030CE5D /* Physics.h */,
+				66469AA2115BEC860030CE5D /* Physics.cpp */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */,
 				66E619521136FBD300D17097 /* ArcBall.cpp in Sources */,
 				66469957115B02BE0030CE5D /* Shader.mm in Sources */,
+				66469AA3115BEC860030CE5D /* Physics.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +255,11 @@
 				GCC_PREFIX_HEADER = glesHello_Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "glesHello-Info.plist";
+				OTHER_LDFLAGS = (
+					../cinder/blocks/bullet/bullet/src/BulletDynamics/Debug/libBulletDynamics.a,
+					../cinder/blocks/bullet/bullet/src/BulletCollision/Debug/libBulletCollision.a,
+					../cinder/blocks/bullet/bullet/src/LinearMath/Debug/libLinearMath.a,
+				);
 				PRODUCT_NAME = glesHello;
 			};
 			name = Debug;
@@ -275,6 +286,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/holz/code/cinder/blocks/bullet/bullet/src;
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.1.2;
 			};

@@ -12,6 +12,7 @@
 #include "ArcBall.h"
 #import "common.h"
 #import "Shader.h"
+#import "Physics.h"
 
 
 
@@ -59,11 +60,14 @@
 
 	
 	ArcBallT arcball;
+	
+	Physics *physics;
 }
 
 - (void) render;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) glerr:(NSString*)msg;
+- (void) initPhysics;
 
 
 

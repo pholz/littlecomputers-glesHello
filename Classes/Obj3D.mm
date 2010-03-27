@@ -16,6 +16,7 @@
 @synthesize ry;
 @synthesize rz;
 @synthesize program;
+@synthesize position;
 
 -(void) update:(double)dt pMatrix:(ESMatrix*)p
 {

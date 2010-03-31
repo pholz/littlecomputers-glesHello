@@ -35,6 +35,32 @@ void Cube3D::init()
 	GLubyte _indices[] = { 0, 1, 2, 3,  7, 1, 5, 4,  7, 6, 2, 4,  0, 1};
 	memcpy(indices, _indices, sizeof(indices));
 	
+	std::vector<Vec3f>* normbuff = new std::vector<Vec3f>[8];
+
+	
+	for(int i = 0; i < 14; i+= 3){
+		Vec3f p1 = Vec3f(vertices[indices[i]].position[0],vertices[indices[i]].position[1],vertices[indices[i]].position[2]);
+		Vec3f p2 = Vec3f(vertices[indices[i+1]].position[0],vertices[indices[i+1]].position[1],vertices[indices[i+1]].position[2]);
+		Vec3f p3 = Vec3f(vertices[indices[i+2]].position[0],vertices[indices[i+2]].position[1],vertices[indices[i+2]].position[2]);
+		
+		Vec3f v1 = p2 - p1;
+		Vec3f v2 = p3 - p1;
+		Vec3f normal = v1.cross(v2);
+		normal = normal.norm();
+		
+		normbuff[indices[i]].push_back(normal);
+		normbuff[indices[i+1]].push_back(normal);
+		normbuff[indices[i+2]].push_back(normal);
+	}
+	
+	for(int i = 0; i < 8; ++i)
+	{
+		for(int j = 0; j < normbuff[i].size(); ++j)
+			vertices[i].normal = vertices[i].normal + normbuff[i][j];
+		vertices[i].normal = vertices[i].normal / normbuff[i].size();
+		vertices[i].normal = vertices[i].normal.norm();
+	}
+	
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
 	//	[renderer glerr:@"genbf"];
@@ -91,12 +117,13 @@ void Cube3D::render(ESMatrix* p)
 //	[renderer glerr:@"enableVAA"];
 	glEnableVertexAttribArray(shader.colorLoc);
 //	[renderer glerr:@"enableVAA"];
+	glEnableVertexAttribArray(shader.normLoc);
 	
     glVertexAttribPointer(shader.positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
 //	[renderer glerr:@"VAAptr"];
 	glVertexAttribPointer(shader.colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
 //	[renderer glerr:@"VAAptr"];
-    
+    glVertexAttribPointer(shader.normLoc, 3, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (8 * sizeof(GLfloat)));
 	
 	glUniformMatrix4fv( shader.mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
 //	[renderer glerr:@"uniform"];

@@ -13,7 +13,12 @@
 class Vec3f
 {
 public:
+
 	float x,y,z;
+
+	
+	
+	
 	
 	Vec3f(){
 		x = y = z = 0.0f;

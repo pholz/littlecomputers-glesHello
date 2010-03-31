@@ -22,6 +22,7 @@ GLint uniforms[NUM_UNIFORMS];
 enum {
     ATTRIB_VERTEX,
     ATTRIB_COLOR,
+	ATTRIB_NORM,
     NUM_ATTRIBUTES
 };
 
@@ -74,6 +75,7 @@ enum {
 		Shader* sh = (Shader*)ob;
 		sh.positionLoc = glGetAttribLocation ( sh.program, "position" );
 		sh.colorLoc = glGetAttribLocation ( sh.program, "color" );
+		sh.normLoc = glGetAttribLocation ( sh.program, "norm" );
 		sh.mvpLoc = glGetUniformLocation( sh.program, "modelViewProjectionMatrix" );
 	}
 
@@ -344,6 +346,7 @@ enum {
 		// this needs to be done prior to linking
 		glBindAttribLocation(curProgram, ATTRIB_VERTEX, "position");
 		glBindAttribLocation(curProgram, ATTRIB_COLOR, "color");
+		glBindAttribLocation(curProgram, ATTRIB_NORM, "norm");
 		
 		// link program
 		if (![self linkProgram:curProgram])

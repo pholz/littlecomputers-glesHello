@@ -16,5 +16,6 @@ typedef struct _vertexStruct
 {
 	GLfloat position[4];
 	GLfloat color[4];
+	Vec3f normal;
 } vertexStruct;
 

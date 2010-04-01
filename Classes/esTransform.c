@@ -200,6 +200,75 @@ esMatrixMultiply(ESMatrix *result, ESMatrix *srcA, ESMatrix *srcB)
     memcpy(result, &tmp, sizeof(ESMatrix));
 }
 
+void ESUTIL_API
+esMatrixInverse(ESMatrix *result, ESMatrix *src)
+{
+	ESMatrix dummy;
+	
+	double		det_1;
+	double		pos, neg, temp;
+	
+	pos = neg = 0.0;
+	temp = src->_m[0] * src->_m[5] * src->_m[10];
+	if(temp >= 0.0) pos += temp; else neg += temp;
+	temp = src->_m[4] * src->_m[9] * src->_m[2];
+	if(temp >= 0.0) pos += temp; else neg += temp;
+	temp = src->_m[8] * src->_m[1] * src->_m[6];
+	if(temp >= 0.0) pos += temp; else neg += temp;
+	temp = src->_m[8] * src->_m[5] * src->_m[2];
+	if(temp >= 0.0) pos += temp; else neg += temp;
+	temp = src->_m[4] * src->_m[1] * src->_m[10];
+	if(temp >= 0.0) pos += temp; else neg += temp;
+	temp = src->_m[0] * src->_m[9] * src->_m[6];
+	if(temp >= 0.0) pos += temp; else neg += temp;
+	det_1 = pos + neg;
+	
+	if ((det_1 == 0.0) || (abs(det_1 / (pos - neg)) < 1.0e-15))
+	{
+        /* Matrix M has no inverse */
+        printf("Matrix has no inverse : singular matrix\n");
+        return;
+    }
+	else
+	{
+		det_1 = 1.0 / det_1;
+        dummy._m[ 0] =   ( src->_m[ 5] * src->_m[10] - src->_m[ 9] * src->_m[ 6] ) * (float)det_1;
+        dummy._m[ 1] = - ( src->_m[ 1] * src->_m[10] - src->_m[ 9] * src->_m[ 2] ) * (float)det_1;
+        dummy._m[ 2] =   ( src->_m[ 1] * src->_m[ 6] - src->_m[ 5] * src->_m[ 2] ) * (float)det_1;
+        dummy._m[ 4] = - ( src->_m[ 4] * src->_m[10] - src->_m[ 8] * src->_m[ 6] ) * (float)det_1;
+        dummy._m[ 5] =   ( src->_m[ 0] * src->_m[10] - src->_m[ 8] * src->_m[ 2] ) * (float)det_1;
+        dummy._m[ 6] = - ( src->_m[ 0] * src->_m[ 6] - src->_m[ 4] * src->_m[ 2] ) * (float)det_1;
+        dummy._m[ 8] =   ( src->_m[ 4] * src->_m[ 9] - src->_m[ 8] * src->_m[ 5] ) * (float)det_1;
+        dummy._m[ 9] = - ( src->_m[ 0] * src->_m[ 9] - src->_m[ 8] * src->_m[ 1] ) * (float)det_1;
+        dummy._m[10] =   ( src->_m[ 0] * src->_m[ 5] - src->_m[ 4] * src->_m[ 1] ) * (float)det_1;
+		
+		dummy._m[12] = - ( src->_m[12] * dummy._m[ 0] + src->_m[13] * dummy._m[ 4] + src->_m[14] * dummy._m[ 8] );
+        dummy._m[13] = - ( src->_m[12] * dummy._m[ 1] + src->_m[13] * dummy._m[ 5] + src->_m[14] * dummy._m[ 9] );
+        dummy._m[14] = - ( src->_m[12] * dummy._m[ 2] + src->_m[13] * dummy._m[ 6] + src->_m[14] * dummy._m[10] );
+		
+        /* Fill in last row */
+        dummy._m[ 3] = 0.0f;
+		dummy._m[ 7] = 0.0f;
+		dummy._m[11] = 0.0f;
+        dummy._m[15] = 1.0f;
+	}
+	
+	*result = dummy;
+}
+
+void ESUTIL_API
+esMatrixTranspose(ESMatrix *result, ESMatrix* src)
+{
+	ESMatrix	tmp;
+	
+	tmp._m[ 0]=src->_m[ 0];	tmp._m[ 4]=src->_m[ 1];	tmp._m[ 8]=src->_m[ 2];	tmp._m[12]=src->_m[ 3];
+	tmp._m[ 1]=src->_m[ 4];	tmp._m[ 5]=src->_m[ 5];	tmp._m[ 9]=src->_m[ 6];	tmp._m[13]=src->_m[ 7];
+	tmp._m[ 2]=src->_m[ 8];	tmp._m[ 6]=src->_m[ 9];	tmp._m[10]=src->_m[10];	tmp._m[14]=src->_m[11];
+	tmp._m[ 3]=src->_m[12];	tmp._m[ 7]=src->_m[13];	tmp._m[11]=src->_m[14];	tmp._m[15]=src->_m[15];
+	
+	*result = tmp;
+}
+
 
 void ESUTIL_API
 esMatrixLoadIdentity(ESMatrix *result)

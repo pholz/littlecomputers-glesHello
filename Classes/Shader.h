@@ -13,7 +13,7 @@
 	
 	
 	NSString* name;
-	int program, colorLoc, positionLoc, mvpLoc, normLoc;
+	int program, colorLoc, positionLoc, mvpLoc, normLoc, timLoc, lightPos;
 	
 	
 	
@@ -23,7 +23,9 @@
 @property int colorLoc;
 @property int positionLoc;
 @property int mvpLoc;
+@property int timLoc;
 @property int normLoc;
+@property int lightPos;
 
 -(id)initWithName:(NSString*) _name;
 @end

@@ -77,6 +77,9 @@ enum {
 		sh.colorLoc = glGetAttribLocation ( sh.program, "color" );
 		sh.normLoc = glGetAttribLocation ( sh.program, "norm" );
 		sh.mvpLoc = glGetUniformLocation( sh.program, "modelViewProjectionMatrix" );
+		sh.timLoc = glGetUniformLocation( sh.program, "tiMvpMatrix" );
+		sh.lightPos = glGetUniformLocation(sh.program, "lightPos");
+		
 	}
 
 		
@@ -91,7 +94,7 @@ enum {
 	for(int i = 0; i < 6; i++){
 		Cube3D *c = new Cube3D();
 		c->init();
-		c->shader = [shaders objectForKey:@"PassColor"];
+		c->shader = [shaders objectForKey:@"light"];
 		
 		btCollisionShape *boxShape = new btBoxShape(btVector3(.5f,.5f,.5f));
 		btDefaultMotionState *boxMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(float(i)-3.0f, 0.0f, 20.0f)));
@@ -305,7 +308,7 @@ enum {
 {
 	shaders = [[NSMutableDictionary alloc] init];
 	
-	NSArray *names =[[NSArray alloc] initWithObjects:@"PassColor", nil];
+	NSArray *names =[[NSArray alloc] initWithObjects: @"light", nil];
 	
 	for(int i = 0; i < [names count]; i++)
 	{
@@ -354,9 +357,6 @@ enum {
 			NSLog(@"Failed to link program: %d", curProgram);
 			return FALSE;
 		}
-		
-		// get uniform locations
-		uniforms[UNIFORM_TRANSLATE] = glGetUniformLocation(curProgram, "translate");
 		
 		// release vertex and fragment shaders
 		if (vertShader)

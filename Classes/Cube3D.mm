@@ -104,6 +104,10 @@ void Cube3D::render(ESMatrix* p)
 	
 	esMatrixMultiply(&mvpMatrix, &modelview, p );
 	
+	ESMatrix inv, tim;
+	esMatrixInverse(&inv, &modelview);
+	esMatrixTranspose(&tim, &inv);
+	
 	
 	glUseProgram(shader.program);
 	
@@ -126,6 +130,8 @@ void Cube3D::render(ESMatrix* p)
     glVertexAttribPointer(shader.normLoc, 3, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (8 * sizeof(GLfloat)));
 	
 	glUniformMatrix4fv( shader.mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
+	glUniformMatrix4fv( shader.timLoc, 1, GL_FALSE, (GLfloat*) &tim.m[0][0] );
+	glUniform4f(shader.lightPos, -1.0f, -1.0f, 1.0f, 1.0f);
 //	[renderer glerr:@"uniform"];
 	
     glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);

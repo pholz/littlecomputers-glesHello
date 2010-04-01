@@ -17,6 +17,8 @@
 @synthesize colorLoc;
 @synthesize mvpLoc;
 @synthesize normLoc;
+@synthesize timLoc;
+@synthesize lightPos;
 
 -(id)initWithName:(NSString*)_name
 {

@@ -39,9 +39,10 @@ extern "C" {
 // Types
 //
 
-typedef struct
+typedef union
 {
     GLfloat   m[4][4];
+	GLfloat   _m[16];
 } ESMatrix;
 
 typedef struct
@@ -190,6 +191,11 @@ void ESUTIL_API esOrtho(ESMatrix *result, float left, float right, float bottom,
 /// \param srcA, srcB Input matrices to be multiplied
 //
 void ESUTIL_API esMatrixMultiply(ESMatrix *result, ESMatrix *srcA, ESMatrix *srcB);
+	
+void ESUTIL_API esMatrixInverse(ESMatrix *result, ESMatrix *src);
+	
+void ESUTIL_API esMatrixTranspose(ESMatrix *result, ESMatrix *src);
+	
 
 //
 //// \brief return an indentity matrix 

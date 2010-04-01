@@ -26,6 +26,10 @@
 		66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.mm */; };
 		66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFB21131BA43007E67CE /* Cube3D.mm */; };
 		66E619521136FBD300D17097 /* ArcBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E618281136CD2300D17097 /* ArcBall.cpp */; };
+		66FED417116464E000A0A536 /* light.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 66FED415116464E000A0A536 /* light.fsh */; };
+		66FED418116464E000A0A536 /* light.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 66FED416116464E000A0A536 /* light.vsh */; };
+		66FED4311164673E00A0A536 /* light.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 66FED415116464E000A0A536 /* light.fsh */; };
+		66FED4321164673E00A0A536 /* light.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 66FED416116464E000A0A536 /* light.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,8 @@
 		66E618281136CD2300D17097 /* ArcBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArcBall.cpp; sourceTree = "<group>"; };
 		66E618291136CD2300D17097 /* ArcBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArcBall.h; sourceTree = "<group>"; };
 		66E6186D1136E4E200D17097 /* Vec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec3f.h; sourceTree = "<group>"; };
+		66FED415116464E000A0A536 /* light.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = light.fsh; path = Shaders/light.fsh; sourceTree = "<group>"; };
+		66FED416116464E000A0A536 /* light.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = light.vsh; path = Shaders/light.vsh; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* glesHello-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "glesHello-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +129,8 @@
 		2514C27610084DB600A42282 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				66FED415116464E000A0A536 /* light.fsh */,
+				66FED416116464E000A0A536 /* light.vsh */,
 				2514C27910084DCA00A42282 /* PassColor.fsh */,
 				2514C27A10084DCA00A42282 /* PassColor.vsh */,
 			);
@@ -213,6 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FED4311164673E00A0A536 /* light.fsh in Resources */,
+				66FED4321164673E00A0A536 /* light.vsh in Resources */,
 				2514C27B10084DCA00A42282 /* PassColor.fsh in Resources */,
 				2514C27C10084DCA00A42282 /* PassColor.vsh in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
@@ -238,6 +248,8 @@
 				66E619521136FBD300D17097 /* ArcBall.cpp in Sources */,
 				66469957115B02BE0030CE5D /* Shader.mm in Sources */,
 				66469AA3115BEC860030CE5D /* Physics.cpp in Sources */,
+				66FED417116464E000A0A536 /* light.fsh in Sources */,
+				66FED418116464E000A0A536 /* light.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

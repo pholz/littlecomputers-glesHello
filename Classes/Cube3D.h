@@ -16,7 +16,12 @@ public:
 	ES2Renderer *renderer;
 	
 	vertexStruct	vertices[8];
+	vertexFullStruct	fullVertices[24];
 	GLubyte			indices[14];
+	
+	GLfloat *verts, *norms, *texs;
+	GLubyte *inds;
+	int numInds;
 	
 	GLuint    vertexBuffer;
 	GLuint    indexBuffer;

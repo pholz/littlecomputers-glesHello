@@ -1,27 +1,29 @@
-attribute vec4 position;
-attribute vec4 color;
-attribute vec4 norm;
+attribute highp vec4 position;
+attribute highp vec4 color;
+attribute highp vec4 norm;
 
-uniform mat4 modelViewProjectionMatrix;
-uniform mat4 tiMvpMatrix;
-uniform vec4 lightPos;
+uniform mediump mat4 modelViewProjectionMatrix;
+uniform mediump mat4 tiMvpMatrix;
+uniform highp vec4 lightPos;
 
-varying vec4 colorVarying;
-varying vec3 normVarying;
-varying vec3 lightDirVarying;
-varying vec3 halfVecVarying;
-varying vec4 diffuseVarying, ambientVarying;
+varying highp vec4 colorVarying;
+varying highp vec3 normVarying;
+varying highp vec3 lightDirVarying;
+varying highp vec3 halfVecVarying;
+varying highp vec4 diffuseVarying, ambientVarying;
 
 void main()
 {
-	vec4 diffuse = vec4(1.0, 0.0, 0.0, 1.0);
-	vec4 ambient = vec4(0.0, 0.5, 0.0, 1.0);
+	highp vec4 diffuse = vec4(1.0, 0.0, 0.0, 1.0);
+	highp vec4 ambient = vec4(0.2, 0.0, 0.0, 1.0);
 	
-	vec4 normal = normalize(tiMvpMatrix * norm);
+	highp vec4 normal = normalize(tiMvpMatrix * norm);
 	normVarying = normalize(normal.xyz);
 	
-	lightDirVarying = normalize(vec3(lightPos.x, lightPos.y, lightPos.z));
-	vec3 eyeVec = vec3(0.0,0.0,1.0);
+//	mediump vec4 light = normalize(modelViewProjectionMatrix * lightPos);
+	lightDirVarying = -1.0 * lightPos.xyz; //vec3(light.x, light.y, light.z);
+//	lightDirVarying = normalize(vec3(-1.0, -1.0, -1.0));
+	highp vec3 eyeVec = vec3(0.0,0.0,1.0);
 	halfVecVarying = normalize(lightDirVarying + eyeVec);
 
 	diffuseVarying = diffuse * 1.0;

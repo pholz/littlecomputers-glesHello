@@ -123,7 +123,7 @@ int ESUTIL_API esGenSphere ( int numSlices, float radius, GLfloat **vertices, GL
 ///         if it is not NULL ) as a GL_TRIANGLES
 //
 int ESUTIL_API esGenCube ( float scale, GLfloat **vertices, GLfloat **normals, 
-                           GLfloat **texCoords, GLushort **indices );
+                           GLfloat **texCoords, GLubyte **indices );
 
 //
 /// \brief Loads a PNG image from a file

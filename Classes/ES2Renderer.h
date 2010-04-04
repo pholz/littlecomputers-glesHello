@@ -59,6 +59,8 @@ class Obj3D;
 	ArcBallT arcball;
 	
 	Physics *physics;
+	
+	float angle;
 }
 
 - (void) render;

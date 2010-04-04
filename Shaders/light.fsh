@@ -6,28 +6,28 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-varying vec4 colorVarying;
-varying vec3 normVarying;
-varying vec3 lightDirVarying;
-varying vec3 halfVecVarying;
-varying vec4 diffuseVarying, ambientVarying;
+varying highp vec4 colorVarying;
+varying highp vec3 normVarying;
+varying highp vec3 lightDirVarying;
+varying highp vec3 halfVecVarying;
+varying highp vec4 diffuseVarying, ambientVarying;
 
 void main()
 {
-	vec3 n, halfV;
-	float NdotL, NdotHV;
-	vec4 color = ambient;
+	highp vec3 n, l, halfV;
+	highp float NdotL, NdotHV;
+	highp vec4 color = ambientVarying;
 	n = normalize(normVarying);
-	NdotL = max(dot(n,lightDirVarying),0.0);
+	l = normalize(lightDirVarying);
+	NdotL = dot(n,l);
 	
 	if(NdotL > 0.0) {
 		
-		color += diffuse * NdotL;
-		halfV = normalize(halfVecVarying);
-		NdotHV = max(dot(n,halfV),0.0);
+		color += diffuseVarying * NdotL;
+		//halfV = normalize(halfVecVarying);
+		//NdotHV = max(dot(n,halfV),0.0);
 		// add specular
 	
 	}
-
 	gl_FragColor = color;
 }

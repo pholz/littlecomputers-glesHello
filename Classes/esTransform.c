@@ -209,17 +209,17 @@ esMatrixInverse(ESMatrix *result, ESMatrix *src)
 	double		pos, neg, temp;
 	
 	pos = neg = 0.0;
-	temp = src->_m[0] * src->_m[5] * src->_m[10];
+	temp =  src->_m[0] * src->_m[5] * src->_m[10];
 	if(temp >= 0.0) pos += temp; else neg += temp;
-	temp = src->_m[4] * src->_m[9] * src->_m[2];
+	temp =  src->_m[4] * src->_m[9] * src->_m[2];
 	if(temp >= 0.0) pos += temp; else neg += temp;
-	temp = src->_m[8] * src->_m[1] * src->_m[6];
+	temp =  src->_m[8] * src->_m[1] * src->_m[6];
 	if(temp >= 0.0) pos += temp; else neg += temp;
-	temp = src->_m[8] * src->_m[5] * src->_m[2];
+	temp = -src->_m[8] * src->_m[5] * src->_m[2];
 	if(temp >= 0.0) pos += temp; else neg += temp;
-	temp = src->_m[4] * src->_m[1] * src->_m[10];
+	temp = -src->_m[4] * src->_m[1] * src->_m[10];
 	if(temp >= 0.0) pos += temp; else neg += temp;
-	temp = src->_m[0] * src->_m[9] * src->_m[6];
+	temp = -src->_m[0] * src->_m[9] * src->_m[6];
 	if(temp >= 0.0) pos += temp; else neg += temp;
 	det_1 = pos + neg;
 	

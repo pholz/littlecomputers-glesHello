@@ -130,7 +130,7 @@ enum {
 	arcball = ArcBallT(320.0f, 480.0f);
 	
 	
-	
+	angle = 0.0f;
 	
 	return self;
 }
@@ -152,7 +152,7 @@ enum {
 	physics->m_dynamicsWorld->stepSimulation(1.0f, 10);
 	
 	
-	
+	angle += dt * 36.0f;
 	
 	
 	for (int i = 0; i < objects.size(); i++) 
@@ -181,6 +181,7 @@ enum {
 	aspect = (GLfloat) backingWidth / (GLfloat) backingHeight;
 	
 	esMatrixLoadIdentity( &perspective );
+	//esRotate(&perspective, angle, 0.0f, 0.0f, 1.0f);
 	esPerspective( &perspective, 60.0f, aspect, 1.0f, 80.0f );
 	
 	

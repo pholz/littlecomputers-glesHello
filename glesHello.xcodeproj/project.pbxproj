@@ -26,6 +26,7 @@
 		66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.mm */; };
 		66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFB21131BA43007E67CE /* Cube3D.mm */; };
 		66E619521136FBD300D17097 /* ArcBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E618281136CD2300D17097 /* ArcBall.cpp */; };
+		66FA0EFD11678DB800D77561 /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 66FA0EFC11678DB800D77561 /* esShapes.c */; };
 		66FED417116464E000A0A536 /* light.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 66FED415116464E000A0A536 /* light.fsh */; };
 		66FED418116464E000A0A536 /* light.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 66FED416116464E000A0A536 /* light.vsh */; };
 		66FED4311164673E00A0A536 /* light.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 66FED415116464E000A0A536 /* light.fsh */; };
@@ -67,6 +68,7 @@
 		66E618281136CD2300D17097 /* ArcBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArcBall.cpp; sourceTree = "<group>"; };
 		66E618291136CD2300D17097 /* ArcBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArcBall.h; sourceTree = "<group>"; };
 		66E6186D1136E4E200D17097 /* Vec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec3f.h; sourceTree = "<group>"; };
+		66FA0EFC11678DB800D77561 /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
 		66FED415116464E000A0A536 /* light.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = light.fsh; path = Shaders/light.fsh; sourceTree = "<group>"; };
 		66FED416116464E000A0A536 /* light.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = light.vsh; path = Shaders/light.vsh; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* glesHello-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "glesHello-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66FA0EFC11678DB800D77561 /* esShapes.c */,
 				66E6186D1136E4E200D17097 /* Vec3f.h */,
 				66E618281136CD2300D17097 /* ArcBall.cpp */,
 				66E618291136CD2300D17097 /* ArcBall.h */,
@@ -250,6 +253,7 @@
 				66469AA3115BEC860030CE5D /* Physics.cpp in Sources */,
 				66FED417116464E000A0A536 /* light.fsh in Sources */,
 				66FED418116464E000A0A536 /* light.vsh in Sources */,
+				66FA0EFD11678DB800D77561 /* esShapes.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

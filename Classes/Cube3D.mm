@@ -12,6 +12,7 @@
 
 void Cube3D::init()
 {
+	
 
 	//positionLoc = glGetAttribLocation ( renderer->program, "position" );
 //	colorLoc = glGetAttribLocation ( renderer->program, "color" );
@@ -35,6 +36,7 @@ void Cube3D::init()
 	GLubyte _indices[] = { 0, 1, 2, 3,  7, 1, 5, 4,  7, 6, 2, 4,  0, 1};
 	memcpy(indices, _indices, sizeof(indices));
 	
+	/*
 	std::vector<Vec3f>* normbuff = new std::vector<Vec3f>[8];
 
 	
@@ -60,6 +62,30 @@ void Cube3D::init()
 		vertices[i].normal = vertices[i].normal / normbuff[i].size();
 		vertices[i].normal = vertices[i].normal.norm();
 	}
+	 */
+	 
+	
+	for(int i = 0; i < 8; i++)
+	{
+		Vec3f nor = Vec3f(vertices[i].position[0],vertices[i].position[1],vertices[i].position[2]).norm();
+		vertices[i].normal[0] = nor.x;
+		vertices[i].normal[1] = nor.y;
+		vertices[i].normal[2] = nor.z;
+		
+	}
+		
+	/*
+	
+	numInds = esGenCube(1.0f, &verts, &norms, &texs, &inds);
+	
+	for(int j = 0; j < 24; j++)
+	{
+		fullVertices[j].position[0] = verts[j*3]; fullVertices[j].position[1] = verts[j*3+1]; fullVertices[j].position[2] = verts[j*3+2]; fullVertices[j].position[3] = 1.0f;
+		fullVertices[j].normal[0] = norms[j*3]; fullVertices[j].normal[1] = norms[j*3+1]; fullVertices[j].normal[2] = norms[j*3+2]; //fullVertices[j].normal[3] = 1.0f;
+	//	fullVertices[i].tex = texs[i];
+		fullVertices[j].color[0] = 1.0f; fullVertices[j].color[1] = 0.0f; fullVertices[j].color[2] = 0.0f; fullVertices[j].color[3] = 1.0f;
+	}
+	 */
 	
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
@@ -68,14 +94,16 @@ void Cube3D::init()
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	//	[renderer glerr:@"bindbf"];
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(fullVertices), fullVertices, GL_STATIC_DRAW);
 	//	[renderer glerr:@"bfdata"];
 	
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	//	[renderer glerr:@"bindbf"];
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(inds), inds, GL_STATIC_DRAW);
 	//	[renderer glerr:@"bfdata"];
 	
-	position = Vec3f(0.0,0.0,-2.0);
+	position = Vec3f(0.0,0.0,-8.0);
 	velocity = Vec3f(0.0,0.0,0.0);
 	acceleration = Vec3f(0.0,0.0,0.0);
 	rx = ry = rz = 0.0f;
@@ -96,18 +124,17 @@ void Cube3D::render(ESMatrix* p)
 	body->getMotionState()->getWorldTransform(trans);
 	ESMatrix matrix;
 	trans.getOpenGLMatrix(&matrix.m[0][0]);
+//	esTranslate(&matrix, position.x, position.y, position.z);
 	
 	esMatrixLoadIdentity( &modelview );
 	
 	esMatrixMultiply(&modelview, &matrix, &modelview );
 	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
-	
 	esMatrixMultiply(&mvpMatrix, &modelview, p );
-	
+
 	ESMatrix inv, tim;
 	esMatrixInverse(&inv, &modelview);
 	esMatrixTranspose(&tim, &inv);
-	
 	
 	glUseProgram(shader.program);
 	
@@ -125,16 +152,19 @@ void Cube3D::render(ESMatrix* p)
 	
     glVertexAttribPointer(shader.positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
 //	[renderer glerr:@"VAAptr"];
-	glVertexAttribPointer(shader.colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
+	
 //	[renderer glerr:@"VAAptr"];
-    glVertexAttribPointer(shader.normLoc, 3, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (8 * sizeof(GLfloat)));
+	glVertexAttribPointer(shader.colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
+    glVertexAttribPointer(shader.normLoc, 3, GL_FLOAT, GL_TRUE, sizeof(vertexStruct), (const void*) (8 * sizeof(GLfloat)));
+	
 	
 	glUniformMatrix4fv( shader.mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
 	glUniformMatrix4fv( shader.timLoc, 1, GL_FALSE, (GLfloat*) &tim.m[0][0] );
-	glUniform4f(shader.lightPos, -1.0f, -1.0f, 1.0f, 1.0f);
+	glUniform4f(shader.lightPos, 0.0f, 0.0f, -1.0f, 0.0f);
 //	[renderer glerr:@"uniform"];
 	
-    glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);
+	glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);
+  //  glDrawElements(GL_TRIANGLES, numInds, GL_UNSIGNED_BYTE, (void*)0);
 //	[renderer glerr:@"draw"];
 }
 

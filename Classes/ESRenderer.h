@@ -20,5 +20,6 @@
 - (void) singleTouchBegan:(CGPoint) loc;
 - (void) singleTouchMoved:(CGPoint) loc;
 - (void) singleTouchEnded;
+- (void) setLastAccelerationX:(float)x Y:(float)y Z:(float)z;
 
 @end

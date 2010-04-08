@@ -8,15 +8,19 @@
  */
 
 #include "btBulletDynamicsCommon.h"
+#include "Vec3f.h"
 
 class Physics {
 public:
 	Physics();
 	void init();
+	void setGravity(Vec3f g);
 	
 	btDiscreteDynamicsWorld*				m_dynamicsWorld;	
 	btBroadphaseInterface*					m_broadphase;	
 	btCollisionDispatcher*					m_dispatcher;	
 	btConstraintSolver*						m_solver;
 	btDefaultCollisionConfiguration*		m_collisionConfiguration;
+	
+	Vec3f m_gravity;
 };

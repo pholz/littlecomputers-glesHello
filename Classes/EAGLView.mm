@@ -63,7 +63,15 @@
 	
 	prevTick = [NSDate timeIntervalSinceReferenceDate];
 	
+	UIAccelerometer* acc = [UIAccelerometer sharedAccelerometer];
+	[acc setDelegate:self];
+	
     return self;
+}
+
+-(void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+{
+	[renderer setLastAccelerationX: (float)acceleration.x Y: (float)acceleration.y Z: (float)acceleration.z];
 }
 
 - (void) drawView:(id)sender

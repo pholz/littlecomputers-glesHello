@@ -55,6 +55,7 @@ class Obj3D;
 	
 	Point2fT	MousePt;
 
+	float lastAccX, lastAccY, lastAccZ;
 	
 	ArcBallT arcball;
 	
@@ -67,7 +68,7 @@ class Obj3D;
 - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer;
 - (void) glerr:(NSString*)msg;
 - (void) initPhysics;
-
+- (void) setLastAccelerationX:(float)x Y:(float)y Z:(float)z;
 
 
 @end

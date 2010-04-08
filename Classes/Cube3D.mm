@@ -19,6 +19,7 @@ void Cube3D::init()
 //	mvpLoc = glGetUniformLocation( renderer->program, "modelViewProjectionMatrix" );
 	
 	accTime = 0.0;
+	scale = 1.0f;
 	
 	//vertices =	(vertexStruct*)	malloc(8 * sizeof(vertexStruct));
 	//indices =	(GLubyte*)		malloc(14 * sizeof(GLubyte));
@@ -129,6 +130,10 @@ void Cube3D::render(ESMatrix* p)
 	esMatrixLoadIdentity( &modelview );
 	
 	esMatrixMultiply(&modelview, &matrix, &modelview );
+	ESMatrix scaleMat;
+	esMatrixLoadIdentity(&scaleMat);
+	esScale(&scaleMat, scale, scale, scale);
+	esMatrixMultiply(&modelview, &scaleMat, &modelview);
 	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
 	esMatrixMultiply(&mvpMatrix, &modelview, p );
 
@@ -160,7 +165,7 @@ void Cube3D::render(ESMatrix* p)
 	
 	glUniformMatrix4fv( shader.mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
 	glUniformMatrix4fv( shader.timLoc, 1, GL_FALSE, (GLfloat*) &tim.m[0][0] );
-	glUniform4f(shader.lightPos, 0.0f, 0.0f, -1.0f, 0.0f);
+	glUniform4f(shader.lightPos, -0.5f, -0.5f, -1.0f, 0.0f);
 //	[renderer glerr:@"uniform"];
 	
 	glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);

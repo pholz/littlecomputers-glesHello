@@ -13,7 +13,7 @@
 class Cube3D : public Obj3D {
 public:
 	double accTime;
-	ES2Renderer *renderer;
+	
 	
 	vertexStruct	vertices[8];
 	vertexFullStruct	fullVertices[24];
@@ -25,9 +25,7 @@ public:
 	
 	GLuint    vertexBuffer;
 	GLuint    indexBuffer;
-	
-	Shader *shader;
-	
+
 	virtual void update(double dt);
 	virtual void render(ESMatrix* p);
 	virtual void init();

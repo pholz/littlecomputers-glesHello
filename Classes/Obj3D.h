@@ -17,6 +17,7 @@
 class Obj3D
 {
 public:
+	ES2Renderer *renderer;
 	
 	// Attribute locations
 	GLuint	positionLoc, colorLoc;
@@ -34,6 +35,10 @@ public:
 	float rx, ry, rz;
 	
 	btRigidBody *body;
+	
+	GLfloat scale;
+	
+	Shader *shader;
 	
 	virtual void update(double dt) = 0;
 	virtual void render(ESMatrix* p) = 0;

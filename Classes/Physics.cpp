@@ -14,6 +14,12 @@ Physics::Physics()
 	init();
 }
 
+void Physics::setGravity(Vec3f g)
+{
+	m_gravity = g * 10.0f;
+	m_dynamicsWorld->setGravity(btVector3(m_gravity.x, m_gravity.y, m_gravity.z));
+}
+
 void Physics::init()
 {
 	m_collisionConfiguration = new btDefaultCollisionConfiguration();
@@ -22,8 +28,10 @@ void Physics::init()
 	btSequentialImpulseConstraintSolver* sol = new btSequentialImpulseConstraintSolver;
 	m_solver = sol;
 	
+	m_gravity = Vec3f(0,0,-10);
+	
 	m_dynamicsWorld = new btDiscreteDynamicsWorld(m_dispatcher, m_broadphase, m_solver, m_collisionConfiguration);
-	m_dynamicsWorld->setGravity(btVector3(0,0,-10));
+	m_dynamicsWorld->setGravity(btVector3(m_gravity.x, m_gravity.y, m_gravity.z));
 	
 	btVector3 gndVecs[5] = {
 		btVector3(0,1,0),
@@ -34,10 +42,10 @@ void Physics::init()
 	};
 	
 	btVector3 gndPos[5] = {
-		btVector3(0,-2,0),
-		btVector3(2,0,0),
-		btVector3(0,2,0),
-		btVector3(-2,0,0),
+		btVector3(0,-4,0),
+		btVector3(4,0,0),
+		btVector3(0,4,0),
+		btVector3(-4,0,0),
 		btVector3(0,0,-8)
 	};
 	

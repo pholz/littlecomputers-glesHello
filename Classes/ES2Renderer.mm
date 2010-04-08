@@ -8,8 +8,18 @@
 
 #import "ES2Renderer.h"
 #include "Cube3D.h"
+#include "Sphere3D.h"
+#include "TriMesh3D.h"
+#include "cinder/app/AppCocoaTouch.h"
+#include "cinder/cocoa/CinderCocoaTouch.h"
+#include "cinder/TriMesh.h"
+#include "cinder/ObjLoader.h"
 
 #include "btBulletDynamicsCommon.h"
+#include "CinderBullet.h"
+#include "Resources.h"
+
+#define CONVEX_SCALE 0.5f
 
 // uniform index
 enum {
@@ -95,18 +105,25 @@ enum {
 		Cube3D *c = new Cube3D();
 		c->init();
 		c->shader = [shaders objectForKey:@"light"];
+		c->scale = 0.5f;
 		
-		btCollisionShape *boxShape = new btBoxShape(btVector3(.5f,.5f,.5f));
+		btCollisionShape *boxShape = new btBoxShape(btVector3(c->scale/2.0f,c->scale/2.0f,c->scale/2.0f));
 		btDefaultMotionState *boxMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(float(i)-3.0f, 0.0f, 20.0f)));
 		btVector3 inertia(0,0,0);
 		float mass = .5f * .5f * .5f;
 		boxShape->calculateLocalInertia(mass, inertia);
 		btRigidBody::btRigidBodyConstructionInfo boxCI(mass, boxMotionState, boxShape, inertia);
 		btRigidBody* body = new btRigidBody(boxCI);
+		body->setActivationState(DISABLE_DEACTIVATION);
 		physics->m_dynamicsWorld->addRigidBody(body);
 		c->body = body;
 		objects.push_back(c);
 	}
+	
+	Sphere3D *sph1 = new Sphere3D();
+	sph1->init();
+	sph1->shader = [shaders objectForKey:@"light"];
+	objects.push_back(sph1);
 	
 	
 	rotx = roty = 0.0f;
@@ -131,6 +148,22 @@ enum {
 	
 	
 	angle = 0.0f;
+	lastAccX = lastAccY = lastAccZ = 0;
+	
+	
+	// load mesh
+	
+	ci::TriMesh convex;
+	ci::ObjLoader loader( ci::app::App::loadResource( RES_LOSPHERE )->getStream() );
+	loader.load( &convex );
+	
+	btConvexHullShape* shape = ci::bullet::createConvexHullShape(convex, ci::Vec3f(CONVEX_SCALE, CONVEX_SCALE, CONVEX_SCALE));
+	btRigidBody *convexBody = ci::bullet::createConvexHullBody(physics->m_dynamicsWorld, shape, ci::Vec3f(0,0,20), 100);
+	TriMesh3D *tri = new TriMesh3D();
+	tri->init(convex);
+	tri->shader = [shaders objectForKey:@"light"];
+	tri->body = convexBody;
+	objects.push_back(tri);
 	
 	return self;
 }
@@ -282,6 +315,15 @@ enum {
 		return FALSE;
 	
 	return TRUE;
+}
+
+- (void) setLastAccelerationX:(float)x Y:(float)y Z:(float)z
+{
+	lastAccX = x;
+	lastAccY = y;
+	lastAccZ = z;
+	NSLog(@"%f,%f,%f", x, y, z);
+	physics->setGravity(Vec3f(x,y,z));
 }
 
 - (BOOL) validateProgram:(GLuint)prog

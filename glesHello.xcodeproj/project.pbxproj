@@ -29,6 +29,8 @@
 		66E6E049116E155200353B14 /* losphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 66E6E048116E155200353B14 /* losphere.obj */; };
 		66E6E06F116E1C7A00353B14 /* TriMesh3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66E6E06E116E1C7A00353B14 /* TriMesh3D.mm */; };
 		66E6E0E7116E2CAC00353B14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E6E0E6116E2CAC00353B14 /* CoreGraphics.framework */; };
+		66E6E195116EF5F900353B14 /* hisphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 66E6E194116EF5F900353B14 /* hisphere.obj */; };
+		66E6E1A4116EF8BD00353B14 /* torus.obj in Resources */ = {isa = PBXBuildFile; fileRef = 66E6E1A3116EF8BD00353B14 /* torus.obj */; };
 		66FA0EFD11678DB800D77561 /* esShapes.c in Sources */ = {isa = PBXBuildFile; fileRef = 66FA0EFC11678DB800D77561 /* esShapes.c */; };
 		66FA141F11695D7100D77561 /* btAxisSweep3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA10F311695D6D00D77561 /* btAxisSweep3.cpp */; };
 		66FA142011695D7100D77561 /* btBroadphaseProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA10F611695D6D00D77561 /* btBroadphaseProxy.cpp */; };
@@ -584,6 +586,8 @@
 		66E6E06D116E1C7A00353B14 /* TriMesh3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriMesh3D.h; sourceTree = "<group>"; };
 		66E6E06E116E1C7A00353B14 /* TriMesh3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TriMesh3D.mm; sourceTree = "<group>"; };
 		66E6E0E6116E2CAC00353B14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		66E6E194116EF5F900353B14 /* hisphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hisphere.obj; path = Resources/hisphere.obj; sourceTree = "<group>"; };
+		66E6E1A3116EF8BD00353B14 /* torus.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torus.obj; path = Resources/torus.obj; sourceTree = "<group>"; };
 		66FA0EFC11678DB800D77561 /* esShapes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esShapes.c; sourceTree = "<group>"; };
 		66FA10EE11695D6D00D77561 /* btBulletCollisionCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btBulletCollisionCommon.h; sourceTree = "<group>"; };
 		66FA10EF11695D6D00D77561 /* btBulletDynamicsCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btBulletDynamicsCommon.h; sourceTree = "<group>"; };
@@ -1691,6 +1695,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66E6E1A3116EF8BD00353B14 /* torus.obj */,
+				66E6E194116EF5F900353B14 /* hisphere.obj */,
 				66E6E048116E155200353B14 /* losphere.obj */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* glesHello-Info.plist */,
@@ -3250,6 +3256,8 @@
 				66FA161511695D7200D77561 /* LinearMath_postBuildPhase.makeRelWithDebInfo in Resources */,
 				66FA161911695D7200D77561 /* Makefile.am in Resources */,
 				66E6E049116E155200353B14 /* losphere.obj in Resources */,
+				66E6E195116EF5F900353B14 /* hisphere.obj in Resources */,
+				66E6E1A4116EF8BD00353B14 /* torus.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

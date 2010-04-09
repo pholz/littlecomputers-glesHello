@@ -163,6 +163,7 @@ enum {
 	tri->init(convex);
 	tri->shader = [shaders objectForKey:@"light"];
 	tri->body = convexBody;
+	tri->scale = CONVEX_SCALE;
 	objects.push_back(tri);
 	
 	return self;

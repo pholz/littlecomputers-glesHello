@@ -13,7 +13,7 @@
 class TriMesh3D : public Obj3D {
 public:
 	GLfloat *verts, *norms, *texs;
-	GLuint *inds;
+	GLushort *inds;
 	int numInds, numVerts;
 	
 	GLuint    vertexBuffer;

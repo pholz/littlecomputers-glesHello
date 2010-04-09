@@ -14,10 +14,13 @@ class Cube3D : public Obj3D {
 public:
 	double accTime;
 	
-	
+	/*
 	vertexStruct	vertices[8];
 	vertexFullStruct	fullVertices[24];
 	GLubyte			indices[14];
+	 */
+	vertexStruct	*vertices;
+	GLubyte			*indices;
 	
 	GLfloat *verts, *norms, *texs;
 	GLubyte *inds;

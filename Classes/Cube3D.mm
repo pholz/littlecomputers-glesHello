@@ -21,8 +21,8 @@ void Cube3D::init()
 	accTime = 0.0;
 	scale = 1.0f;
 	
-	//vertices =	(vertexStruct*)	malloc(8 * sizeof(vertexStruct));
-	//indices =	(GLubyte*)		malloc(14 * sizeof(GLubyte));
+	vertices =	(vertexStruct*)	malloc(8 * sizeof(vertexStruct));
+	indices =	(GLubyte*)		malloc(14 * sizeof(GLubyte));
 	
 	vertexStruct v0 = { { -0.5f, -0.5f,  0.5f, 1.0f }, {1.0f, 0.0f,   0, 1.0f}};	vertices[0] =  v0;
 	vertexStruct v1 = { { 0.5f, -0.5f,  0.5f, 1.0f }, {0.0f, 1.0f,   0, 1.0f} };	vertices[1] =  v1;	// 1
@@ -35,36 +35,9 @@ void Cube3D::init()
 	vertexStruct v7 = 	{{ 0.5f, 0.5f,  -0.5f, 1.0f }, {1.0f, 0.0f,   1.0f, 1.0f}};	vertices[7] =  v7;// 7
 	
 	GLubyte _indices[] = { 0, 1, 2, 3,  7, 1, 5, 4,  7, 6, 2, 4,  0, 1};
-	memcpy(indices, _indices, sizeof(indices));
+	memcpy(indices, _indices, sizeof(_indices));
 	
-	/*
-	std::vector<Vec3f>* normbuff = new std::vector<Vec3f>[8];
-
-	
-	for(int i = 0; i < 14; i+= 3){
-		Vec3f p1 = Vec3f(vertices[indices[i]].position[0],vertices[indices[i]].position[1],vertices[indices[i]].position[2]);
-		Vec3f p2 = Vec3f(vertices[indices[i+1]].position[0],vertices[indices[i+1]].position[1],vertices[indices[i+1]].position[2]);
-		Vec3f p3 = Vec3f(vertices[indices[i+2]].position[0],vertices[indices[i+2]].position[1],vertices[indices[i+2]].position[2]);
-		
-		Vec3f v1 = p2 - p1;
-		Vec3f v2 = p3 - p1;
-		Vec3f normal = v1.cross(v2);
-		normal = normal.norm();
-		
-		normbuff[indices[i]].push_back(normal);
-		normbuff[indices[i+1]].push_back(normal);
-		normbuff[indices[i+2]].push_back(normal);
-	}
-	
-	for(int i = 0; i < 8; ++i)
-	{
-		for(int j = 0; j < normbuff[i].size(); ++j)
-			vertices[i].normal = vertices[i].normal + normbuff[i][j];
-		vertices[i].normal = vertices[i].normal / normbuff[i].size();
-		vertices[i].normal = vertices[i].normal.norm();
-	}
-	 */
-	 
+		 
 	
 	for(int i = 0; i < 8; i++)
 	{
@@ -75,32 +48,20 @@ void Cube3D::init()
 		
 	}
 		
-	/*
-	
-	numInds = esGenCube(1.0f, &verts, &norms, &texs, &inds);
-	
-	for(int j = 0; j < 24; j++)
-	{
-		fullVertices[j].position[0] = verts[j*3]; fullVertices[j].position[1] = verts[j*3+1]; fullVertices[j].position[2] = verts[j*3+2]; fullVertices[j].position[3] = 1.0f;
-		fullVertices[j].normal[0] = norms[j*3]; fullVertices[j].normal[1] = norms[j*3+1]; fullVertices[j].normal[2] = norms[j*3+2]; //fullVertices[j].normal[3] = 1.0f;
-	//	fullVertices[i].tex = texs[i];
-		fullVertices[j].color[0] = 1.0f; fullVertices[j].color[1] = 0.0f; fullVertices[j].color[2] = 0.0f; fullVertices[j].color[3] = 1.0f;
-	}
-	 */
-	
+		
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
 	//	[renderer glerr:@"genbf"];
 	
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	//	[renderer glerr:@"bindbf"];
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 8 * sizeof(vertexStruct), vertices, GL_STATIC_DRAW);
 	//glBufferData(GL_ARRAY_BUFFER, sizeof(fullVertices), fullVertices, GL_STATIC_DRAW);
 	//	[renderer glerr:@"bfdata"];
 	
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	//	[renderer glerr:@"bindbf"];
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 14 * sizeof(GLubyte), indices, GL_STATIC_DRAW);
 	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(inds), inds, GL_STATIC_DRAW);
 	//	[renderer glerr:@"bfdata"];
 	

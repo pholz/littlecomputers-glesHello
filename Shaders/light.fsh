@@ -6,11 +6,12 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-varying highp vec4 colorVarying;
-varying highp vec3 normVarying;
-varying highp vec3 lightDirVarying;
-varying highp vec3 halfVecVarying;
-varying highp vec4 diffuseVarying, ambientVarying;
+varying mediump vec4 colorVarying;
+varying mediump vec3 normVarying;
+varying mediump vec3 lightDirVarying;
+varying mediump vec3 halfVecVarying;
+varying mediump vec4 diffuseVarying, ambientVarying, specularVarying;
+varying mediump float shininessVarying;
 
 void main()
 {
@@ -24,9 +25,9 @@ void main()
 	if(NdotL > 0.0) {
 		
 		color += diffuseVarying * NdotL;
-		//halfV = normalize(halfVecVarying);
-		//NdotHV = max(dot(n,halfV),0.0);
-		// add specular
+		halfV = normalize(halfVecVarying);
+		NdotHV = max(dot(n,halfV),0.0);
+		color += specularVarying * pow(NdotHV, shininessVarying);
 	
 	} else {
 		//color = vec4(0.0, 1.0, 0.0, 1.0);

@@ -6,16 +6,19 @@ uniform mediump mat4 modelViewProjectionMatrix;
 uniform mediump mat4 tiMvpMatrix;
 uniform highp vec4 lightPos;
 
-varying highp vec4 colorVarying;
-varying highp vec3 normVarying;
-varying highp vec3 lightDirVarying;
-varying highp vec3 halfVecVarying;
-varying highp vec4 diffuseVarying, ambientVarying;
+varying mediump vec4 colorVarying;
+varying mediump vec3 normVarying;
+varying mediump vec3 lightDirVarying;
+varying mediump vec3 halfVecVarying;
+varying mediump vec4 diffuseVarying, ambientVarying, specularVarying;
+varying mediump float shininessVarying;
 
 void main()
 {
 	highp vec4 diffuse = vec4(1.0, 0.0, 0.0, 1.0);
 	highp vec4 ambient = vec4(0.2, 0.0, 0.0, 1.0);
+	highp vec4 specular = vec4(1.0, 1.0, 1.0, 1.0);
+	highp float shininess = 5.0;
 	
 	highp vec4 normal = normalize(tiMvpMatrix * norm);
 	normVarying = normalize(normal.xyz);
@@ -28,6 +31,8 @@ void main()
 
 	diffuseVarying = diffuse * 1.0;
 	ambientVarying = ambient * 1.0;
+	specularVarying = specular * 1.0;
+	shininessVarying = shininess * 1.0;
 	
 	gl_Position = modelViewProjectionMatrix * position;
 	colorVarying = color;

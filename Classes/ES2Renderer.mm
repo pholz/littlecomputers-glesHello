@@ -157,9 +157,9 @@ enum {
 	ci::TriMesh convex;
 	ci::ObjLoader loader( ci::app::App::loadResource( RES_TORUS )->getStream() );
 	loader.load( &convex );
-	
+
 	btConvexHullShape* shape = ci::bullet::createConvexHullShape(convex, ci::Vec3f(CONVEX_SCALE, CONVEX_SCALE, CONVEX_SCALE));
-	btRigidBody *convexBody = ci::bullet::createConvexHullBody(physics->m_dynamicsWorld, shape, ci::Vec3f(-2,-2,20), 100);
+	btRigidBody *convexBody = ci::bullet::createStaticRigidBody(physics->m_dynamicsWorld, shape, ci::Quatf(ci::Vec3f(1.0f, 0.0f, 0.0f), 3.14f/2.0f), ci::Vec3f(0,0,-7));
 	TriMesh3D *tri = new TriMesh3D();
 	tri->init(convex);
 	tri->shader = [shaders objectForKey:@"light"];
@@ -171,12 +171,14 @@ enum {
 	ci::ObjLoader loader2( ci::app::App::loadResource( RES_HISPHERE )->getStream() );
 	loader2.load( &sph );
 	
-	btRigidBody *sphBody = ci::bullet::createSphere(physics->m_dynamicsWorld, 1.0f, ci::Quatf(), ci::Vec3f(2,2,20));
+	btRigidBody *sphBody = ci::bullet::createSphere(physics->m_dynamicsWorld, 0.5f, ci::Quatf(), ci::Vec3f(2,2,20));
 	TriMesh3D *sphTri = new TriMesh3D();
 	sphTri->init(sph);
-	sphTri->shader = [shaders objectForKey:@"light"];
+	sphTri->shader = [shaders objectForKey:@"light2"];
 	sphTri->body = sphBody;
+	sphTri->scale = 0.5f;
 	objects.push_back(sphTri);
+	
 	
 	return self;
 }
@@ -364,7 +366,7 @@ enum {
 {
 	shaders = [[NSMutableDictionary alloc] init];
 	
-	NSArray *names =[[NSArray alloc] initWithObjects: @"light", nil];
+	NSArray *names =[[NSArray alloc] initWithObjects: @"light", @"light2", nil];
 	
 	for(int i = 0; i < [names count]; i++)
 	{

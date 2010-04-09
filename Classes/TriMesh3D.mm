@@ -69,6 +69,7 @@ void TriMesh3D::render(ESMatrix* p)
 	ESMatrix modelview;
 	ESMatrix matrix;
 	
+
 	if(body){
 		btTransform trans;
 		body->getMotionState()->getWorldTransform(trans);

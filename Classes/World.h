@@ -7,11 +7,12 @@
  *
  */
 
-#include "Physics.h"
-#include "Cube3D.h"
 #include "cinder/Quaternion.h"
-#include "Shader.h"
-#import "btBulletDynamicsCommon.h"
+#import "Shader.h"
+
+class Physics;
+
+class Cube3D;
 
 class World {
 	Physics *mPhysics;
@@ -19,6 +20,7 @@ class World {
 	
 public:
 	World(Physics* physics);
-	Cube3D* addStaticCube(Vec3f pos, Vec3f size, ci::Quatf rot, Shader *s);
+	Cube3D* addStaticCube(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s);
+	Cube3D* addGoal(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s);
 	
 };

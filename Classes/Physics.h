@@ -7,8 +7,7 @@
  *
  */
 
-#include "btBulletDynamicsCommon.h"
-#include "Vec3f.h"
+#include "common.h"
 
 class Physics {
 public:

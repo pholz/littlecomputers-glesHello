@@ -15,10 +15,9 @@
 #include "cinder/TriMesh.h"
 #include "cinder/ObjLoader.h"
 #include "cinder/Quaternion.h"
-
-#include "btBulletDynamicsCommon.h"
-#include "CinderBullet.h"
 #include "Resources.h"
+#include "Physics.h"
+#include "World.h"
 #include <string>
 #include <sstream>
 
@@ -176,7 +175,7 @@ enum {
 	ci::ObjLoader loader2( ci::app::App::loadResource( RES_HISPHERE )->getStream() );
 	loader2.load( &sph );
 	
-	btRigidBody *sphBody = ci::bullet::createSphere(physics->m_dynamicsWorld, 0.5f, ci::Quatf(), ci::Vec3f(2,2,20));
+	btRigidBody *sphBody = createSphere(physics->m_dynamicsWorld, 0.5f, btQuaternion(), btVector3(2,2,20));
 	TriMesh3D *sphTri = new TriMesh3D();
 	
 	sphTri->init(sph);
@@ -193,9 +192,9 @@ enum {
 	Shader *worldShader = [shaders objectForKey:@"light2"];
 	
 	world = new World(physics);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 0.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), ci::Quatf(), worldShader	)	);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 4.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), ci::Quatf(), worldShader	)	);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 8.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), ci::Quatf(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 0.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 4.0f, -5.0f), Vec3f(1.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 8.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
 
 	// --------------------------------
 	

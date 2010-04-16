@@ -8,7 +8,6 @@
  *
  */
 #include <math.h>
-#include "btBulletDynamicsCommon.h"
 
 class Vec3f
 {

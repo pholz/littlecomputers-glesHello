@@ -8,13 +8,12 @@
 
 #include <vector.h>
 #import "ESRenderer.h"
-#include "esUtil.h"
+
 #include "ArcBall.h"
 #import "common.h"
 #import "Shader.h"
-#import "Physics.h"
-#import "World.h"
-//#include "Obj3D.h"
+class Physics;
+class World;
 
 #define VERTEX_POS_INDX	0 
 #define VERTEX_COLOR_INDX	1 

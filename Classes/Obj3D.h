@@ -8,16 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "btBulletDynamicsCommon.h"
-//#import "ArcBall.h"
-#include "ES2Renderer.h"
+#import "common.h"
 #include <string>
-
+#import "Shader.h"
 
 class Obj3D
 {
 public:
-	ES2Renderer *renderer;
 	
 	// Attribute locations
 	GLuint	positionLoc, colorLoc;

@@ -20,7 +20,7 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		66469957115B02BE0030CE5D /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66469956115B02BE0030CE5D /* Shader.mm */; };
-		66469AA3115BEC860030CE5D /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66469AA2115BEC860030CE5D /* Physics.cpp */; };
+		66469AA3115BEC860030CE5D /* Physics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66469AA2115BEC860030CE5D /* Physics.mm */; };
 		66A8CAA7116F73320040F2C5 /* light2.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 66A8CAA5116F73310040F2C5 /* light2.fsh */; };
 		66A8CAA8116F73320040F2C5 /* light2.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 66A8CAA6116F73310040F2C5 /* light2.vsh */; };
 		66A8CAB9116F73C40040F2C5 /* light2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 66A8CAA5116F73310040F2C5 /* light2.fsh */; };
@@ -47,206 +47,6 @@
 		66FA142611695D7100D77561 /* btOverlappingPairCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA110211695D6D00D77561 /* btOverlappingPairCache.cpp */; };
 		66FA142711695D7100D77561 /* btQuantizedBvh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA110511695D6D00D77561 /* btQuantizedBvh.cpp */; };
 		66FA142811695D7100D77561 /* btSimpleBroadphase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA110711695D6D00D77561 /* btSimpleBroadphase.cpp */; };
-		66FA142911695D7100D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA110C11695D6D00D77561 /* build-state.dat */; };
-		66FA142A11695D7100D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA110D11695D6D00D77561 /* build-state~.dat */; };
-		66FA142B11695D7100D77561 /* libBulletCollision.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA110E11695D6D00D77561 /* libBulletCollision.a.dep */; };
-		66FA142C11695D7100D77561 /* libBulletCollision.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA110F11695D6D00D77561 /* libBulletCollision.a~.dep */; };
-		66FA142D11695D7100D77561 /* btActivatingCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111211695D6D00D77561 /* btActivatingCollisionAlgorithm.o */; };
-		66FA142E11695D7100D77561 /* btAxisSweep3.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111311695D6D00D77561 /* btAxisSweep3.o */; };
-		66FA142F11695D7100D77561 /* btBox2dBox2dCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111411695D6D00D77561 /* btBox2dBox2dCollisionAlgorithm.o */; };
-		66FA143011695D7100D77561 /* btBox2dShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111511695D6D00D77561 /* btBox2dShape.o */; };
-		66FA143111695D7100D77561 /* btBoxBoxCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111611695D6D00D77561 /* btBoxBoxCollisionAlgorithm.o */; };
-		66FA143211695D7100D77561 /* btBoxBoxDetector.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111711695D6D00D77561 /* btBoxBoxDetector.o */; };
-		66FA143311695D7100D77561 /* btBoxShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111811695D6D00D77561 /* btBoxShape.o */; };
-		66FA143411695D7100D77561 /* btBroadphaseProxy.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111911695D6D00D77561 /* btBroadphaseProxy.o */; };
-		66FA143511695D7100D77561 /* btBvhTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111A11695D6D00D77561 /* btBvhTriangleMeshShape.o */; };
-		66FA143611695D7100D77561 /* btCapsuleShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111B11695D6D00D77561 /* btCapsuleShape.o */; };
-		66FA143711695D7100D77561 /* btCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111C11695D6D00D77561 /* btCollisionAlgorithm.o */; };
-		66FA143811695D7100D77561 /* btCollisionDispatcher.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111D11695D6D00D77561 /* btCollisionDispatcher.o */; };
-		66FA143911695D7100D77561 /* btCollisionObject.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111E11695D6D00D77561 /* btCollisionObject.o */; };
-		66FA143A11695D7100D77561 /* btCollisionShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA111F11695D6D00D77561 /* btCollisionShape.o */; };
-		66FA143B11695D7100D77561 /* btCollisionWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112011695D6D00D77561 /* btCollisionWorld.o */; };
-		66FA143C11695D7100D77561 /* btCompoundCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112111695D6D00D77561 /* btCompoundCollisionAlgorithm.o */; };
-		66FA143D11695D7100D77561 /* btCompoundShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112211695D6D00D77561 /* btCompoundShape.o */; };
-		66FA143E11695D7100D77561 /* btConcaveShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112311695D6D00D77561 /* btConcaveShape.o */; };
-		66FA143F11695D7100D77561 /* btConeShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112411695D6D00D77561 /* btConeShape.o */; };
-		66FA144011695D7100D77561 /* btContactProcessing.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112511695D6D00D77561 /* btContactProcessing.o */; };
-		66FA144111695D7100D77561 /* btContinuousConvexCollision.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112611695D6D00D77561 /* btContinuousConvexCollision.o */; };
-		66FA144211695D7100D77561 /* btConvex2dConvex2dAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112711695D6D00D77561 /* btConvex2dConvex2dAlgorithm.o */; };
-		66FA144311695D7100D77561 /* btConvex2dShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112811695D6D00D77561 /* btConvex2dShape.o */; };
-		66FA144411695D7100D77561 /* btConvexCast.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112911695D6D00D77561 /* btConvexCast.o */; };
-		66FA144511695D7100D77561 /* btConvexConcaveCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112A11695D6D00D77561 /* btConvexConcaveCollisionAlgorithm.o */; };
-		66FA144611695D7100D77561 /* btConvexConvexAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112B11695D6D00D77561 /* btConvexConvexAlgorithm.o */; };
-		66FA144711695D7100D77561 /* btConvexHullShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112C11695D6D00D77561 /* btConvexHullShape.o */; };
-		66FA144811695D7100D77561 /* btConvexInternalShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112D11695D6D00D77561 /* btConvexInternalShape.o */; };
-		66FA144911695D7100D77561 /* btConvexPlaneCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112E11695D6D00D77561 /* btConvexPlaneCollisionAlgorithm.o */; };
-		66FA144A11695D7100D77561 /* btConvexPointCloudShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA112F11695D6D00D77561 /* btConvexPointCloudShape.o */; };
-		66FA144B11695D7100D77561 /* btConvexShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113011695D6D00D77561 /* btConvexShape.o */; };
-		66FA144C11695D7100D77561 /* btConvexTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113111695D6D00D77561 /* btConvexTriangleMeshShape.o */; };
-		66FA144D11695D7100D77561 /* btCylinderShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113211695D6D00D77561 /* btCylinderShape.o */; };
-		66FA144E11695D7100D77561 /* btDbvt.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113311695D6D00D77561 /* btDbvt.o */; };
-		66FA144F11695D7100D77561 /* btDbvtBroadphase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113411695D6D00D77561 /* btDbvtBroadphase.o */; };
-		66FA145011695D7100D77561 /* btDefaultCollisionConfiguration.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113511695D6D00D77561 /* btDefaultCollisionConfiguration.o */; };
-		66FA145111695D7100D77561 /* btDispatcher.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113611695D6D00D77561 /* btDispatcher.o */; };
-		66FA145211695D7100D77561 /* btEmptyCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113711695D6D00D77561 /* btEmptyCollisionAlgorithm.o */; };
-		66FA145311695D7100D77561 /* btEmptyShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113811695D6D00D77561 /* btEmptyShape.o */; };
-		66FA145411695D7100D77561 /* btGenericPoolAllocator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113911695D6D00D77561 /* btGenericPoolAllocator.o */; };
-		66FA145511695D7100D77561 /* btGhostObject.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113A11695D6D00D77561 /* btGhostObject.o */; };
-		66FA145611695D7100D77561 /* btGImpactBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113B11695D6D00D77561 /* btGImpactBvh.o */; };
-		66FA145711695D7100D77561 /* btGImpactCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113C11695D6D00D77561 /* btGImpactCollisionAlgorithm.o */; };
-		66FA145811695D7100D77561 /* btGImpactQuantizedBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113D11695D6D00D77561 /* btGImpactQuantizedBvh.o */; };
-		66FA145911695D7100D77561 /* btGImpactShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113E11695D6D00D77561 /* btGImpactShape.o */; };
-		66FA145A11695D7100D77561 /* btGjkConvexCast.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA113F11695D6D00D77561 /* btGjkConvexCast.o */; };
-		66FA145B11695D7100D77561 /* btGjkEpa2.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114011695D6E00D77561 /* btGjkEpa2.o */; };
-		66FA145C11695D7100D77561 /* btGjkEpaPenetrationDepthSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114111695D6E00D77561 /* btGjkEpaPenetrationDepthSolver.o */; };
-		66FA145D11695D7100D77561 /* btGjkPairDetector.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114211695D6E00D77561 /* btGjkPairDetector.o */; };
-		66FA145E11695D7100D77561 /* btHeightfieldTerrainShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114311695D6E00D77561 /* btHeightfieldTerrainShape.o */; };
-		66FA145F11695D7100D77561 /* btInternalEdgeUtility.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114411695D6E00D77561 /* btInternalEdgeUtility.o */; };
-		66FA146011695D7100D77561 /* btManifoldResult.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114511695D6E00D77561 /* btManifoldResult.o */; };
-		66FA146111695D7100D77561 /* btMinkowskiPenetrationDepthSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114611695D6E00D77561 /* btMinkowskiPenetrationDepthSolver.o */; };
-		66FA146211695D7100D77561 /* btMinkowskiSumShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114711695D6E00D77561 /* btMinkowskiSumShape.o */; };
-		66FA146311695D7100D77561 /* btMultimaterialTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114811695D6E00D77561 /* btMultimaterialTriangleMeshShape.o */; };
-		66FA146411695D7100D77561 /* btMultiSapBroadphase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114911695D6E00D77561 /* btMultiSapBroadphase.o */; };
-		66FA146511695D7100D77561 /* btMultiSphereShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114A11695D6E00D77561 /* btMultiSphereShape.o */; };
-		66FA146611695D7100D77561 /* btOptimizedBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114B11695D6E00D77561 /* btOptimizedBvh.o */; };
-		66FA146711695D7100D77561 /* btOverlappingPairCache.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114C11695D6E00D77561 /* btOverlappingPairCache.o */; };
-		66FA146811695D7100D77561 /* btPersistentManifold.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114D11695D6E00D77561 /* btPersistentManifold.o */; };
-		66FA146911695D7100D77561 /* btPolyhedralConvexShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114E11695D6E00D77561 /* btPolyhedralConvexShape.o */; };
-		66FA146A11695D7100D77561 /* btQuantizedBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA114F11695D6E00D77561 /* btQuantizedBvh.o */; };
-		66FA146B11695D7100D77561 /* btRaycastCallback.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115011695D6E00D77561 /* btRaycastCallback.o */; };
-		66FA146C11695D7100D77561 /* btScaledBvhTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115111695D6E00D77561 /* btScaledBvhTriangleMeshShape.o */; };
-		66FA146D11695D7100D77561 /* btShapeHull.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115211695D6E00D77561 /* btShapeHull.o */; };
-		66FA146E11695D7100D77561 /* btSimpleBroadphase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115311695D6E00D77561 /* btSimpleBroadphase.o */; };
-		66FA146F11695D7100D77561 /* btSimulationIslandManager.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115411695D6E00D77561 /* btSimulationIslandManager.o */; };
-		66FA147011695D7100D77561 /* btSphereBoxCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115511695D6E00D77561 /* btSphereBoxCollisionAlgorithm.o */; };
-		66FA147111695D7100D77561 /* btSphereShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115611695D6E00D77561 /* btSphereShape.o */; };
-		66FA147211695D7100D77561 /* btSphereSphereCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115711695D6E00D77561 /* btSphereSphereCollisionAlgorithm.o */; };
-		66FA147311695D7100D77561 /* btSphereTriangleCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115811695D6E00D77561 /* btSphereTriangleCollisionAlgorithm.o */; };
-		66FA147411695D7100D77561 /* btStaticPlaneShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115911695D6E00D77561 /* btStaticPlaneShape.o */; };
-		66FA147511695D7100D77561 /* btStridingMeshInterface.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115A11695D6E00D77561 /* btStridingMeshInterface.o */; };
-		66FA147611695D7100D77561 /* btSubSimplexConvexCast.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115B11695D6E00D77561 /* btSubSimplexConvexCast.o */; };
-		66FA147711695D7100D77561 /* btTetrahedronShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115C11695D6E00D77561 /* btTetrahedronShape.o */; };
-		66FA147811695D7100D77561 /* btTriangleBuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115D11695D6E00D77561 /* btTriangleBuffer.o */; };
-		66FA147911695D7100D77561 /* btTriangleCallback.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115E11695D6E00D77561 /* btTriangleCallback.o */; };
-		66FA147A11695D7100D77561 /* btTriangleIndexVertexArray.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA115F11695D6E00D77561 /* btTriangleIndexVertexArray.o */; };
-		66FA147B11695D7100D77561 /* btTriangleIndexVertexMaterialArray.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116011695D6E00D77561 /* btTriangleIndexVertexMaterialArray.o */; };
-		66FA147C11695D7100D77561 /* btTriangleMesh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116111695D6E00D77561 /* btTriangleMesh.o */; };
-		66FA147D11695D7100D77561 /* btTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116211695D6E00D77561 /* btTriangleMeshShape.o */; };
-		66FA147E11695D7100D77561 /* btTriangleShapeEx.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116311695D6E00D77561 /* btTriangleShapeEx.o */; };
-		66FA147F11695D7100D77561 /* btUniformScalingShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116411695D6E00D77561 /* btUniformScalingShape.o */; };
-		66FA148011695D7100D77561 /* btUnionFind.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116511695D6E00D77561 /* btUnionFind.o */; };
-		66FA148111695D7100D77561 /* btVoronoiSimplexSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116611695D6E00D77561 /* btVoronoiSimplexSolver.o */; };
-		66FA148211695D7100D77561 /* BulletCollision.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA116711695D6E00D77561 /* BulletCollision.LinkFileList */; };
-		66FA148311695D7100D77561 /* gim_box_set.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116811695D6E00D77561 /* gim_box_set.o */; };
-		66FA148411695D7100D77561 /* gim_contact.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116911695D6E00D77561 /* gim_contact.o */; };
-		66FA148511695D7100D77561 /* gim_memory.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116A11695D6E00D77561 /* gim_memory.o */; };
-		66FA148611695D7100D77561 /* gim_tri_collision.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116B11695D6E00D77561 /* gim_tri_collision.o */; };
-		66FA148711695D7100D77561 /* SphereTriangleDetector.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA116C11695D6E00D77561 /* SphereTriangleDetector.o */; };
-		66FA148811695D7100D77561 /* Script-101623170101623170101623.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA116D11695D6E00D77561 /* Script-101623170101623170101623.sh */; };
-		66FA148911695D7100D77561 /* Script-101623B80101623B80101623.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA116E11695D6E00D77561 /* Script-101623B80101623B80101623.sh */; };
-		66FA148A11695D7100D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA117111695D6E00D77561 /* build-state.dat */; };
-		66FA148B11695D7100D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA117211695D6E00D77561 /* build-state~.dat */; };
-		66FA148C11695D7100D77561 /* libBulletCollision.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA117311695D6E00D77561 /* libBulletCollision.a.dep */; };
-		66FA148D11695D7100D77561 /* libBulletCollision.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA117411695D6E00D77561 /* libBulletCollision.a~.dep */; };
-		66FA148E11695D7100D77561 /* btActivatingCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117711695D6E00D77561 /* btActivatingCollisionAlgorithm.o */; };
-		66FA148F11695D7100D77561 /* btAxisSweep3.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117811695D6E00D77561 /* btAxisSweep3.o */; };
-		66FA149011695D7100D77561 /* btBox2dBox2dCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117911695D6E00D77561 /* btBox2dBox2dCollisionAlgorithm.o */; };
-		66FA149111695D7100D77561 /* btBox2dShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117A11695D6E00D77561 /* btBox2dShape.o */; };
-		66FA149211695D7100D77561 /* btBoxBoxCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117B11695D6E00D77561 /* btBoxBoxCollisionAlgorithm.o */; };
-		66FA149311695D7100D77561 /* btBoxBoxDetector.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117C11695D6E00D77561 /* btBoxBoxDetector.o */; };
-		66FA149411695D7100D77561 /* btBoxShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117D11695D6E00D77561 /* btBoxShape.o */; };
-		66FA149511695D7100D77561 /* btBroadphaseProxy.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117E11695D6E00D77561 /* btBroadphaseProxy.o */; };
-		66FA149611695D7100D77561 /* btBvhTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA117F11695D6E00D77561 /* btBvhTriangleMeshShape.o */; };
-		66FA149711695D7100D77561 /* btCapsuleShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118011695D6E00D77561 /* btCapsuleShape.o */; };
-		66FA149811695D7100D77561 /* btCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118111695D6E00D77561 /* btCollisionAlgorithm.o */; };
-		66FA149911695D7100D77561 /* btCollisionDispatcher.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118211695D6E00D77561 /* btCollisionDispatcher.o */; };
-		66FA149A11695D7100D77561 /* btCollisionObject.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118311695D6E00D77561 /* btCollisionObject.o */; };
-		66FA149B11695D7100D77561 /* btCollisionShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118411695D6E00D77561 /* btCollisionShape.o */; };
-		66FA149C11695D7100D77561 /* btCollisionWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118511695D6E00D77561 /* btCollisionWorld.o */; };
-		66FA149D11695D7100D77561 /* btCompoundCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118611695D6E00D77561 /* btCompoundCollisionAlgorithm.o */; };
-		66FA149E11695D7100D77561 /* btCompoundShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118711695D6E00D77561 /* btCompoundShape.o */; };
-		66FA149F11695D7100D77561 /* btConcaveShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118811695D6E00D77561 /* btConcaveShape.o */; };
-		66FA14A011695D7100D77561 /* btConeShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118911695D6E00D77561 /* btConeShape.o */; };
-		66FA14A111695D7100D77561 /* btContactProcessing.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118A11695D6E00D77561 /* btContactProcessing.o */; };
-		66FA14A211695D7100D77561 /* btContinuousConvexCollision.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118B11695D6E00D77561 /* btContinuousConvexCollision.o */; };
-		66FA14A311695D7100D77561 /* btConvex2dConvex2dAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118C11695D6E00D77561 /* btConvex2dConvex2dAlgorithm.o */; };
-		66FA14A411695D7100D77561 /* btConvex2dShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118D11695D6E00D77561 /* btConvex2dShape.o */; };
-		66FA14A511695D7100D77561 /* btConvexCast.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118E11695D6E00D77561 /* btConvexCast.o */; };
-		66FA14A611695D7100D77561 /* btConvexConcaveCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA118F11695D6E00D77561 /* btConvexConcaveCollisionAlgorithm.o */; };
-		66FA14A711695D7100D77561 /* btConvexConvexAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119011695D6E00D77561 /* btConvexConvexAlgorithm.o */; };
-		66FA14A811695D7100D77561 /* btConvexHullShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119111695D6E00D77561 /* btConvexHullShape.o */; };
-		66FA14A911695D7100D77561 /* btConvexInternalShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119211695D6E00D77561 /* btConvexInternalShape.o */; };
-		66FA14AA11695D7100D77561 /* btConvexPlaneCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119311695D6E00D77561 /* btConvexPlaneCollisionAlgorithm.o */; };
-		66FA14AB11695D7100D77561 /* btConvexPointCloudShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119411695D6E00D77561 /* btConvexPointCloudShape.o */; };
-		66FA14AC11695D7100D77561 /* btConvexShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119511695D6E00D77561 /* btConvexShape.o */; };
-		66FA14AD11695D7100D77561 /* btConvexTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119611695D6E00D77561 /* btConvexTriangleMeshShape.o */; };
-		66FA14AE11695D7100D77561 /* btCylinderShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119711695D6E00D77561 /* btCylinderShape.o */; };
-		66FA14AF11695D7100D77561 /* btDbvt.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119811695D6E00D77561 /* btDbvt.o */; };
-		66FA14B011695D7100D77561 /* btDbvtBroadphase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119911695D6E00D77561 /* btDbvtBroadphase.o */; };
-		66FA14B111695D7100D77561 /* btDefaultCollisionConfiguration.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119A11695D6E00D77561 /* btDefaultCollisionConfiguration.o */; };
-		66FA14B211695D7100D77561 /* btDispatcher.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119B11695D6E00D77561 /* btDispatcher.o */; };
-		66FA14B311695D7100D77561 /* btEmptyCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119C11695D6E00D77561 /* btEmptyCollisionAlgorithm.o */; };
-		66FA14B411695D7100D77561 /* btEmptyShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119D11695D6E00D77561 /* btEmptyShape.o */; };
-		66FA14B511695D7100D77561 /* btGenericPoolAllocator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119E11695D6E00D77561 /* btGenericPoolAllocator.o */; };
-		66FA14B611695D7100D77561 /* btGhostObject.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA119F11695D6E00D77561 /* btGhostObject.o */; };
-		66FA14B711695D7100D77561 /* btGImpactBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A011695D6E00D77561 /* btGImpactBvh.o */; };
-		66FA14B811695D7100D77561 /* btGImpactCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A111695D6E00D77561 /* btGImpactCollisionAlgorithm.o */; };
-		66FA14B911695D7100D77561 /* btGImpactQuantizedBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A211695D6E00D77561 /* btGImpactQuantizedBvh.o */; };
-		66FA14BA11695D7100D77561 /* btGImpactShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A311695D6E00D77561 /* btGImpactShape.o */; };
-		66FA14BB11695D7100D77561 /* btGjkConvexCast.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A411695D6E00D77561 /* btGjkConvexCast.o */; };
-		66FA14BC11695D7100D77561 /* btGjkEpa2.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A511695D6E00D77561 /* btGjkEpa2.o */; };
-		66FA14BD11695D7100D77561 /* btGjkEpaPenetrationDepthSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A611695D6E00D77561 /* btGjkEpaPenetrationDepthSolver.o */; };
-		66FA14BE11695D7100D77561 /* btGjkPairDetector.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A711695D6E00D77561 /* btGjkPairDetector.o */; };
-		66FA14BF11695D7100D77561 /* btHeightfieldTerrainShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A811695D6E00D77561 /* btHeightfieldTerrainShape.o */; };
-		66FA14C011695D7100D77561 /* btInternalEdgeUtility.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11A911695D6E00D77561 /* btInternalEdgeUtility.o */; };
-		66FA14C111695D7100D77561 /* btManifoldResult.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11AA11695D6E00D77561 /* btManifoldResult.o */; };
-		66FA14C211695D7100D77561 /* btMinkowskiPenetrationDepthSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11AB11695D6E00D77561 /* btMinkowskiPenetrationDepthSolver.o */; };
-		66FA14C311695D7100D77561 /* btMinkowskiSumShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11AC11695D6E00D77561 /* btMinkowskiSumShape.o */; };
-		66FA14C411695D7100D77561 /* btMultimaterialTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11AD11695D6E00D77561 /* btMultimaterialTriangleMeshShape.o */; };
-		66FA14C511695D7100D77561 /* btMultiSapBroadphase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11AE11695D6E00D77561 /* btMultiSapBroadphase.o */; };
-		66FA14C611695D7100D77561 /* btMultiSphereShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11AF11695D6E00D77561 /* btMultiSphereShape.o */; };
-		66FA14C711695D7100D77561 /* btOptimizedBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B011695D6E00D77561 /* btOptimizedBvh.o */; };
-		66FA14C811695D7100D77561 /* btOverlappingPairCache.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B111695D6E00D77561 /* btOverlappingPairCache.o */; };
-		66FA14C911695D7100D77561 /* btPersistentManifold.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B211695D6E00D77561 /* btPersistentManifold.o */; };
-		66FA14CA11695D7100D77561 /* btPolyhedralConvexShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B311695D6E00D77561 /* btPolyhedralConvexShape.o */; };
-		66FA14CB11695D7100D77561 /* btQuantizedBvh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B411695D6E00D77561 /* btQuantizedBvh.o */; };
-		66FA14CC11695D7100D77561 /* btRaycastCallback.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B511695D6E00D77561 /* btRaycastCallback.o */; };
-		66FA14CD11695D7100D77561 /* btScaledBvhTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B611695D6E00D77561 /* btScaledBvhTriangleMeshShape.o */; };
-		66FA14CE11695D7100D77561 /* btShapeHull.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B711695D6E00D77561 /* btShapeHull.o */; };
-		66FA14CF11695D7100D77561 /* btSimpleBroadphase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B811695D6E00D77561 /* btSimpleBroadphase.o */; };
-		66FA14D011695D7100D77561 /* btSimulationIslandManager.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11B911695D6E00D77561 /* btSimulationIslandManager.o */; };
-		66FA14D111695D7100D77561 /* btSphereBoxCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11BA11695D6E00D77561 /* btSphereBoxCollisionAlgorithm.o */; };
-		66FA14D211695D7100D77561 /* btSphereShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11BB11695D6E00D77561 /* btSphereShape.o */; };
-		66FA14D311695D7100D77561 /* btSphereSphereCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11BC11695D6E00D77561 /* btSphereSphereCollisionAlgorithm.o */; };
-		66FA14D411695D7100D77561 /* btSphereTriangleCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11BD11695D6E00D77561 /* btSphereTriangleCollisionAlgorithm.o */; };
-		66FA14D511695D7100D77561 /* btStaticPlaneShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11BE11695D6E00D77561 /* btStaticPlaneShape.o */; };
-		66FA14D611695D7100D77561 /* btStridingMeshInterface.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11BF11695D6E00D77561 /* btStridingMeshInterface.o */; };
-		66FA14D711695D7100D77561 /* btSubSimplexConvexCast.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C011695D6E00D77561 /* btSubSimplexConvexCast.o */; };
-		66FA14D811695D7100D77561 /* btTetrahedronShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C111695D6E00D77561 /* btTetrahedronShape.o */; };
-		66FA14D911695D7100D77561 /* btTriangleBuffer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C211695D6E00D77561 /* btTriangleBuffer.o */; };
-		66FA14DA11695D7100D77561 /* btTriangleCallback.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C311695D6E00D77561 /* btTriangleCallback.o */; };
-		66FA14DB11695D7100D77561 /* btTriangleIndexVertexArray.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C411695D6E00D77561 /* btTriangleIndexVertexArray.o */; };
-		66FA14DC11695D7100D77561 /* btTriangleIndexVertexMaterialArray.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C511695D6E00D77561 /* btTriangleIndexVertexMaterialArray.o */; };
-		66FA14DD11695D7100D77561 /* btTriangleMesh.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C611695D6E00D77561 /* btTriangleMesh.o */; };
-		66FA14DE11695D7100D77561 /* btTriangleMeshShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C711695D6E00D77561 /* btTriangleMeshShape.o */; };
-		66FA14DF11695D7100D77561 /* btTriangleShapeEx.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C811695D6E00D77561 /* btTriangleShapeEx.o */; };
-		66FA14E011695D7100D77561 /* btUniformScalingShape.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11C911695D6E00D77561 /* btUniformScalingShape.o */; };
-		66FA14E111695D7100D77561 /* btUnionFind.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11CA11695D6E00D77561 /* btUnionFind.o */; };
-		66FA14E211695D7100D77561 /* btVoronoiSimplexSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11CB11695D6E00D77561 /* btVoronoiSimplexSolver.o */; };
-		66FA14E311695D7100D77561 /* BulletCollision.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11CC11695D6E00D77561 /* BulletCollision.LinkFileList */; };
-		66FA14E411695D7100D77561 /* gim_box_set.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11CD11695D6E00D77561 /* gim_box_set.o */; };
-		66FA14E511695D7100D77561 /* gim_contact.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11CE11695D6E00D77561 /* gim_contact.o */; };
-		66FA14E611695D7100D77561 /* gim_memory.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11CF11695D6E00D77561 /* gim_memory.o */; };
-		66FA14E711695D7100D77561 /* gim_tri_collision.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11D011695D6E00D77561 /* gim_tri_collision.o */; };
-		66FA14E811695D7100D77561 /* SphereTriangleDetector.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA11D111695D6E00D77561 /* SphereTriangleDetector.o */; };
-		66FA14E911695D7100D77561 /* Script-101623170101623170101623.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11D211695D6E00D77561 /* Script-101623170101623170101623.sh */; };
-		66FA14EA11695D7100D77561 /* Script-101623B80101623B80101623.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11D311695D6E00D77561 /* Script-101623B80101623B80101623.sh */; };
-		66FA14EB11695D7100D77561 /* cmake_install.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11D411695D6E00D77561 /* cmake_install.cmake */; };
-		66FA14EC11695D7100D77561 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11D611695D6E00D77561 /* CMakeLists.txt */; };
-		66FA14ED11695D7100D77561 /* BulletCollision_postBuildPhase.makeDebug in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11D811695D6E00D77561 /* BulletCollision_postBuildPhase.makeDebug */; };
-		66FA14EE11695D7100D77561 /* BulletCollision_postBuildPhase.makeMinSizeRel in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11D911695D6E00D77561 /* BulletCollision_postBuildPhase.makeMinSizeRel */; };
-		66FA14EF11695D7100D77561 /* BulletCollision_postBuildPhase.makeRelease in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11DA11695D6E00D77561 /* BulletCollision_postBuildPhase.makeRelease */; };
-		66FA14F011695D7100D77561 /* BulletCollision_postBuildPhase.makeRelWithDebInfo in Resources */ = {isa = PBXBuildFile; fileRef = 66FA11DB11695D6E00D77561 /* BulletCollision_postBuildPhase.makeRelWithDebInfo */; };
 		66FA14F111695D7100D77561 /* btActivatingCollisionAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA11DD11695D6F00D77561 /* btActivatingCollisionAlgorithm.cpp */; };
 		66FA14F211695D7100D77561 /* btBox2dBox2dCollisionAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA11DF11695D6F00D77561 /* btBox2dBox2dCollisionAlgorithm.cpp */; };
 		66FA14F311695D7100D77561 /* btBoxBoxCollisionAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA11E111695D6F00D77561 /* btBoxBoxCollisionAlgorithm.cpp */; };
@@ -305,8 +105,6 @@
 		66FA152811695D7100D77561 /* btTriangleMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA125111695D6F00D77561 /* btTriangleMesh.cpp */; };
 		66FA152911695D7100D77561 /* btTriangleMeshShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA125311695D6F00D77561 /* btTriangleMeshShape.cpp */; };
 		66FA152A11695D7100D77561 /* btUniformScalingShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA125611695D6F00D77561 /* btUniformScalingShape.cpp */; };
-		66FA152B11695D7100D77561 /* libBulletCollision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA125911695D6F00D77561 /* libBulletCollision.a */; };
-		66FA152C11695D7100D77561 /* Doxyfile in Resources */ = {isa = PBXBuildFile; fileRef = 66FA125A11695D6F00D77561 /* Doxyfile */; };
 		66FA152D11695D7100D77561 /* btContactProcessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA125E11695D6F00D77561 /* btContactProcessing.cpp */; };
 		66FA152E11695D7100D77561 /* btGenericPoolAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA126011695D6F00D77561 /* btGenericPoolAllocator.cpp */; };
 		66FA152F11695D7100D77561 /* btGImpactBvh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA126311695D6F00D77561 /* btGImpactBvh.cpp */; };
@@ -330,68 +128,7 @@
 		66FA154111695D7100D77561 /* btRaycastCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA129911695D6F00D77561 /* btRaycastCallback.cpp */; };
 		66FA154211695D7100D77561 /* btSubSimplexConvexCast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA129C11695D6F00D77561 /* btSubSimplexConvexCast.cpp */; };
 		66FA154311695D7100D77561 /* btVoronoiSimplexSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA129E11695D6F00D77561 /* btVoronoiSimplexSolver.cpp */; };
-		66FA154411695D7100D77561 /* libBulletCollision.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12A111695D6F00D77561 /* libBulletCollision.a */; };
-		66FA154511695D7100D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12A611695D6F00D77561 /* build-state.dat */; };
-		66FA154611695D7100D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12A711695D6F00D77561 /* build-state~.dat */; };
-		66FA154711695D7100D77561 /* libBulletDynamics.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12A811695D6F00D77561 /* libBulletDynamics.a.dep */; };
-		66FA154811695D7100D77561 /* libBulletDynamics.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12A911695D6F00D77561 /* libBulletDynamics.a~.dep */; };
-		66FA154911695D7100D77561 /* btConeTwistConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12AC11695D6F00D77561 /* btConeTwistConstraint.o */; };
-		66FA154A11695D7100D77561 /* btContactConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12AD11695D6F00D77561 /* btContactConstraint.o */; };
-		66FA154B11695D7100D77561 /* btContinuousDynamicsWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12AE11695D6F00D77561 /* btContinuousDynamicsWorld.o */; };
-		66FA154C11695D7100D77561 /* btDiscreteDynamicsWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12AF11695D6F00D77561 /* btDiscreteDynamicsWorld.o */; };
-		66FA154D11695D7100D77561 /* btGeneric6DofConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B011695D6F00D77561 /* btGeneric6DofConstraint.o */; };
-		66FA154E11695D7100D77561 /* btGeneric6DofSpringConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B111695D6F00D77561 /* btGeneric6DofSpringConstraint.o */; };
-		66FA154F11695D7100D77561 /* btHinge2Constraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B211695D6F00D77561 /* btHinge2Constraint.o */; };
-		66FA155011695D7100D77561 /* btHingeConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B311695D6F00D77561 /* btHingeConstraint.o */; };
-		66FA155111695D7100D77561 /* btKinematicCharacterController.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B411695D6F00D77561 /* btKinematicCharacterController.o */; };
-		66FA155211695D7100D77561 /* btPoint2PointConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B511695D6F00D77561 /* btPoint2PointConstraint.o */; };
-		66FA155311695D7100D77561 /* btRaycastVehicle.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B611695D6F00D77561 /* btRaycastVehicle.o */; };
-		66FA155411695D7100D77561 /* btRigidBody.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B711695D6F00D77561 /* btRigidBody.o */; };
-		66FA155511695D7100D77561 /* btSequentialImpulseConstraintSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B811695D6F00D77561 /* btSequentialImpulseConstraintSolver.o */; };
-		66FA155611695D7100D77561 /* btSimpleDynamicsWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12B911695D6F00D77561 /* btSimpleDynamicsWorld.o */; };
-		66FA155711695D7100D77561 /* btSliderConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12BA11695D6F00D77561 /* btSliderConstraint.o */; };
-		66FA155811695D7100D77561 /* btSolve2LinearConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12BB11695D6F00D77561 /* btSolve2LinearConstraint.o */; };
-		66FA155911695D7100D77561 /* btTypedConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12BC11695D6F00D77561 /* btTypedConstraint.o */; };
-		66FA155A11695D7100D77561 /* btUniversalConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12BD11695D6F00D77561 /* btUniversalConstraint.o */; };
-		66FA155B11695D7100D77561 /* btWheelInfo.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12BE11695D6F00D77561 /* btWheelInfo.o */; };
-		66FA155C11695D7100D77561 /* Bullet-C-API.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12BF11695D6F00D77561 /* Bullet-C-API.o */; };
-		66FA155D11695D7100D77561 /* BulletDynamics.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12C011695D6F00D77561 /* BulletDynamics.LinkFileList */; };
-		66FA155E11695D7100D77561 /* Script-1016667D01016667D0101666.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12C111695D6F00D77561 /* Script-1016667D01016667D0101666.sh */; };
-		66FA155F11695D7100D77561 /* Script-101667200101667200101667.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12C211695D6F00D77561 /* Script-101667200101667200101667.sh */; };
-		66FA156011695D7100D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12C511695D6F00D77561 /* build-state.dat */; };
-		66FA156111695D7100D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12C611695D6F00D77561 /* build-state~.dat */; };
-		66FA156211695D7100D77561 /* libBulletDynamics.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12C711695D6F00D77561 /* libBulletDynamics.a.dep */; };
-		66FA156311695D7100D77561 /* libBulletDynamics.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12C811695D6F00D77561 /* libBulletDynamics.a~.dep */; };
-		66FA156411695D7100D77561 /* btConeTwistConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12CB11695D6F00D77561 /* btConeTwistConstraint.o */; };
-		66FA156511695D7100D77561 /* btContactConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12CC11695D6F00D77561 /* btContactConstraint.o */; };
-		66FA156611695D7100D77561 /* btContinuousDynamicsWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12CD11695D6F00D77561 /* btContinuousDynamicsWorld.o */; };
-		66FA156711695D7100D77561 /* btDiscreteDynamicsWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12CE11695D6F00D77561 /* btDiscreteDynamicsWorld.o */; };
-		66FA156811695D7100D77561 /* btGeneric6DofConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12CF11695D6F00D77561 /* btGeneric6DofConstraint.o */; };
-		66FA156911695D7100D77561 /* btGeneric6DofSpringConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D011695D6F00D77561 /* btGeneric6DofSpringConstraint.o */; };
-		66FA156A11695D7100D77561 /* btHinge2Constraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D111695D6F00D77561 /* btHinge2Constraint.o */; };
-		66FA156B11695D7100D77561 /* btHingeConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D211695D6F00D77561 /* btHingeConstraint.o */; };
-		66FA156C11695D7100D77561 /* btKinematicCharacterController.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D311695D6F00D77561 /* btKinematicCharacterController.o */; };
-		66FA156D11695D7100D77561 /* btPoint2PointConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D411695D6F00D77561 /* btPoint2PointConstraint.o */; };
-		66FA156E11695D7100D77561 /* btRaycastVehicle.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D511695D6F00D77561 /* btRaycastVehicle.o */; };
-		66FA156F11695D7100D77561 /* btRigidBody.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D611695D6F00D77561 /* btRigidBody.o */; };
-		66FA157011695D7100D77561 /* btSequentialImpulseConstraintSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D711695D6F00D77561 /* btSequentialImpulseConstraintSolver.o */; };
-		66FA157111695D7100D77561 /* btSimpleDynamicsWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D811695D6F00D77561 /* btSimpleDynamicsWorld.o */; };
-		66FA157211695D7100D77561 /* btSliderConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12D911695D6F00D77561 /* btSliderConstraint.o */; };
-		66FA157311695D7100D77561 /* btSolve2LinearConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12DA11695D6F00D77561 /* btSolve2LinearConstraint.o */; };
-		66FA157411695D7100D77561 /* btTypedConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12DB11695D6F00D77561 /* btTypedConstraint.o */; };
-		66FA157511695D7100D77561 /* btUniversalConstraint.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12DC11695D6F00D77561 /* btUniversalConstraint.o */; };
-		66FA157611695D7100D77561 /* btWheelInfo.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12DD11695D6F00D77561 /* btWheelInfo.o */; };
-		66FA157711695D7100D77561 /* Bullet-C-API.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA12DE11695D6F00D77561 /* Bullet-C-API.o */; };
-		66FA157811695D7100D77561 /* BulletDynamics.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12DF11695D6F00D77561 /* BulletDynamics.LinkFileList */; };
-		66FA157911695D7100D77561 /* Script-1016667D01016667D0101666.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12E011695D6F00D77561 /* Script-1016667D01016667D0101666.sh */; };
-		66FA157A11695D7100D77561 /* Script-101667200101667200101667.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12E111695D6F00D77561 /* Script-101667200101667200101667.sh */; };
 		66FA157B11695D7100D77561 /* btKinematicCharacterController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA12E411695D6F00D77561 /* btKinematicCharacterController.cpp */; };
-		66FA157C11695D7100D77561 /* cmake_install.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12E611695D6F00D77561 /* cmake_install.cmake */; };
-		66FA157D11695D7100D77561 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12E811695D6F00D77561 /* CMakeLists.txt */; };
-		66FA157E11695D7100D77561 /* BulletDynamics_postBuildPhase.makeDebug in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12EA11695D6F00D77561 /* BulletDynamics_postBuildPhase.makeDebug */; };
-		66FA157F11695D7100D77561 /* BulletDynamics_postBuildPhase.makeMinSizeRel in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12EB11695D6F00D77561 /* BulletDynamics_postBuildPhase.makeMinSizeRel */; };
-		66FA158011695D7100D77561 /* BulletDynamics_postBuildPhase.makeRelease in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12EC11695D6F00D77561 /* BulletDynamics_postBuildPhase.makeRelease */; };
-		66FA158111695D7100D77561 /* BulletDynamics_postBuildPhase.makeRelWithDebInfo in Resources */ = {isa = PBXBuildFile; fileRef = 66FA12ED11695D6F00D77561 /* BulletDynamics_postBuildPhase.makeRelWithDebInfo */; };
 		66FA158211695D7100D77561 /* btConeTwistConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA12EF11695D6F00D77561 /* btConeTwistConstraint.cpp */; };
 		66FA158311695D7100D77561 /* btContactConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA12F211695D6F00D77561 /* btContactConstraint.cpp */; };
 		66FA158411695D7100D77561 /* btGeneric6DofConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA12F511695D6F00D77561 /* btGeneric6DofConstraint.cpp */; };
@@ -404,55 +141,17 @@
 		66FA158B11695D7100D77561 /* btSolve2LinearConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA130411695D6F00D77561 /* btSolve2LinearConstraint.cpp */; };
 		66FA158C11695D7100D77561 /* btTypedConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA130811695D6F00D77561 /* btTypedConstraint.cpp */; };
 		66FA158D11695D7100D77561 /* btUniversalConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA130A11695D6F00D77561 /* btUniversalConstraint.cpp */; };
-		66FA158E11695D7100D77561 /* libBulletDynamics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA130D11695D6F00D77561 /* libBulletDynamics.a */; };
 		66FA158F11695D7100D77561 /* btContinuousDynamicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA131011695D6F00D77561 /* btContinuousDynamicsWorld.cpp */; };
 		66FA159011695D7100D77561 /* btDiscreteDynamicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA131211695D6F00D77561 /* btDiscreteDynamicsWorld.cpp */; };
 		66FA159111695D7100D77561 /* btRigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA131511695D7000D77561 /* btRigidBody.cpp */; };
 		66FA159211695D7100D77561 /* btSimpleDynamicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA131711695D7000D77561 /* btSimpleDynamicsWorld.cpp */; };
 		66FA159311695D7100D77561 /* Bullet-C-API.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA131911695D7000D77561 /* Bullet-C-API.cpp */; };
 		66FA159411695D7100D77561 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 66FA131B11695D7000D77561 /* Makefile */; };
-		66FA159511695D7100D77561 /* libBulletDynamics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA131D11695D7000D77561 /* libBulletDynamics.a */; };
 		66FA159611695D7100D77561 /* btRaycastVehicle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA131F11695D7000D77561 /* btRaycastVehicle.cpp */; };
 		66FA159711695D7100D77561 /* btWheelInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA132211695D7000D77561 /* btWheelInfo.cpp */; };
 		66FA159811695D7100D77561 /* btGpu3DGridBroadphase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA132511695D7000D77561 /* btGpu3DGridBroadphase.cpp */; };
 		66FA159911695D7100D77561 /* btParallelConstraintSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA132D11695D7000D77561 /* btParallelConstraintSolver.cpp */; };
 		66FA159A11695D7100D77561 /* btThreadSupportInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA132F11695D7000D77561 /* btThreadSupportInterface.cpp */; };
-		66FA159B11695D7100D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA133411695D7000D77561 /* build-state.dat */; };
-		66FA159C11695D7100D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA133511695D7000D77561 /* build-state~.dat */; };
-		66FA159D11695D7100D77561 /* libBulletMultiThreaded.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA133611695D7000D77561 /* libBulletMultiThreaded.a.dep */; };
-		66FA159E11695D7100D77561 /* libBulletMultiThreaded.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA133711695D7000D77561 /* libBulletMultiThreaded.a~.dep */; };
-		66FA159F11695D7100D77561 /* boxBoxDistance.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA133A11695D7000D77561 /* boxBoxDistance.o */; };
-		66FA15A011695D7100D77561 /* btGpu3DGridBroadphase.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA133B11695D7000D77561 /* btGpu3DGridBroadphase.o */; };
-		66FA15A111695D7100D77561 /* btParallelConstraintSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA133C11695D7000D77561 /* btParallelConstraintSolver.o */; };
-		66FA15A211695D7100D77561 /* btThreadSupportInterface.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA133D11695D7000D77561 /* btThreadSupportInterface.o */; };
-		66FA15A311695D7100D77561 /* BulletMultiThreaded.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA133E11695D7000D77561 /* BulletMultiThreaded.LinkFileList */; };
-		66FA15A411695D7100D77561 /* MiniCL.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA133F11695D7000D77561 /* MiniCL.o */; };
-		66FA15A511695D7100D77561 /* MiniCLTask.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134011695D7000D77561 /* MiniCLTask.o */; };
-		66FA15A611695D7100D77561 /* MiniCLTaskScheduler.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134111695D7000D77561 /* MiniCLTaskScheduler.o */; };
-		66FA15A711695D7100D77561 /* PosixThreadSupport.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134211695D7000D77561 /* PosixThreadSupport.o */; };
-		66FA15A811695D7100D77561 /* SequentialThreadSupport.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134311695D7000D77561 /* SequentialThreadSupport.o */; };
-		66FA15A911695D7100D77561 /* SpuCollisionObjectWrapper.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134411695D7000D77561 /* SpuCollisionObjectWrapper.o */; };
-		66FA15AA11695D7100D77561 /* SpuCollisionShapes.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134511695D7000D77561 /* SpuCollisionShapes.o */; };
-		66FA15AB11695D7100D77561 /* SpuCollisionTaskProcess.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134611695D7000D77561 /* SpuCollisionTaskProcess.o */; };
-		66FA15AC11695D7100D77561 /* SpuContactManifoldCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134711695D7000D77561 /* SpuContactManifoldCollisionAlgorithm.o */; };
-		66FA15AD11695D7100D77561 /* SpuContactResult.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134811695D7000D77561 /* SpuContactResult.o */; };
-		66FA15AE11695D7100D77561 /* SpuFakeDma.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134911695D7000D77561 /* SpuFakeDma.o */; };
-		66FA15AF11695D7100D77561 /* SpuGatheringCollisionDispatcher.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134A11695D7000D77561 /* SpuGatheringCollisionDispatcher.o */; };
-		66FA15B011695D7100D77561 /* SpuGatheringCollisionTask.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134B11695D7000D77561 /* SpuGatheringCollisionTask.o */; };
-		66FA15B111695D7100D77561 /* SpuLibspe2Support.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134C11695D7000D77561 /* SpuLibspe2Support.o */; };
-		66FA15B211695D7100D77561 /* SpuMinkowskiPenetrationDepthSolver.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134D11695D7000D77561 /* SpuMinkowskiPenetrationDepthSolver.o */; };
-		66FA15B311695D7100D77561 /* SpuSampleTaskProcess.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134E11695D7000D77561 /* SpuSampleTaskProcess.o */; };
-		66FA15B411695D7100D77561 /* Win32ThreadSupport.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA134F11695D7000D77561 /* Win32ThreadSupport.o */; };
-		66FA15B511695D7100D77561 /* Script-101516560101516560101516.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135011695D7000D77561 /* Script-101516560101516560101516.sh */; };
-		66FA15B611695D7100D77561 /* Script-101516FF0101516FF0101516.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135111695D7000D77561 /* Script-101516FF0101516FF0101516.sh */; };
-		66FA15B711695D7100D77561 /* cmake_install.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135211695D7000D77561 /* cmake_install.cmake */; };
-		66FA15B811695D7100D77561 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135411695D7000D77561 /* CMakeLists.txt */; };
-		66FA15B911695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeDebug in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135611695D7000D77561 /* BulletMultiThreaded_postBuildPhase.makeDebug */; };
-		66FA15BA11695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeMinSizeRel in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135711695D7000D77561 /* BulletMultiThreaded_postBuildPhase.makeMinSizeRel */; };
-		66FA15BB11695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeRelease in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135811695D7000D77561 /* BulletMultiThreaded_postBuildPhase.makeRelease */; };
-		66FA15BC11695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeRelWithDebInfo in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135911695D7000D77561 /* BulletMultiThreaded_postBuildPhase.makeRelWithDebInfo */; };
-		66FA15BD11695D7100D77561 /* libBulletMultiThreaded.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA135B11695D7000D77561 /* libBulletMultiThreaded.a */; };
-		66FA15BE11695D7200D77561 /* Makefile.original in Resources */ = {isa = PBXBuildFile; fileRef = 66FA135C11695D7000D77561 /* Makefile.original */; };
 		66FA15BF11695D7200D77561 /* MiniCL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA135D11695D7000D77561 /* MiniCL.cpp */; };
 		66FA15C011695D7200D77561 /* MiniCLTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA135F11695D7000D77561 /* MiniCLTask.cpp */; };
 		66FA15C111695D7200D77561 /* MiniCLTaskScheduler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA136111695D7000D77561 /* MiniCLTaskScheduler.cpp */; };
@@ -465,12 +164,10 @@
 		66FA15C811695D7200D77561 /* SpuGatheringCollisionDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA137311695D7000D77561 /* SpuGatheringCollisionDispatcher.cpp */; };
 		66FA15C911695D7200D77561 /* SpuLibspe2Support.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA137511695D7000D77561 /* SpuLibspe2Support.cpp */; };
 		66FA15CA11695D7200D77561 /* boxBoxDistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA137911695D7000D77561 /* boxBoxDistance.cpp */; };
-		66FA15CB11695D7200D77561 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA137B11695D7000D77561 /* readme.txt */; };
 		66FA15CC11695D7200D77561 /* SpuCollisionShapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA137C11695D7000D77561 /* SpuCollisionShapes.cpp */; };
 		66FA15CD11695D7200D77561 /* SpuContactResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA137E11695D7000D77561 /* SpuContactResult.cpp */; };
 		66FA15CE11695D7200D77561 /* SpuGatheringCollisionTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA138111695D7000D77561 /* SpuGatheringCollisionTask.cpp */; };
 		66FA15CF11695D7200D77561 /* SpuMinkowskiPenetrationDepthSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA138411695D7000D77561 /* SpuMinkowskiPenetrationDepthSolver.cpp */; };
-		66FA15D011695D7200D77561 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA138811695D7000D77561 /* readme.txt */; };
 		66FA15D111695D7200D77561 /* SpuSampleTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA138911695D7000D77561 /* SpuSampleTask.cpp */; };
 		66FA15D211695D7200D77561 /* SpuSampleTaskProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA138B11695D7000D77561 /* SpuSampleTaskProcess.cpp */; };
 		66FA15D311695D7200D77561 /* Win32ThreadSupport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA139811695D7000D77561 /* Win32ThreadSupport.cpp */; };
@@ -481,69 +178,13 @@
 		66FA15D811695D7200D77561 /* btSoftRigidCollisionAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13A411695D7000D77561 /* btSoftRigidCollisionAlgorithm.cpp */; };
 		66FA15D911695D7200D77561 /* btSoftRigidDynamicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13A611695D7000D77561 /* btSoftRigidDynamicsWorld.cpp */; };
 		66FA15DA11695D7200D77561 /* btSoftSoftCollisionAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13A811695D7000D77561 /* btSoftSoftCollisionAlgorithm.cpp */; };
-		66FA15DB11695D7200D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13AE11695D7000D77561 /* build-state.dat */; };
-		66FA15DC11695D7200D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13AF11695D7000D77561 /* build-state~.dat */; };
-		66FA15DD11695D7200D77561 /* libBulletSoftBody.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13B011695D7000D77561 /* libBulletSoftBody.a.dep */; };
-		66FA15DE11695D7200D77561 /* libBulletSoftBody.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13B111695D7000D77561 /* libBulletSoftBody.a~.dep */; };
-		66FA15DF11695D7200D77561 /* btSoftBody.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13B411695D7000D77561 /* btSoftBody.o */; };
-		66FA15E011695D7200D77561 /* btSoftBodyConcaveCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13B511695D7000D77561 /* btSoftBodyConcaveCollisionAlgorithm.o */; };
-		66FA15E111695D7200D77561 /* btSoftBodyHelpers.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13B611695D7000D77561 /* btSoftBodyHelpers.o */; };
-		66FA15E211695D7200D77561 /* btSoftBodyRigidBodyCollisionConfiguration.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13B711695D7000D77561 /* btSoftBodyRigidBodyCollisionConfiguration.o */; };
-		66FA15E311695D7200D77561 /* btSoftRigidCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13B811695D7000D77561 /* btSoftRigidCollisionAlgorithm.o */; };
-		66FA15E411695D7200D77561 /* btSoftRigidDynamicsWorld.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13B911695D7000D77561 /* btSoftRigidDynamicsWorld.o */; };
-		66FA15E511695D7200D77561 /* btSoftSoftCollisionAlgorithm.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13BA11695D7000D77561 /* btSoftSoftCollisionAlgorithm.o */; };
-		66FA15E611695D7200D77561 /* BulletSoftBody.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13BB11695D7000D77561 /* BulletSoftBody.LinkFileList */; };
-		66FA15E711695D7200D77561 /* Script-1015353A01015353A0101535.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13BC11695D7000D77561 /* Script-1015353A01015353A0101535.sh */; };
-		66FA15E811695D7200D77561 /* Script-101535DD0101535DD0101535.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13BD11695D7000D77561 /* Script-101535DD0101535DD0101535.sh */; };
-		66FA15E911695D7200D77561 /* cmake_install.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13BE11695D7000D77561 /* cmake_install.cmake */; };
-		66FA15EA11695D7200D77561 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13C011695D7000D77561 /* CMakeLists.txt */; };
-		66FA15EB11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeDebug in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13C211695D7000D77561 /* BulletSoftBody_postBuildPhase.makeDebug */; };
-		66FA15EC11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeMinSizeRel in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13C311695D7000D77561 /* BulletSoftBody_postBuildPhase.makeMinSizeRel */; };
-		66FA15ED11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeRelease in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13C411695D7000D77561 /* BulletSoftBody_postBuildPhase.makeRelease */; };
-		66FA15EE11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeRelWithDebInfo in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13C511695D7000D77561 /* BulletSoftBody_postBuildPhase.makeRelWithDebInfo */; };
-		66FA15EF11695D7200D77561 /* libBulletSoftBody.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13C711695D7000D77561 /* libBulletSoftBody.a */; };
-		66FA15F011695D7200D77561 /* cmake_install.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13C811695D7000D77561 /* cmake_install.cmake */; };
-		66FA15F111695D7200D77561 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13CA11695D7000D77561 /* CMakeLists.txt */; };
 		66FA15F211695D7200D77561 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13CC11695D7000D77561 /* Makefile */; };
 		66FA15F311695D7200D77561 /* btAlignedAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13CF11695D7000D77561 /* btAlignedAllocator.cpp */; };
 		66FA15F411695D7200D77561 /* btConvexHull.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13D211695D7000D77561 /* btConvexHull.cpp */; };
 		66FA15F511695D7200D77561 /* btGeometryUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13D511695D7000D77561 /* btGeometryUtil.cpp */; };
 		66FA15F611695D7200D77561 /* btQuickprof.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13E011695D7000D77561 /* btQuickprof.cpp */; };
 		66FA15F711695D7200D77561 /* btSerializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FA13E411695D7000D77561 /* btSerializer.cpp */; };
-		66FA15F811695D7200D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13ED11695D7000D77561 /* build-state.dat */; };
-		66FA15F911695D7200D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13EE11695D7000D77561 /* build-state~.dat */; };
-		66FA15FA11695D7200D77561 /* libLinearMath.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13EF11695D7000D77561 /* libLinearMath.a.dep */; };
-		66FA15FB11695D7200D77561 /* libLinearMath.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13F011695D7100D77561 /* libLinearMath.a~.dep */; };
-		66FA15FC11695D7200D77561 /* btAlignedAllocator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13F311695D7100D77561 /* btAlignedAllocator.o */; };
-		66FA15FD11695D7200D77561 /* btConvexHull.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13F411695D7100D77561 /* btConvexHull.o */; };
-		66FA15FE11695D7200D77561 /* btGeometryUtil.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13F511695D7100D77561 /* btGeometryUtil.o */; };
-		66FA15FF11695D7200D77561 /* btQuickprof.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13F611695D7100D77561 /* btQuickprof.o */; };
-		66FA160011695D7200D77561 /* btSerializer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA13F711695D7100D77561 /* btSerializer.o */; };
-		66FA160111695D7200D77561 /* LinearMath.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13F811695D7100D77561 /* LinearMath.LinkFileList */; };
-		66FA160211695D7200D77561 /* Script-1016922C01016922C0101692.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13F911695D7100D77561 /* Script-1016922C01016922C0101692.sh */; };
-		66FA160311695D7200D77561 /* Script-101692CF0101692CF0101692.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13FA11695D7100D77561 /* Script-101692CF0101692CF0101692.sh */; };
-		66FA160411695D7200D77561 /* build-state.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13FD11695D7100D77561 /* build-state.dat */; };
-		66FA160511695D7200D77561 /* build-state~.dat in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13FE11695D7100D77561 /* build-state~.dat */; };
-		66FA160611695D7200D77561 /* libLinearMath.a.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA13FF11695D7100D77561 /* libLinearMath.a.dep */; };
-		66FA160711695D7200D77561 /* libLinearMath.a~.dep in Resources */ = {isa = PBXBuildFile; fileRef = 66FA140011695D7100D77561 /* libLinearMath.a~.dep */; };
-		66FA160811695D7200D77561 /* btAlignedAllocator.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA140311695D7100D77561 /* btAlignedAllocator.o */; };
-		66FA160911695D7200D77561 /* btConvexHull.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA140411695D7100D77561 /* btConvexHull.o */; };
-		66FA160A11695D7200D77561 /* btGeometryUtil.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA140511695D7100D77561 /* btGeometryUtil.o */; };
-		66FA160B11695D7200D77561 /* btQuickprof.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA140611695D7100D77561 /* btQuickprof.o */; };
-		66FA160C11695D7200D77561 /* btSerializer.o in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA140711695D7100D77561 /* btSerializer.o */; };
-		66FA160D11695D7200D77561 /* LinearMath.LinkFileList in Resources */ = {isa = PBXBuildFile; fileRef = 66FA140811695D7100D77561 /* LinearMath.LinkFileList */; };
-		66FA160E11695D7200D77561 /* Script-1016922C01016922C0101692.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA140911695D7100D77561 /* Script-1016922C01016922C0101692.sh */; };
-		66FA160F11695D7200D77561 /* Script-101692CF0101692CF0101692.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66FA140A11695D7100D77561 /* Script-101692CF0101692CF0101692.sh */; };
-		66FA161011695D7200D77561 /* cmake_install.cmake in Resources */ = {isa = PBXBuildFile; fileRef = 66FA140B11695D7100D77561 /* cmake_install.cmake */; };
-		66FA161111695D7200D77561 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 66FA140D11695D7100D77561 /* CMakeLists.txt */; };
-		66FA161211695D7200D77561 /* LinearMath_postBuildPhase.makeDebug in Resources */ = {isa = PBXBuildFile; fileRef = 66FA140F11695D7100D77561 /* LinearMath_postBuildPhase.makeDebug */; };
-		66FA161311695D7200D77561 /* LinearMath_postBuildPhase.makeMinSizeRel in Resources */ = {isa = PBXBuildFile; fileRef = 66FA141011695D7100D77561 /* LinearMath_postBuildPhase.makeMinSizeRel */; };
-		66FA161411695D7200D77561 /* LinearMath_postBuildPhase.makeRelease in Resources */ = {isa = PBXBuildFile; fileRef = 66FA141111695D7100D77561 /* LinearMath_postBuildPhase.makeRelease */; };
-		66FA161511695D7200D77561 /* LinearMath_postBuildPhase.makeRelWithDebInfo in Resources */ = {isa = PBXBuildFile; fileRef = 66FA141211695D7100D77561 /* LinearMath_postBuildPhase.makeRelWithDebInfo */; };
-		66FA161611695D7200D77561 /* libLinearMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA141411695D7100D77561 /* libLinearMath.a */; };
 		66FA161711695D7200D77561 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 66FA141611695D7100D77561 /* Makefile */; };
-		66FA161811695D7200D77561 /* libLinearMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA141811695D7100D77561 /* libLinearMath.a */; };
-		66FA161911695D7200D77561 /* Makefile.am in Resources */ = {isa = PBXBuildFile; fileRef = 66FA141911695D7100D77561 /* Makefile.am */; };
 		66FA16691169859800D77561 /* Sphere3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66FA16681169859800D77561 /* Sphere3D.mm */; };
 		66FED417116464E000A0A536 /* light.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 66FED415116464E000A0A536 /* light.fsh */; };
 		66FED418116464E000A0A536 /* light.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 66FED416116464E000A0A536 /* light.vsh */; };
@@ -574,7 +215,7 @@
 		66469955115B02BE0030CE5D /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
 		66469956115B02BE0030CE5D /* Shader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
 		66469AA1115BEC860030CE5D /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
-		66469AA2115BEC860030CE5D /* Physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Physics.cpp; sourceTree = "<group>"; };
+		66469AA2115BEC860030CE5D /* Physics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Physics.mm; sourceTree = "<group>"; };
 		66A8CAA5116F73310040F2C5 /* light2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = light2.fsh; path = Shaders/light2.fsh; sourceTree = "<group>"; };
 		66A8CAA6116F73310040F2C5 /* light2.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = light2.vsh; path = Shaders/light2.vsh; sourceTree = "<group>"; };
 		66D5BD561130CB2B007E67CE /* esTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = esTransform.c; sourceTree = "<group>"; };
@@ -1349,272 +990,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */,
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
-				66FA142D11695D7100D77561 /* btActivatingCollisionAlgorithm.o in Frameworks */,
-				66FA142E11695D7100D77561 /* btAxisSweep3.o in Frameworks */,
-				66FA142F11695D7100D77561 /* btBox2dBox2dCollisionAlgorithm.o in Frameworks */,
-				66FA143011695D7100D77561 /* btBox2dShape.o in Frameworks */,
-				66FA143111695D7100D77561 /* btBoxBoxCollisionAlgorithm.o in Frameworks */,
-				66FA143211695D7100D77561 /* btBoxBoxDetector.o in Frameworks */,
-				66FA143311695D7100D77561 /* btBoxShape.o in Frameworks */,
-				66FA143411695D7100D77561 /* btBroadphaseProxy.o in Frameworks */,
-				66FA143511695D7100D77561 /* btBvhTriangleMeshShape.o in Frameworks */,
-				66FA143611695D7100D77561 /* btCapsuleShape.o in Frameworks */,
-				66FA143711695D7100D77561 /* btCollisionAlgorithm.o in Frameworks */,
-				66FA143811695D7100D77561 /* btCollisionDispatcher.o in Frameworks */,
-				66FA143911695D7100D77561 /* btCollisionObject.o in Frameworks */,
-				66FA143A11695D7100D77561 /* btCollisionShape.o in Frameworks */,
-				66FA143B11695D7100D77561 /* btCollisionWorld.o in Frameworks */,
-				66FA143C11695D7100D77561 /* btCompoundCollisionAlgorithm.o in Frameworks */,
-				66FA143D11695D7100D77561 /* btCompoundShape.o in Frameworks */,
-				66FA143E11695D7100D77561 /* btConcaveShape.o in Frameworks */,
-				66FA143F11695D7100D77561 /* btConeShape.o in Frameworks */,
-				66FA144011695D7100D77561 /* btContactProcessing.o in Frameworks */,
-				66FA144111695D7100D77561 /* btContinuousConvexCollision.o in Frameworks */,
-				66FA144211695D7100D77561 /* btConvex2dConvex2dAlgorithm.o in Frameworks */,
-				66FA144311695D7100D77561 /* btConvex2dShape.o in Frameworks */,
-				66FA144411695D7100D77561 /* btConvexCast.o in Frameworks */,
-				66FA144511695D7100D77561 /* btConvexConcaveCollisionAlgorithm.o in Frameworks */,
-				66FA144611695D7100D77561 /* btConvexConvexAlgorithm.o in Frameworks */,
-				66FA144711695D7100D77561 /* btConvexHullShape.o in Frameworks */,
-				66FA144811695D7100D77561 /* btConvexInternalShape.o in Frameworks */,
-				66FA144911695D7100D77561 /* btConvexPlaneCollisionAlgorithm.o in Frameworks */,
-				66FA144A11695D7100D77561 /* btConvexPointCloudShape.o in Frameworks */,
-				66FA144B11695D7100D77561 /* btConvexShape.o in Frameworks */,
-				66FA144C11695D7100D77561 /* btConvexTriangleMeshShape.o in Frameworks */,
-				66FA144D11695D7100D77561 /* btCylinderShape.o in Frameworks */,
-				66FA144E11695D7100D77561 /* btDbvt.o in Frameworks */,
-				66FA144F11695D7100D77561 /* btDbvtBroadphase.o in Frameworks */,
-				66FA145011695D7100D77561 /* btDefaultCollisionConfiguration.o in Frameworks */,
-				66FA145111695D7100D77561 /* btDispatcher.o in Frameworks */,
-				66FA145211695D7100D77561 /* btEmptyCollisionAlgorithm.o in Frameworks */,
-				66FA145311695D7100D77561 /* btEmptyShape.o in Frameworks */,
-				66FA145411695D7100D77561 /* btGenericPoolAllocator.o in Frameworks */,
-				66FA145511695D7100D77561 /* btGhostObject.o in Frameworks */,
-				66FA145611695D7100D77561 /* btGImpactBvh.o in Frameworks */,
-				66FA145711695D7100D77561 /* btGImpactCollisionAlgorithm.o in Frameworks */,
-				66FA145811695D7100D77561 /* btGImpactQuantizedBvh.o in Frameworks */,
-				66FA145911695D7100D77561 /* btGImpactShape.o in Frameworks */,
-				66FA145A11695D7100D77561 /* btGjkConvexCast.o in Frameworks */,
-				66FA145B11695D7100D77561 /* btGjkEpa2.o in Frameworks */,
-				66FA145C11695D7100D77561 /* btGjkEpaPenetrationDepthSolver.o in Frameworks */,
-				66FA145D11695D7100D77561 /* btGjkPairDetector.o in Frameworks */,
-				66FA145E11695D7100D77561 /* btHeightfieldTerrainShape.o in Frameworks */,
-				66FA145F11695D7100D77561 /* btInternalEdgeUtility.o in Frameworks */,
-				66FA146011695D7100D77561 /* btManifoldResult.o in Frameworks */,
-				66FA146111695D7100D77561 /* btMinkowskiPenetrationDepthSolver.o in Frameworks */,
-				66FA146211695D7100D77561 /* btMinkowskiSumShape.o in Frameworks */,
-				66FA146311695D7100D77561 /* btMultimaterialTriangleMeshShape.o in Frameworks */,
-				66FA146411695D7100D77561 /* btMultiSapBroadphase.o in Frameworks */,
-				66FA146511695D7100D77561 /* btMultiSphereShape.o in Frameworks */,
-				66FA146611695D7100D77561 /* btOptimizedBvh.o in Frameworks */,
-				66FA146711695D7100D77561 /* btOverlappingPairCache.o in Frameworks */,
-				66FA146811695D7100D77561 /* btPersistentManifold.o in Frameworks */,
-				66FA146911695D7100D77561 /* btPolyhedralConvexShape.o in Frameworks */,
-				66FA146A11695D7100D77561 /* btQuantizedBvh.o in Frameworks */,
-				66FA146B11695D7100D77561 /* btRaycastCallback.o in Frameworks */,
-				66FA146C11695D7100D77561 /* btScaledBvhTriangleMeshShape.o in Frameworks */,
-				66FA146D11695D7100D77561 /* btShapeHull.o in Frameworks */,
-				66FA146E11695D7100D77561 /* btSimpleBroadphase.o in Frameworks */,
-				66FA146F11695D7100D77561 /* btSimulationIslandManager.o in Frameworks */,
-				66FA147011695D7100D77561 /* btSphereBoxCollisionAlgorithm.o in Frameworks */,
-				66FA147111695D7100D77561 /* btSphereShape.o in Frameworks */,
-				66FA147211695D7100D77561 /* btSphereSphereCollisionAlgorithm.o in Frameworks */,
-				66FA147311695D7100D77561 /* btSphereTriangleCollisionAlgorithm.o in Frameworks */,
-				66FA147411695D7100D77561 /* btStaticPlaneShape.o in Frameworks */,
-				66FA147511695D7100D77561 /* btStridingMeshInterface.o in Frameworks */,
-				66FA147611695D7100D77561 /* btSubSimplexConvexCast.o in Frameworks */,
-				66FA147711695D7100D77561 /* btTetrahedronShape.o in Frameworks */,
-				66FA147811695D7100D77561 /* btTriangleBuffer.o in Frameworks */,
-				66FA147911695D7100D77561 /* btTriangleCallback.o in Frameworks */,
-				66FA147A11695D7100D77561 /* btTriangleIndexVertexArray.o in Frameworks */,
-				66FA147B11695D7100D77561 /* btTriangleIndexVertexMaterialArray.o in Frameworks */,
-				66FA147C11695D7100D77561 /* btTriangleMesh.o in Frameworks */,
-				66FA147D11695D7100D77561 /* btTriangleMeshShape.o in Frameworks */,
-				66FA147E11695D7100D77561 /* btTriangleShapeEx.o in Frameworks */,
-				66FA147F11695D7100D77561 /* btUniformScalingShape.o in Frameworks */,
-				66FA148011695D7100D77561 /* btUnionFind.o in Frameworks */,
-				66FA148111695D7100D77561 /* btVoronoiSimplexSolver.o in Frameworks */,
-				66FA148311695D7100D77561 /* gim_box_set.o in Frameworks */,
-				66FA148411695D7100D77561 /* gim_contact.o in Frameworks */,
-				66FA148511695D7100D77561 /* gim_memory.o in Frameworks */,
-				66FA148611695D7100D77561 /* gim_tri_collision.o in Frameworks */,
-				66FA148711695D7100D77561 /* SphereTriangleDetector.o in Frameworks */,
-				66FA148E11695D7100D77561 /* btActivatingCollisionAlgorithm.o in Frameworks */,
-				66FA148F11695D7100D77561 /* btAxisSweep3.o in Frameworks */,
-				66FA149011695D7100D77561 /* btBox2dBox2dCollisionAlgorithm.o in Frameworks */,
-				66FA149111695D7100D77561 /* btBox2dShape.o in Frameworks */,
-				66FA149211695D7100D77561 /* btBoxBoxCollisionAlgorithm.o in Frameworks */,
-				66FA149311695D7100D77561 /* btBoxBoxDetector.o in Frameworks */,
-				66FA149411695D7100D77561 /* btBoxShape.o in Frameworks */,
-				66FA149511695D7100D77561 /* btBroadphaseProxy.o in Frameworks */,
-				66FA149611695D7100D77561 /* btBvhTriangleMeshShape.o in Frameworks */,
-				66FA149711695D7100D77561 /* btCapsuleShape.o in Frameworks */,
-				66FA149811695D7100D77561 /* btCollisionAlgorithm.o in Frameworks */,
-				66FA149911695D7100D77561 /* btCollisionDispatcher.o in Frameworks */,
-				66FA149A11695D7100D77561 /* btCollisionObject.o in Frameworks */,
-				66FA149B11695D7100D77561 /* btCollisionShape.o in Frameworks */,
-				66FA149C11695D7100D77561 /* btCollisionWorld.o in Frameworks */,
-				66FA149D11695D7100D77561 /* btCompoundCollisionAlgorithm.o in Frameworks */,
-				66FA149E11695D7100D77561 /* btCompoundShape.o in Frameworks */,
-				66FA149F11695D7100D77561 /* btConcaveShape.o in Frameworks */,
-				66FA14A011695D7100D77561 /* btConeShape.o in Frameworks */,
-				66FA14A111695D7100D77561 /* btContactProcessing.o in Frameworks */,
-				66FA14A211695D7100D77561 /* btContinuousConvexCollision.o in Frameworks */,
-				66FA14A311695D7100D77561 /* btConvex2dConvex2dAlgorithm.o in Frameworks */,
-				66FA14A411695D7100D77561 /* btConvex2dShape.o in Frameworks */,
-				66FA14A511695D7100D77561 /* btConvexCast.o in Frameworks */,
-				66FA14A611695D7100D77561 /* btConvexConcaveCollisionAlgorithm.o in Frameworks */,
-				66FA14A711695D7100D77561 /* btConvexConvexAlgorithm.o in Frameworks */,
-				66FA14A811695D7100D77561 /* btConvexHullShape.o in Frameworks */,
-				66FA14A911695D7100D77561 /* btConvexInternalShape.o in Frameworks */,
-				66FA14AA11695D7100D77561 /* btConvexPlaneCollisionAlgorithm.o in Frameworks */,
-				66FA14AB11695D7100D77561 /* btConvexPointCloudShape.o in Frameworks */,
-				66FA14AC11695D7100D77561 /* btConvexShape.o in Frameworks */,
-				66FA14AD11695D7100D77561 /* btConvexTriangleMeshShape.o in Frameworks */,
-				66FA14AE11695D7100D77561 /* btCylinderShape.o in Frameworks */,
-				66FA14AF11695D7100D77561 /* btDbvt.o in Frameworks */,
-				66FA14B011695D7100D77561 /* btDbvtBroadphase.o in Frameworks */,
-				66FA14B111695D7100D77561 /* btDefaultCollisionConfiguration.o in Frameworks */,
-				66FA14B211695D7100D77561 /* btDispatcher.o in Frameworks */,
-				66FA14B311695D7100D77561 /* btEmptyCollisionAlgorithm.o in Frameworks */,
-				66FA14B411695D7100D77561 /* btEmptyShape.o in Frameworks */,
-				66FA14B511695D7100D77561 /* btGenericPoolAllocator.o in Frameworks */,
-				66FA14B611695D7100D77561 /* btGhostObject.o in Frameworks */,
-				66FA14B711695D7100D77561 /* btGImpactBvh.o in Frameworks */,
-				66FA14B811695D7100D77561 /* btGImpactCollisionAlgorithm.o in Frameworks */,
-				66FA14B911695D7100D77561 /* btGImpactQuantizedBvh.o in Frameworks */,
-				66FA14BA11695D7100D77561 /* btGImpactShape.o in Frameworks */,
-				66FA14BB11695D7100D77561 /* btGjkConvexCast.o in Frameworks */,
-				66FA14BC11695D7100D77561 /* btGjkEpa2.o in Frameworks */,
-				66FA14BD11695D7100D77561 /* btGjkEpaPenetrationDepthSolver.o in Frameworks */,
-				66FA14BE11695D7100D77561 /* btGjkPairDetector.o in Frameworks */,
-				66FA14BF11695D7100D77561 /* btHeightfieldTerrainShape.o in Frameworks */,
-				66FA14C011695D7100D77561 /* btInternalEdgeUtility.o in Frameworks */,
-				66FA14C111695D7100D77561 /* btManifoldResult.o in Frameworks */,
-				66FA14C211695D7100D77561 /* btMinkowskiPenetrationDepthSolver.o in Frameworks */,
-				66FA14C311695D7100D77561 /* btMinkowskiSumShape.o in Frameworks */,
-				66FA14C411695D7100D77561 /* btMultimaterialTriangleMeshShape.o in Frameworks */,
-				66FA14C511695D7100D77561 /* btMultiSapBroadphase.o in Frameworks */,
-				66FA14C611695D7100D77561 /* btMultiSphereShape.o in Frameworks */,
-				66FA14C711695D7100D77561 /* btOptimizedBvh.o in Frameworks */,
-				66FA14C811695D7100D77561 /* btOverlappingPairCache.o in Frameworks */,
-				66FA14C911695D7100D77561 /* btPersistentManifold.o in Frameworks */,
-				66FA14CA11695D7100D77561 /* btPolyhedralConvexShape.o in Frameworks */,
-				66FA14CB11695D7100D77561 /* btQuantizedBvh.o in Frameworks */,
-				66FA14CC11695D7100D77561 /* btRaycastCallback.o in Frameworks */,
-				66FA14CD11695D7100D77561 /* btScaledBvhTriangleMeshShape.o in Frameworks */,
-				66FA14CE11695D7100D77561 /* btShapeHull.o in Frameworks */,
-				66FA14CF11695D7100D77561 /* btSimpleBroadphase.o in Frameworks */,
-				66FA14D011695D7100D77561 /* btSimulationIslandManager.o in Frameworks */,
-				66FA14D111695D7100D77561 /* btSphereBoxCollisionAlgorithm.o in Frameworks */,
-				66FA14D211695D7100D77561 /* btSphereShape.o in Frameworks */,
-				66FA14D311695D7100D77561 /* btSphereSphereCollisionAlgorithm.o in Frameworks */,
-				66FA14D411695D7100D77561 /* btSphereTriangleCollisionAlgorithm.o in Frameworks */,
-				66FA14D511695D7100D77561 /* btStaticPlaneShape.o in Frameworks */,
-				66FA14D611695D7100D77561 /* btStridingMeshInterface.o in Frameworks */,
-				66FA14D711695D7100D77561 /* btSubSimplexConvexCast.o in Frameworks */,
-				66FA14D811695D7100D77561 /* btTetrahedronShape.o in Frameworks */,
-				66FA14D911695D7100D77561 /* btTriangleBuffer.o in Frameworks */,
-				66FA14DA11695D7100D77561 /* btTriangleCallback.o in Frameworks */,
-				66FA14DB11695D7100D77561 /* btTriangleIndexVertexArray.o in Frameworks */,
-				66FA14DC11695D7100D77561 /* btTriangleIndexVertexMaterialArray.o in Frameworks */,
-				66FA14DD11695D7100D77561 /* btTriangleMesh.o in Frameworks */,
-				66FA14DE11695D7100D77561 /* btTriangleMeshShape.o in Frameworks */,
-				66FA14DF11695D7100D77561 /* btTriangleShapeEx.o in Frameworks */,
-				66FA14E011695D7100D77561 /* btUniformScalingShape.o in Frameworks */,
-				66FA14E111695D7100D77561 /* btUnionFind.o in Frameworks */,
-				66FA14E211695D7100D77561 /* btVoronoiSimplexSolver.o in Frameworks */,
-				66FA14E411695D7100D77561 /* gim_box_set.o in Frameworks */,
-				66FA14E511695D7100D77561 /* gim_contact.o in Frameworks */,
-				66FA14E611695D7100D77561 /* gim_memory.o in Frameworks */,
-				66FA14E711695D7100D77561 /* gim_tri_collision.o in Frameworks */,
-				66FA14E811695D7100D77561 /* SphereTriangleDetector.o in Frameworks */,
-				66FA152B11695D7100D77561 /* libBulletCollision.a in Frameworks */,
-				66FA154411695D7100D77561 /* libBulletCollision.a in Frameworks */,
-				66FA154911695D7100D77561 /* btConeTwistConstraint.o in Frameworks */,
-				66FA154A11695D7100D77561 /* btContactConstraint.o in Frameworks */,
-				66FA154B11695D7100D77561 /* btContinuousDynamicsWorld.o in Frameworks */,
-				66FA154C11695D7100D77561 /* btDiscreteDynamicsWorld.o in Frameworks */,
-				66FA154D11695D7100D77561 /* btGeneric6DofConstraint.o in Frameworks */,
-				66FA154E11695D7100D77561 /* btGeneric6DofSpringConstraint.o in Frameworks */,
-				66FA154F11695D7100D77561 /* btHinge2Constraint.o in Frameworks */,
-				66FA155011695D7100D77561 /* btHingeConstraint.o in Frameworks */,
-				66FA155111695D7100D77561 /* btKinematicCharacterController.o in Frameworks */,
-				66FA155211695D7100D77561 /* btPoint2PointConstraint.o in Frameworks */,
-				66FA155311695D7100D77561 /* btRaycastVehicle.o in Frameworks */,
-				66FA155411695D7100D77561 /* btRigidBody.o in Frameworks */,
-				66FA155511695D7100D77561 /* btSequentialImpulseConstraintSolver.o in Frameworks */,
-				66FA155611695D7100D77561 /* btSimpleDynamicsWorld.o in Frameworks */,
-				66FA155711695D7100D77561 /* btSliderConstraint.o in Frameworks */,
-				66FA155811695D7100D77561 /* btSolve2LinearConstraint.o in Frameworks */,
-				66FA155911695D7100D77561 /* btTypedConstraint.o in Frameworks */,
-				66FA155A11695D7100D77561 /* btUniversalConstraint.o in Frameworks */,
-				66FA155B11695D7100D77561 /* btWheelInfo.o in Frameworks */,
-				66FA155C11695D7100D77561 /* Bullet-C-API.o in Frameworks */,
-				66FA156411695D7100D77561 /* btConeTwistConstraint.o in Frameworks */,
-				66FA156511695D7100D77561 /* btContactConstraint.o in Frameworks */,
-				66FA156611695D7100D77561 /* btContinuousDynamicsWorld.o in Frameworks */,
-				66FA156711695D7100D77561 /* btDiscreteDynamicsWorld.o in Frameworks */,
-				66FA156811695D7100D77561 /* btGeneric6DofConstraint.o in Frameworks */,
-				66FA156911695D7100D77561 /* btGeneric6DofSpringConstraint.o in Frameworks */,
-				66FA156A11695D7100D77561 /* btHinge2Constraint.o in Frameworks */,
-				66FA156B11695D7100D77561 /* btHingeConstraint.o in Frameworks */,
-				66FA156C11695D7100D77561 /* btKinematicCharacterController.o in Frameworks */,
-				66FA156D11695D7100D77561 /* btPoint2PointConstraint.o in Frameworks */,
-				66FA156E11695D7100D77561 /* btRaycastVehicle.o in Frameworks */,
-				66FA156F11695D7100D77561 /* btRigidBody.o in Frameworks */,
-				66FA157011695D7100D77561 /* btSequentialImpulseConstraintSolver.o in Frameworks */,
-				66FA157111695D7100D77561 /* btSimpleDynamicsWorld.o in Frameworks */,
-				66FA157211695D7100D77561 /* btSliderConstraint.o in Frameworks */,
-				66FA157311695D7100D77561 /* btSolve2LinearConstraint.o in Frameworks */,
-				66FA157411695D7100D77561 /* btTypedConstraint.o in Frameworks */,
-				66FA157511695D7100D77561 /* btUniversalConstraint.o in Frameworks */,
-				66FA157611695D7100D77561 /* btWheelInfo.o in Frameworks */,
-				66FA157711695D7100D77561 /* Bullet-C-API.o in Frameworks */,
-				66FA158E11695D7100D77561 /* libBulletDynamics.a in Frameworks */,
-				66FA159511695D7100D77561 /* libBulletDynamics.a in Frameworks */,
-				66FA159F11695D7100D77561 /* boxBoxDistance.o in Frameworks */,
-				66FA15A011695D7100D77561 /* btGpu3DGridBroadphase.o in Frameworks */,
-				66FA15A111695D7100D77561 /* btParallelConstraintSolver.o in Frameworks */,
-				66FA15A211695D7100D77561 /* btThreadSupportInterface.o in Frameworks */,
-				66FA15A411695D7100D77561 /* MiniCL.o in Frameworks */,
-				66FA15A511695D7100D77561 /* MiniCLTask.o in Frameworks */,
-				66FA15A611695D7100D77561 /* MiniCLTaskScheduler.o in Frameworks */,
-				66FA15A711695D7100D77561 /* PosixThreadSupport.o in Frameworks */,
-				66FA15A811695D7100D77561 /* SequentialThreadSupport.o in Frameworks */,
-				66FA15A911695D7100D77561 /* SpuCollisionObjectWrapper.o in Frameworks */,
-				66FA15AA11695D7100D77561 /* SpuCollisionShapes.o in Frameworks */,
-				66FA15AB11695D7100D77561 /* SpuCollisionTaskProcess.o in Frameworks */,
-				66FA15AC11695D7100D77561 /* SpuContactManifoldCollisionAlgorithm.o in Frameworks */,
-				66FA15AD11695D7100D77561 /* SpuContactResult.o in Frameworks */,
-				66FA15AE11695D7100D77561 /* SpuFakeDma.o in Frameworks */,
-				66FA15AF11695D7100D77561 /* SpuGatheringCollisionDispatcher.o in Frameworks */,
-				66FA15B011695D7100D77561 /* SpuGatheringCollisionTask.o in Frameworks */,
-				66FA15B111695D7100D77561 /* SpuLibspe2Support.o in Frameworks */,
-				66FA15B211695D7100D77561 /* SpuMinkowskiPenetrationDepthSolver.o in Frameworks */,
-				66FA15B311695D7100D77561 /* SpuSampleTaskProcess.o in Frameworks */,
-				66FA15B411695D7100D77561 /* Win32ThreadSupport.o in Frameworks */,
-				66FA15BD11695D7100D77561 /* libBulletMultiThreaded.a in Frameworks */,
-				66FA15DF11695D7200D77561 /* btSoftBody.o in Frameworks */,
-				66FA15E011695D7200D77561 /* btSoftBodyConcaveCollisionAlgorithm.o in Frameworks */,
-				66FA15E111695D7200D77561 /* btSoftBodyHelpers.o in Frameworks */,
-				66FA15E211695D7200D77561 /* btSoftBodyRigidBodyCollisionConfiguration.o in Frameworks */,
-				66FA15E311695D7200D77561 /* btSoftRigidCollisionAlgorithm.o in Frameworks */,
-				66FA15E411695D7200D77561 /* btSoftRigidDynamicsWorld.o in Frameworks */,
-				66FA15E511695D7200D77561 /* btSoftSoftCollisionAlgorithm.o in Frameworks */,
-				66FA15EF11695D7200D77561 /* libBulletSoftBody.a in Frameworks */,
-				66FA15FC11695D7200D77561 /* btAlignedAllocator.o in Frameworks */,
-				66FA15FD11695D7200D77561 /* btConvexHull.o in Frameworks */,
-				66FA15FE11695D7200D77561 /* btGeometryUtil.o in Frameworks */,
-				66FA15FF11695D7200D77561 /* btQuickprof.o in Frameworks */,
-				66FA160011695D7200D77561 /* btSerializer.o in Frameworks */,
-				66FA160811695D7200D77561 /* btAlignedAllocator.o in Frameworks */,
-				66FA160911695D7200D77561 /* btConvexHull.o in Frameworks */,
-				66FA160A11695D7200D77561 /* btGeometryUtil.o in Frameworks */,
-				66FA160B11695D7200D77561 /* btQuickprof.o in Frameworks */,
-				66FA160C11695D7200D77561 /* btSerializer.o in Frameworks */,
-				66FA161611695D7200D77561 /* libLinearMath.a in Frameworks */,
-				66FA161811695D7200D77561 /* libLinearMath.a in Frameworks */,
 				66E6E0E7116E2CAC00353B14 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1650,7 +1025,7 @@
 				66469955115B02BE0030CE5D /* Shader.h */,
 				66469956115B02BE0030CE5D /* Shader.mm */,
 				66469AA1115BEC860030CE5D /* Physics.h */,
-				66469AA2115BEC860030CE5D /* Physics.cpp */,
+				66469AA2115BEC860030CE5D /* Physics.mm */,
 				66FA16671169859800D77561 /* Sphere3D.h */,
 				66FA16681169859800D77561 /* Sphere3D.mm */,
 				66E6E06D116E1C7A00353B14 /* TriMesh3D.h */,
@@ -3177,99 +2552,6 @@
 				2514C27B10084DCA00A42282 /* PassColor.fsh in Resources */,
 				2514C27C10084DCA00A42282 /* PassColor.vsh in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				66FA142911695D7100D77561 /* build-state.dat in Resources */,
-				66FA142A11695D7100D77561 /* build-state~.dat in Resources */,
-				66FA142B11695D7100D77561 /* libBulletCollision.a.dep in Resources */,
-				66FA142C11695D7100D77561 /* libBulletCollision.a~.dep in Resources */,
-				66FA148211695D7100D77561 /* BulletCollision.LinkFileList in Resources */,
-				66FA148811695D7100D77561 /* Script-101623170101623170101623.sh in Resources */,
-				66FA148911695D7100D77561 /* Script-101623B80101623B80101623.sh in Resources */,
-				66FA148A11695D7100D77561 /* build-state.dat in Resources */,
-				66FA148B11695D7100D77561 /* build-state~.dat in Resources */,
-				66FA148C11695D7100D77561 /* libBulletCollision.a.dep in Resources */,
-				66FA148D11695D7100D77561 /* libBulletCollision.a~.dep in Resources */,
-				66FA14E311695D7100D77561 /* BulletCollision.LinkFileList in Resources */,
-				66FA14E911695D7100D77561 /* Script-101623170101623170101623.sh in Resources */,
-				66FA14EA11695D7100D77561 /* Script-101623B80101623B80101623.sh in Resources */,
-				66FA14EB11695D7100D77561 /* cmake_install.cmake in Resources */,
-				66FA14EC11695D7100D77561 /* CMakeLists.txt in Resources */,
-				66FA14ED11695D7100D77561 /* BulletCollision_postBuildPhase.makeDebug in Resources */,
-				66FA14EE11695D7100D77561 /* BulletCollision_postBuildPhase.makeMinSizeRel in Resources */,
-				66FA14EF11695D7100D77561 /* BulletCollision_postBuildPhase.makeRelease in Resources */,
-				66FA14F011695D7100D77561 /* BulletCollision_postBuildPhase.makeRelWithDebInfo in Resources */,
-				66FA152C11695D7100D77561 /* Doxyfile in Resources */,
-				66FA154511695D7100D77561 /* build-state.dat in Resources */,
-				66FA154611695D7100D77561 /* build-state~.dat in Resources */,
-				66FA154711695D7100D77561 /* libBulletDynamics.a.dep in Resources */,
-				66FA154811695D7100D77561 /* libBulletDynamics.a~.dep in Resources */,
-				66FA155D11695D7100D77561 /* BulletDynamics.LinkFileList in Resources */,
-				66FA155E11695D7100D77561 /* Script-1016667D01016667D0101666.sh in Resources */,
-				66FA155F11695D7100D77561 /* Script-101667200101667200101667.sh in Resources */,
-				66FA156011695D7100D77561 /* build-state.dat in Resources */,
-				66FA156111695D7100D77561 /* build-state~.dat in Resources */,
-				66FA156211695D7100D77561 /* libBulletDynamics.a.dep in Resources */,
-				66FA156311695D7100D77561 /* libBulletDynamics.a~.dep in Resources */,
-				66FA157811695D7100D77561 /* BulletDynamics.LinkFileList in Resources */,
-				66FA157911695D7100D77561 /* Script-1016667D01016667D0101666.sh in Resources */,
-				66FA157A11695D7100D77561 /* Script-101667200101667200101667.sh in Resources */,
-				66FA157C11695D7100D77561 /* cmake_install.cmake in Resources */,
-				66FA157D11695D7100D77561 /* CMakeLists.txt in Resources */,
-				66FA157E11695D7100D77561 /* BulletDynamics_postBuildPhase.makeDebug in Resources */,
-				66FA157F11695D7100D77561 /* BulletDynamics_postBuildPhase.makeMinSizeRel in Resources */,
-				66FA158011695D7100D77561 /* BulletDynamics_postBuildPhase.makeRelease in Resources */,
-				66FA158111695D7100D77561 /* BulletDynamics_postBuildPhase.makeRelWithDebInfo in Resources */,
-				66FA159B11695D7100D77561 /* build-state.dat in Resources */,
-				66FA159C11695D7100D77561 /* build-state~.dat in Resources */,
-				66FA159D11695D7100D77561 /* libBulletMultiThreaded.a.dep in Resources */,
-				66FA159E11695D7100D77561 /* libBulletMultiThreaded.a~.dep in Resources */,
-				66FA15A311695D7100D77561 /* BulletMultiThreaded.LinkFileList in Resources */,
-				66FA15B511695D7100D77561 /* Script-101516560101516560101516.sh in Resources */,
-				66FA15B611695D7100D77561 /* Script-101516FF0101516FF0101516.sh in Resources */,
-				66FA15B711695D7100D77561 /* cmake_install.cmake in Resources */,
-				66FA15B811695D7100D77561 /* CMakeLists.txt in Resources */,
-				66FA15B911695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeDebug in Resources */,
-				66FA15BA11695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeMinSizeRel in Resources */,
-				66FA15BB11695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeRelease in Resources */,
-				66FA15BC11695D7100D77561 /* BulletMultiThreaded_postBuildPhase.makeRelWithDebInfo in Resources */,
-				66FA15BE11695D7200D77561 /* Makefile.original in Resources */,
-				66FA15CB11695D7200D77561 /* readme.txt in Resources */,
-				66FA15D011695D7200D77561 /* readme.txt in Resources */,
-				66FA15DB11695D7200D77561 /* build-state.dat in Resources */,
-				66FA15DC11695D7200D77561 /* build-state~.dat in Resources */,
-				66FA15DD11695D7200D77561 /* libBulletSoftBody.a.dep in Resources */,
-				66FA15DE11695D7200D77561 /* libBulletSoftBody.a~.dep in Resources */,
-				66FA15E611695D7200D77561 /* BulletSoftBody.LinkFileList in Resources */,
-				66FA15E711695D7200D77561 /* Script-1015353A01015353A0101535.sh in Resources */,
-				66FA15E811695D7200D77561 /* Script-101535DD0101535DD0101535.sh in Resources */,
-				66FA15E911695D7200D77561 /* cmake_install.cmake in Resources */,
-				66FA15EA11695D7200D77561 /* CMakeLists.txt in Resources */,
-				66FA15EB11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeDebug in Resources */,
-				66FA15EC11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeMinSizeRel in Resources */,
-				66FA15ED11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeRelease in Resources */,
-				66FA15EE11695D7200D77561 /* BulletSoftBody_postBuildPhase.makeRelWithDebInfo in Resources */,
-				66FA15F011695D7200D77561 /* cmake_install.cmake in Resources */,
-				66FA15F111695D7200D77561 /* CMakeLists.txt in Resources */,
-				66FA15F811695D7200D77561 /* build-state.dat in Resources */,
-				66FA15F911695D7200D77561 /* build-state~.dat in Resources */,
-				66FA15FA11695D7200D77561 /* libLinearMath.a.dep in Resources */,
-				66FA15FB11695D7200D77561 /* libLinearMath.a~.dep in Resources */,
-				66FA160111695D7200D77561 /* LinearMath.LinkFileList in Resources */,
-				66FA160211695D7200D77561 /* Script-1016922C01016922C0101692.sh in Resources */,
-				66FA160311695D7200D77561 /* Script-101692CF0101692CF0101692.sh in Resources */,
-				66FA160411695D7200D77561 /* build-state.dat in Resources */,
-				66FA160511695D7200D77561 /* build-state~.dat in Resources */,
-				66FA160611695D7200D77561 /* libLinearMath.a.dep in Resources */,
-				66FA160711695D7200D77561 /* libLinearMath.a~.dep in Resources */,
-				66FA160D11695D7200D77561 /* LinearMath.LinkFileList in Resources */,
-				66FA160E11695D7200D77561 /* Script-1016922C01016922C0101692.sh in Resources */,
-				66FA160F11695D7200D77561 /* Script-101692CF0101692CF0101692.sh in Resources */,
-				66FA161011695D7200D77561 /* cmake_install.cmake in Resources */,
-				66FA161111695D7200D77561 /* CMakeLists.txt in Resources */,
-				66FA161211695D7200D77561 /* LinearMath_postBuildPhase.makeDebug in Resources */,
-				66FA161311695D7200D77561 /* LinearMath_postBuildPhase.makeMinSizeRel in Resources */,
-				66FA161411695D7200D77561 /* LinearMath_postBuildPhase.makeRelease in Resources */,
-				66FA161511695D7200D77561 /* LinearMath_postBuildPhase.makeRelWithDebInfo in Resources */,
-				66FA161911695D7200D77561 /* Makefile.am in Resources */,
 				66E6E049116E155200353B14 /* losphere.obj in Resources */,
 				66E6E195116EF5F900353B14 /* hisphere.obj in Resources */,
 				66E6E1A4116EF8BD00353B14 /* torus.obj in Resources */,
@@ -3294,7 +2576,7 @@
 				66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */,
 				66E619521136FBD300D17097 /* ArcBall.cpp in Sources */,
 				66469957115B02BE0030CE5D /* Shader.mm in Sources */,
-				66469AA3115BEC860030CE5D /* Physics.cpp in Sources */,
+				66469AA3115BEC860030CE5D /* Physics.mm in Sources */,
 				66FED417116464E000A0A536 /* light.fsh in Sources */,
 				66FED418116464E000A0A536 /* light.vsh in Sources */,
 				66FA0EFD11678DB800D77561 /* esShapes.c in Sources */,
@@ -3482,9 +2764,6 @@
 				OTHER_LDFLAGS = (
 					"/Users/holz/code/cinder/lib/libcinder-iphone_d.a",
 					"/Users/holz/code/cinder/lib/libcinder-iphone-sim_d.a",
-					../cinder/blocks/bullet/bullet/src/BulletDynamics/Debug/libBulletDynamics.a,
-					../cinder/blocks/bullet/bullet/src/BulletCollision/Debug/libBulletCollision.a,
-					../cinder/blocks/bullet/bullet/src/LinearMath/Debug/libLinearMath.a,
 				);
 				PRODUCT_NAME = glesHello;
 			};

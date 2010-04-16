@@ -8,7 +8,10 @@
  */
 
 #include "World.h"
-#include "CinderBullet.h"
+#include "Cube3D.h"
+#include "Physics.h"
+
+#include <sstream>
 
 World::World(Physics* physics)
 {
@@ -17,7 +20,7 @@ World::World(Physics* physics)
 	
 }
 
-Cube3D* World::addStaticCube(Vec3f pos, Vec3f size, ci::Quatf rot, Shader *s)
+Cube3D* World::addStaticCube(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s)
 {
 	Cube3D *w1 = new Cube3D();
 	w1->init();
@@ -27,7 +30,7 @@ Cube3D* World::addStaticCube(Vec3f pos, Vec3f size, ci::Quatf rot, Shader *s)
 	w1->scale = size;
 	w1->shader = s;
 	btCollisionShape *w1Shape = new btBoxShape(btVector3(w1->scale.x/2.0f,w1->scale.y/2.0f,w1->scale.z/2.0f));
-	btDefaultMotionState *w1MotionState = new btDefaultMotionState(				btTransform(toBulletQuaternion(rot),				//rotation
+	btDefaultMotionState *w1MotionState = new btDefaultMotionState(	btTransform(rot,				//rotation
 																				btVector3(pos.x, pos.y, pos.z)));		//position
 	btVector3 w1inertia(0,0,0);
 	float w1mass = 0.0f;
@@ -39,4 +42,11 @@ Cube3D* World::addStaticCube(Vec3f pos, Vec3f size, ci::Quatf rot, Shader *s)
 	w1->body = w1body;
 	return w1;
 	
+}
+
+Cube3D* World::addGoal(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s)
+{
+	Cube3D goal = addStaticCube(pos, size, rot, s);
+	goal->body->setCollisionFlags(goal->body->getCollisionFlags() | btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
+//	mPhysics->m_dynamicsWorld->contactPairTest(<#btCollisionObject *colObjA#>, <#btCollisionObject *colObjB#>, <#ContactResultCallback resultCallback#>)
 }

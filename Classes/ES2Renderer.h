@@ -13,6 +13,7 @@
 #import "common.h"
 #import "Shader.h"
 #import "Physics.h"
+#import "World.h"
 //#include "Obj3D.h"
 
 #define VERTEX_POS_INDX	0 
@@ -59,6 +60,7 @@ class Obj3D;
 	
 	ArcBallT arcball;
 	
+	World *world;
 	Physics *physics;
 	
 	float angle;

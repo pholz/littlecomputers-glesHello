@@ -11,7 +11,7 @@
 #import "btBulletDynamicsCommon.h"
 //#import "ArcBall.h"
 #include "ES2Renderer.h"
-
+#include <string>
 
 
 class Obj3D
@@ -36,13 +36,21 @@ public:
 	
 	btRigidBody *body;
 	
-	GLfloat scale;
+	Vec3f scale;
 	
 	Shader *shader;
+	std::string objId;
 	
 	virtual void update(double dt) = 0;
 	virtual void render(ESMatrix* p) = 0;
 	virtual void init() = 0;
+	void setId(std::string _id) {
+		objId = _id;
+	}
+	
+	std::string getId() {
+		return objId;
+	}
 };
 
 

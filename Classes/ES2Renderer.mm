@@ -19,6 +19,8 @@
 #include "btBulletDynamicsCommon.h"
 #include "CinderBullet.h"
 #include "Resources.h"
+#include <string>
+#include <sstream>
 
 #define CONVEX_SCALE 0.05f
 
@@ -102,17 +104,23 @@ enum {
 	
 	objects = std::vector<Obj3D*>();
 	
+	
+	// add particle boxes
 	for(int i = 0; i < 6; i++){
 		Cube3D *c = new Cube3D();
 		c->init();
+		std::stringstream ss;
+		ss << "ob_cube_" << i;
+		c->setId(ss.str());
 		c->shader = [shaders objectForKey:@"light"];
-		c->scale = 0.5f;
+		c->scale = Vec3f(0.5f, 0.5f, 0.5f);
 		
-		btCollisionShape *boxShape = new btBoxShape(btVector3(c->scale/2.0f,c->scale/2.0f,c->scale/2.0f));
+		btCollisionShape *boxShape = new btBoxShape(btVector3(c->scale.x/2.0f,c->scale.y/2.0f,c->scale.z/2.0f));
 		btDefaultMotionState *boxMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(float(i)-3.0f, 0.0f, 20.0f)));
 		btVector3 inertia(0,0,0);
 		float mass = .5f * .5f * .5f;
 		boxShape->calculateLocalInertia(mass, inertia);
+		boxShape->setUserPointer(c);
 		btRigidBody::btRigidBodyConstructionInfo boxCI(mass, boxMotionState, boxShape, inertia);
 		btRigidBody* body = new btRigidBody(boxCI);
 		body->setActivationState(DISABLE_DEACTIVATION);
@@ -121,12 +129,7 @@ enum {
 		objects.push_back(c);
 	}
 	
-	Sphere3D *sph1 = new Sphere3D();
-	sph1->init();
-	sph1->shader = [shaders objectForKey:@"light"];
-	objects.push_back(sph1);
-	
-	
+
 	rotx = roty = 0.0f;
 	
 	GLfloat tfm[16] = {  1.0f,  0.0f,  0.0f,  0.0f,
@@ -154,6 +157,7 @@ enum {
 	
 	// load mesh
 	
+	/*
 	ci::TriMesh convex;
 	ci::ObjLoader loader( ci::app::App::loadResource( RES_TORUS )->getStream() );
 	loader.load( &convex );
@@ -166,6 +170,7 @@ enum {
 	tri->body = convexBody;
 	tri->scale = CONVEX_SCALE;
 	objects.push_back(tri);
+	 */
 	
 	ci::TriMesh sph;
 	ci::ObjLoader loader2( ci::app::App::loadResource( RES_HISPHERE )->getStream() );
@@ -173,11 +178,26 @@ enum {
 	
 	btRigidBody *sphBody = ci::bullet::createSphere(physics->m_dynamicsWorld, 0.5f, ci::Quatf(), ci::Vec3f(2,2,20));
 	TriMesh3D *sphTri = new TriMesh3D();
+	
 	sphTri->init(sph);
+	sphTri->setId("ob_sphere");
 	sphTri->shader = [shaders objectForKey:@"light2"];
 	sphTri->body = sphBody;
-	sphTri->scale = 0.5f;
+	sphTri->scale = Vec3f(0.5f, 0.5f, 0.5f);
+	sphBody->getCollisionShape()->setUserPointer(sphTri);
 	objects.push_back(sphTri);
+	
+	
+	// --------- MAKE WORLD -----------
+	
+	Shader *worldShader = [shaders objectForKey:@"light2"];
+	
+	world = new World(physics);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 0.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), ci::Quatf(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 4.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), ci::Quatf(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 8.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), ci::Quatf(), worldShader	)	);
+
+	// --------------------------------
 	
 	
 	return self;
@@ -197,8 +217,50 @@ enum {
 
 - (void) update:(double)dt
 {
-	physics->m_dynamicsWorld->stepSimulation(1.0f, 10);
+	physics->m_dynamicsWorld->stepSimulation(1.0f, 2);
 	
+	int numManifolds = physics->m_dynamicsWorld->getDispatcher()->getNumManifolds();
+	for (int i=0;i<numManifolds;i++)
+	{
+		btPersistentManifold* contactManifold =  physics->m_dynamicsWorld->getDispatcher()->getManifoldByIndexInternal(i);
+		btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
+		btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
+		
+		void* uptrA = obA->getCollisionShape()->getUserPointer();
+		void* uptrB = obB->getCollisionShape()->getUserPointer();
+		Obj3D* objectA = NULL;
+		Obj3D* objectB = NULL;
+		
+		
+		if(uptrA){
+			objectA = static_cast<Obj3D*>(uptrA);
+		//	NSLog(@"A: %@",[NSString stringWithCString:objectA->getId().c_str()]);
+		}
+		if(uptrB){
+			objectB = static_cast<Obj3D*>(uptrB);
+		//	NSLog(@"B: %@",[NSString stringWithCString:objectB->getId().c_str()]);
+		}
+		
+		if(objectA && objectB){
+			
+		}
+		
+		
+		
+		/*
+		int numContacts = contactManifold->getNumContacts();
+		for (int j=0;j<numContacts;j++)
+		{
+			btManifoldPoint& pt = contactManifold->getContactPoint(j);
+			if (pt.getDistance()<0.f)
+			{
+				const btVector3& ptA = pt.getPositionWorldOnA();
+				const btVector3& ptB = pt.getPositionWorldOnB();
+				const btVector3& normalOnB = pt.m_normalWorldOnB;
+			}
+		}
+		 */
+	}
 	
 	angle += dt * 36.0f;
 	

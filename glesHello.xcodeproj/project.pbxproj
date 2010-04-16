@@ -29,6 +29,7 @@
 		66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD571130CB2B007E67CE /* esUtil.c */; };
 		66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.mm */; };
 		66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFB21131BA43007E67CE /* Cube3D.mm */; };
+		66DF895F1178B0FA0004E0E3 /* World.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66DF895E1178B0FA0004E0E3 /* World.mm */; };
 		66E619521136FBD300D17097 /* ArcBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E618281136CD2300D17097 /* ArcBall.cpp */; };
 		66E6E049116E155200353B14 /* losphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 66E6E048116E155200353B14 /* losphere.obj */; };
 		66E6E06F116E1C7A00353B14 /* TriMesh3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66E6E06E116E1C7A00353B14 /* TriMesh3D.mm */; };
@@ -584,6 +585,8 @@
 		66D5BFB11131BA43007E67CE /* Cube3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube3D.h; sourceTree = "<group>"; };
 		66D5BFB21131BA43007E67CE /* Cube3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cube3D.mm; sourceTree = "<group>"; };
 		66D5BFF91131CB41007E67CE /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		66DF895D1178B0FA0004E0E3 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		66DF895E1178B0FA0004E0E3 /* World.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = World.mm; sourceTree = "<group>"; };
 		66E618281136CD2300D17097 /* ArcBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArcBall.cpp; sourceTree = "<group>"; };
 		66E618291136CD2300D17097 /* ArcBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArcBall.h; sourceTree = "<group>"; };
 		66E6186D1136E4E200D17097 /* Vec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec3f.h; sourceTree = "<group>"; };
@@ -1652,6 +1655,8 @@
 				66FA16681169859800D77561 /* Sphere3D.mm */,
 				66E6E06D116E1C7A00353B14 /* TriMesh3D.h */,
 				66E6E06E116E1C7A00353B14 /* TriMesh3D.mm */,
+				66DF895D1178B0FA0004E0E3 /* World.h */,
+				66DF895E1178B0FA0004E0E3 /* World.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -3445,6 +3450,7 @@
 				66E6E06F116E1C7A00353B14 /* TriMesh3D.mm in Sources */,
 				66A8CAA7116F73320040F2C5 /* light2.fsh in Sources */,
 				66A8CAA8116F73320040F2C5 /* light2.vsh in Sources */,
+				66DF895F1178B0FA0004E0E3 /* World.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

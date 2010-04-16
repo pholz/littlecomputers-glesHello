@@ -32,5 +32,6 @@ public:
 	virtual void update(double dt);
 	virtual void render(ESMatrix* p);
 	virtual void init();
+	~Cube3D();
 };
 

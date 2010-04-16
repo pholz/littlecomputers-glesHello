@@ -12,14 +12,9 @@
 
 void Cube3D::init()
 {
-	
-
-	//positionLoc = glGetAttribLocation ( renderer->program, "position" );
-//	colorLoc = glGetAttribLocation ( renderer->program, "color" );
-//	mvpLoc = glGetUniformLocation( renderer->program, "modelViewProjectionMatrix" );
-	
+	setId("ob_cube");
 	accTime = 0.0;
-	scale = 1.0f;
+	scale = Vec3f(1.0f, 1.0f, 1.0f);
 	
 	vertices =	(vertexStruct*)	malloc(8 * sizeof(vertexStruct));
 	indices =	(GLubyte*)		malloc(14 * sizeof(GLubyte));
@@ -37,8 +32,6 @@ void Cube3D::init()
 	GLubyte _indices[] = { 0, 1, 2, 3,  7, 1, 5, 4,  7, 6, 2, 4,  0, 1};
 	memcpy(indices, _indices, sizeof(_indices));
 	
-		 
-	
 	for(int i = 0; i < 8; i++)
 	{
 		Vec3f nor = Vec3f(vertices[i].position[0],vertices[i].position[1],vertices[i].position[2]).norm();
@@ -47,23 +40,15 @@ void Cube3D::init()
 		vertices[i].normal[2] = nor.z;
 		
 	}
-		
-		
+
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
-	//	[renderer glerr:@"genbf"];
 	
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-	//	[renderer glerr:@"bindbf"];
     glBufferData(GL_ARRAY_BUFFER, 8 * sizeof(vertexStruct), vertices, GL_STATIC_DRAW);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(fullVertices), fullVertices, GL_STATIC_DRAW);
-	//	[renderer glerr:@"bfdata"];
 	
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-	//	[renderer glerr:@"bindbf"];
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, 14 * sizeof(GLubyte), indices, GL_STATIC_DRAW);
-	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(inds), inds, GL_STATIC_DRAW);
-	//	[renderer glerr:@"bfdata"];
 	
 	position = Vec3f(0.0,0.0,-8.0);
 	velocity = Vec3f(0.0,0.0,0.0);
@@ -86,14 +71,13 @@ void Cube3D::render(ESMatrix* p)
 	body->getMotionState()->getWorldTransform(trans);
 	ESMatrix matrix;
 	trans.getOpenGLMatrix(&matrix.m[0][0]);
-//	esTranslate(&matrix, position.x, position.y, position.z);
 	
 	esMatrixLoadIdentity( &modelview );
 	
 	esMatrixMultiply(&modelview, &matrix, &modelview );
 	ESMatrix scaleMat;
 	esMatrixLoadIdentity(&scaleMat);
-	esScale(&scaleMat, scale, scale, scale);
+	esScale(&scaleMat, scale.x, scale.y, scale.z);
 	esMatrixMultiply(&modelview, &scaleMat, &modelview);
 	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
 	esMatrixMultiply(&mvpMatrix, &modelview, p );
@@ -103,23 +87,15 @@ void Cube3D::render(ESMatrix* p)
 	esMatrixTranspose(&tim, &inv);
 	
 	glUseProgram(shader.program);
-	
-//	NSLog(@"render cube");
+
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-//	[renderer glerr:@"bindbf"];
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-//	[renderer glerr:@"bindbf"];
 	
 	glEnableVertexAttribArray(shader.positionLoc);
-//	[renderer glerr:@"enableVAA"];
 	glEnableVertexAttribArray(shader.colorLoc);
-//	[renderer glerr:@"enableVAA"];
 	glEnableVertexAttribArray(shader.normLoc);
 	
     glVertexAttribPointer(shader.positionLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*)  0);
-//	[renderer glerr:@"VAAptr"];
-	
-//	[renderer glerr:@"VAAptr"];
 	glVertexAttribPointer(shader.colorLoc, 4, GL_FLOAT, GL_FALSE, sizeof(vertexStruct), (const void*) (4 * sizeof(GLfloat)));
     glVertexAttribPointer(shader.normLoc, 3, GL_FLOAT, GL_TRUE, sizeof(vertexStruct), (const void*) (8 * sizeof(GLfloat)));
 	
@@ -127,12 +103,14 @@ void Cube3D::render(ESMatrix* p)
 	glUniformMatrix4fv( shader.mvpLoc, 1, GL_FALSE, (GLfloat*) &mvpMatrix.m[0][0] );
 	glUniformMatrix4fv( shader.timLoc, 1, GL_FALSE, (GLfloat*) &tim.m[0][0] );
 	glUniform4f(shader.lightPos, -0.5f, -0.5f, -1.0f, 0.0f);
-//	[renderer glerr:@"uniform"];
 	
 	glDrawElements(GL_TRIANGLE_STRIP, 14, GL_UNSIGNED_BYTE, (void*)0);
-  //  glDrawElements(GL_TRIANGLES, numInds, GL_UNSIGNED_BYTE, (void*)0);
-//	[renderer glerr:@"draw"];
 }
 
+Cube3D::~Cube3D()
+{
+	free(vertices);
+	free(indices);
+}
 
 

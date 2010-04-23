@@ -119,9 +119,10 @@ enum {
 		btVector3 inertia(0,0,0);
 		float mass = .5f * .5f * .5f;
 		boxShape->calculateLocalInertia(mass, inertia);
-		boxShape->setUserPointer(c);
+		
 		btRigidBody::btRigidBodyConstructionInfo boxCI(mass, boxMotionState, boxShape, inertia);
 		btRigidBody* body = new btRigidBody(boxCI);
+		body->setUserPointer(c);
 		body->setActivationState(DISABLE_DEACTIVATION);
 		physics->m_dynamicsWorld->addRigidBody(body);
 		c->body = body;
@@ -183,7 +184,7 @@ enum {
 	sphTri->shader = [shaders objectForKey:@"light2"];
 	sphTri->body = sphBody;
 	sphTri->scale = Vec3f(0.5f, 0.5f, 0.5f);
-	sphBody->getCollisionShape()->setUserPointer(sphTri);
+	sphBody->setUserPointer(sphTri);
 	objects.push_back(sphTri);
 	
 	
@@ -192,11 +193,14 @@ enum {
 	Shader *worldShader = [shaders objectForKey:@"light2"];
 	
 	world = new World(physics);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 0.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 4.0f, -5.0f), Vec3f(1.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 8.0f, -5.0f), Vec3f(2.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 0.0f, -7.0f), Vec3f(4.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 4.0f, -7.0f), Vec3f(1.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, -6.0f, -7.0f), Vec3f(3.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
 
+	world->setActor(sphTri);
+	objects.push_back(  world->addGoal(Vec3f(1.0f, 1.0f, -7.0f), Vec3f(1.0f,1.0f,1.0f), btQuaternion(), worldShader ) );
 	// --------------------------------
+	
 	
 	
 	return self;
@@ -217,6 +221,10 @@ enum {
 - (void) update:(double)dt
 {
 	physics->m_dynamicsWorld->stepSimulation(1.0f, 2);
+	
+	physics->m_dynamicsWorld->contactPairTest(world->getActor()->body, world->getGoal()->body, world->getActorGoalCallback());
+	
+	/*
 	
 	int numManifolds = physics->m_dynamicsWorld->getDispatcher()->getNumManifolds();
 	for (int i=0;i<numManifolds;i++)
@@ -246,21 +254,8 @@ enum {
 		
 		
 		
-		/*
-		int numContacts = contactManifold->getNumContacts();
-		for (int j=0;j<numContacts;j++)
-		{
-			btManifoldPoint& pt = contactManifold->getContactPoint(j);
-			if (pt.getDistance()<0.f)
-			{
-				const btVector3& ptA = pt.getPositionWorldOnA();
-				const btVector3& ptB = pt.getPositionWorldOnB();
-				const btVector3& normalOnB = pt.m_normalWorldOnB;
-			}
-		}
-		 */
 	}
-	
+	*/
 	angle += dt * 36.0f;
 	
 	
@@ -524,12 +519,12 @@ enum {
 	p.y = 2.0f * loc.y / backingHeight - 1.0f;
 	last = p;
 	*/
-	
+	/*
 	MousePt.s.X = loc.x;
 	MousePt.s.Y = loc.y;
 	LastRot = ThisRot;
 	arcball.click(&MousePt);
-	
+	*/
 	//NSLog(@"arcball %f,%f",arcball.AdjustWidth,arcball.AdjustHeight);
 	
 }
@@ -562,6 +557,7 @@ enum {
 	last = p;
 	 */
 	
+	/*
 	MousePt.s.X = loc.x;
 	MousePt.s.Y = loc.y;
 //	NSLog(@"%f,%f",MousePt.s.X,MousePt.s.Y);
@@ -571,6 +567,7 @@ enum {
 	Matrix3fSetRotationFromQuat4f(&ThisRot, &ThisQuat);
 	Matrix3fMulMatrix3f(&ThisRot, &LastRot);				// Accumulate Last Rotation Into This One
 	Matrix4fSetRotationFromMatrix3f(&Transform, &ThisRot);
+	 */
 }
 
 - (void) singleTouchEnded

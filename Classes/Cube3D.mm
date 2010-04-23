@@ -66,20 +66,20 @@ void Cube3D::update(double dt)
 void Cube3D::render(ESMatrix* p)
 {
 	ESMatrix modelview;
+	esMatrixLoadIdentity( &modelview );
 
+	
 	btTransform trans;
 	body->getMotionState()->getWorldTransform(trans);
 	ESMatrix matrix;
 	trans.getOpenGLMatrix(&matrix.m[0][0]);
-	
-	esMatrixLoadIdentity( &modelview );
-	
 	esMatrixMultiply(&modelview, &matrix, &modelview );
+	
 	ESMatrix scaleMat;
 	esMatrixLoadIdentity(&scaleMat);
 	esScale(&scaleMat, scale.x, scale.y, scale.z);
 	esMatrixMultiply(&modelview, &scaleMat, &modelview);
-	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
+	//esMatrixMultiply(&modelview, &tfMatrix, &modelview);
 	esMatrixMultiply(&mvpMatrix, &modelview, p );
 
 	ESMatrix inv, tim;

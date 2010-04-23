@@ -226,7 +226,7 @@ esMatrixInverse(ESMatrix *result, ESMatrix *src)
 	if ((det_1 == 0.0) || (abs(det_1 / (pos - neg)) < 1.0e-15))
 	{
         /* Matrix M has no inverse */
-        printf("Matrix has no inverse : singular matrix\n");
+  //      printf("Matrix has no inverse : singular matrix\n");
         return;
     }
 	else

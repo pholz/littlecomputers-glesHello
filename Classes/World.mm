@@ -35,9 +35,10 @@ Cube3D* World::addStaticCube(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s)
 	btVector3 w1inertia(0,0,0);
 	float w1mass = 0.0f;
 	w1Shape->calculateLocalInertia(w1mass, w1inertia);
-	w1Shape->setUserPointer(w1);
+	
 	btRigidBody::btRigidBodyConstructionInfo w1CI(w1mass, w1MotionState, w1Shape, w1inertia);
 	btRigidBody* w1body = new btRigidBody(w1CI);
+	w1body->setUserPointer(w1);
 	mPhysics->m_dynamicsWorld->addRigidBody(w1body);
 	w1->body = w1body;
 	return w1;
@@ -46,7 +47,10 @@ Cube3D* World::addStaticCube(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s)
 
 Cube3D* World::addGoal(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s)
 {
-	Cube3D goal = addStaticCube(pos, size, rot, s);
+	Cube3D *goal = addStaticCube(pos, size, rot, s);
+	goal->setId("goal");
 	goal->body->setCollisionFlags(goal->body->getCollisionFlags() | btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
-//	mPhysics->m_dynamicsWorld->contactPairTest(<#btCollisionObject *colObjA#>, <#btCollisionObject *colObjB#>, <#ContactResultCallback resultCallback#>)
+	mGoal = goal;
+	
+	return goal;
 }

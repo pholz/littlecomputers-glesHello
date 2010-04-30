@@ -1,59 +1,56 @@
-/*
- *  TriMesh.cpp
- *  glesHello
- *
- *  Created by Peter Holzkorn on 08.04.10.
- *  Copyright 2010 __MyCompanyName__. All rights reserved.
- *
- */
+//
+//  Cube3D.m
+//  glesHello
+//
+//  Created by Peter Holzkorn on 21.02.10.
+//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//
 
-#include "TriMesh3D.h"
+#import "Tri3D.h"
 
-void TriMesh3D::init()
+
+
+void Tri3D::init()
 {
-	
-}
-
-void TriMesh3D::init(ci::TriMesh &mesh)
-{
-	setId("ob_mesh");
+	setId("ob_tri");
 	remove = false;
+	lifetime = 0.0;
+	maxLife = 5.0;
+	accTime = 0.0;
 	scale = Vec3f(1.0f, 1.0f, 1.0f);
+	body = NULL;
 	
-	numInds = mesh.getNumIndices();
-	numVerts = mesh.getNumVertices();
+	vertices =	(vertexStruct*)	malloc(4 * sizeof(vertexStruct));
+	indices =	(GLubyte*)		malloc(4 * sizeof(GLubyte));
 	
-	const std::vector<ci::Vec3f>& verts = mesh.getVertices();
-	const std::vector<ci::Vec3f>& norms = mesh.getNormals();
-	const std::vector<size_t>& indsvec = mesh.getIndices();
-	
-	vertices = (vertexStruct*)malloc(numVerts * sizeof(vertexStruct));
-	inds = (GLushort*)malloc(numInds * sizeof(GLushort));
+	vertexStruct v0 = { { -0.5f, -0.5f,  0.5f, 1.0f }, {1.0f, 0.0f,   0, 1.0f}};	vertices[0] =  v0;
+	vertexStruct v1 = { { 0.5f, -0.5f,  0.5f, 1.0f }, {0.0f, 1.0f,   0, 1.0f} };	vertices[1] =  v1;	// 1
+	vertexStruct v2 = 	{{ -0.5f, 0.5f,  0.5f, 1.0f }, {1.0f, 1.0f,   0, 1.0f}};	vertices[2] =  v2;// 2
+	vertexStruct v3 = 	{{ 0.5f, 0.5f,  0.5f, 1.0f }, {0.0f, 0.0f,   0, 1.0f}};	vertices[3] =  v3;// 3
 	
 	
-	for(int i = 0; i < numInds; i++)
+	GLubyte _indices[] = { 0, 1, 2, 3};
+	memcpy(indices, _indices, sizeof(_indices));
+	
+	for(int i = 0; i < 4; i++)
 	{
-		inds[i] = (GLushort)indsvec[i];
-	}
-	
-	for(int j = 0; j < numVerts; j++)
-	{
-		vertices[j].position[0] = verts[j].x;	vertices[j].position[1] = verts[j].y;	vertices[j].position[2] = verts[j].z;	vertices[j].position[3] = 1.0f;
-		vertices[j].normal[0] = norms[j].x;		vertices[j].normal[1] = norms[j].y;		vertices[j].normal[2] = norms[j].z;
-		vertices[j].color[0] = 1.0f;			vertices[j].color[1] = 0.0f;			vertices[j].color[2] = 0.0f;			vertices[j].color[3] = 1.0f;
+		Vec3f nor = Vec3f(0.0f, 0.0f, 1.0f);
+		vertices[i].normal[0] = nor.x;
+		vertices[i].normal[1] = nor.y;
+		vertices[i].normal[2] = nor.z;
+		
 	}
 
-	
 	glGenBuffers(1, &vertexBuffer);
     glGenBuffers(1, &indexBuffer);
 	
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, numVerts * sizeof(vertexStruct), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(vertexStruct), vertices, GL_STATIC_DRAW);
 	
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, numInds * sizeof(GLushort), inds, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 4 * sizeof(GLubyte), indices, GL_STATIC_DRAW);
 	
-	position = Vec3f(0.0,0.0,-6.0);
+	position = Vec3f(0.0,0.0,-8.0);
 	velocity = Vec3f(0.0,0.0,0.0);
 	acceleration = Vec3f(0.0,0.0,0.0);
 	rx = ry = rz = 0.0f;
@@ -61,18 +58,19 @@ void TriMesh3D::init(ci::TriMesh &mesh)
 	esMatrixLoadIdentity(&tfMatrix);
 }
 
-void TriMesh3D::update(double dt)
+void Tri3D::update(double dt)
 {
-	remove = false;
+	lifetime += dt;
+	if(lifetime >= maxLife) remove = true;
 }
 
-void TriMesh3D::render(ESMatrix* p)
+void Tri3D::render(ESMatrix* p)
 {
 	ESMatrix modelview;
-	ESMatrix matrix;
-	
+	esMatrixLoadIdentity( &modelview );
 
-	if(body){
+	ESMatrix matrix;
+	if(false && body){
 		btTransform trans;
 		body->getMotionState()->getWorldTransform(trans);
 		
@@ -81,22 +79,21 @@ void TriMesh3D::render(ESMatrix* p)
 		esTranslate(&matrix, position.x, position.y, position.z);
 	}
 	
-	esMatrixLoadIdentity( &modelview );
-	
 	esMatrixMultiply(&modelview, &matrix, &modelview );
+	
 	ESMatrix scaleMat;
 	esMatrixLoadIdentity(&scaleMat);
 	esScale(&scaleMat, scale.x, scale.y, scale.z);
 	esMatrixMultiply(&modelview, &scaleMat, &modelview);
-	esMatrixMultiply(&modelview, &tfMatrix, &modelview);
+	//esMatrixMultiply(&modelview, &tfMatrix, &modelview);
 	esMatrixMultiply(&mvpMatrix, &modelview, p );
-	
+
 	ESMatrix inv, tim;
 	esMatrixInverse(&inv, &modelview);
 	esMatrixTranspose(&tim, &inv);
 	
 	glUseProgram(shader.program);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	
@@ -113,5 +110,13 @@ void TriMesh3D::render(ESMatrix* p)
 	glUniformMatrix4fv( shader.timLoc, 1, GL_FALSE, (GLfloat*) &tim.m[0][0] );
 	glUniform4f(shader.lightPos, -0.5f, -0.5f, -1.0f, 0.0f);
 	
-	glDrawElements(GL_TRIANGLES, numInds, GL_UNSIGNED_SHORT, (void*)0);
+	glDrawElements(GL_TRIANGLE_STRIP, 4, GL_UNSIGNED_BYTE, (void*)0);
 }
+
+Tri3D::Tri3D()
+{
+	free(vertices);
+	free(indices);
+}
+
+

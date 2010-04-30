@@ -12,7 +12,8 @@
 
 void Cube3D::init()
 {
-	setId("ob_cube");
+	setId("ob");
+	remove = false;
 	accTime = 0.0;
 	scale = Vec3f(1.0f, 1.0f, 1.0f);
 	
@@ -60,7 +61,7 @@ void Cube3D::init()
 
 void Cube3D::update(double dt)
 {
-
+	remove = false;
 }
 
 void Cube3D::render(ESMatrix* p)

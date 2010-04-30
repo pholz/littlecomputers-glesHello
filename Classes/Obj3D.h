@@ -38,6 +38,8 @@ public:
 	Shader *shader;
 	std::string objId;
 	
+	bool remove;
+	
 	virtual void update(double dt) = 0;
 	virtual void render(ESMatrix* p) = 0;
 	virtual void init() = 0;

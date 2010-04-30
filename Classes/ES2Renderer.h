@@ -63,6 +63,8 @@ class Obj3D;
 	Physics *physics;
 	
 	float angle;
+	
+	NSMutableDictionary *collisionPlayers;
 }
 
 - (void) render;

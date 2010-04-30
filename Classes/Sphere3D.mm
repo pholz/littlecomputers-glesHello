@@ -12,7 +12,7 @@
 void Sphere3D::init()
 {
 	scale = Vec3f(1.0f,1.0f,1.0f);
-	
+	remove = false;
 	numInds = esGenSphere(24, 2.0f, &verts, &norms, NULL, &inds);
 	int numParallels = 24 / 2;
 	int numVerts = ( numParallels + 1 ) * ( 24 + 1 );

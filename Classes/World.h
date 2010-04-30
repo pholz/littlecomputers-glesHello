@@ -24,8 +24,8 @@ struct actorGoalCallback : public btCollisionWorld::ContactResultCallback
 		if(colObj0->getUserPointer()) ob0 = (Obj3D*) colObj0->getUserPointer();
 		if(colObj1->getUserPointer()) ob1 = (Obj3D*) colObj1->getUserPointer();
 		
-		if(ob0 && ob1)
-			std::cout << "GOAL " << ob0->getId() << " " << ob1->getId();
+	//	if(ob0 && ob1)
+//			std::cout << "GOAL " << ob0->getId() << " " << ob1->getId() << std::endl;
 		
 		return 0;
 	}
@@ -39,6 +39,9 @@ public:
 	World(Physics* physics);
 	Cube3D* addStaticCube(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s);
 	Cube3D* addGoal(Vec3f pos, Vec3f size, btQuaternion rot, Shader *s);
+	
+//	void addGoalPair(Obj3D* object, Obj3D* goal);
+	
 	void setActor(Obj3D* o) { mActor = o; }
 	Obj3D*	getActor() { return mActor; } 
 	Obj3D*	getGoal() { return mGoal; } 

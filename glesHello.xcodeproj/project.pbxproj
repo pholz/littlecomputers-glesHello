@@ -30,6 +30,14 @@
 		66D5BD5A1130CB2B007E67CE /* esUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BD571130CB2B007E67CE /* esUtil.c */; };
 		66D5BFB01131AF55007E67CE /* Obj3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFAF1131AF55007E67CE /* Obj3D.mm */; };
 		66D5BFB31131BA43007E67CE /* Cube3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66D5BFB21131BA43007E67CE /* Cube3D.mm */; };
+		66DEAB01118A99020052E3A7 /* clink.wav in Resources */ = {isa = PBXBuildFile; fileRef = 66DEAB00118A99020052E3A7 /* clink.wav */; };
+		66DEAB17118A99D70052E3A7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DEAB16118A99D70052E3A7 /* CoreAudio.framework */; };
+		66DEAB27118A9B560052E3A7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DEAB26118A9B560052E3A7 /* AVFoundation.framework */; };
+		66DEAB5C118AA01E0052E3A7 /* flat.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 66DEAB5B118AA01E0052E3A7 /* flat.fsh */; };
+		66DEAB5E118AA0250052E3A7 /* flat.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 66DEAB5D118AA0250052E3A7 /* flat.vsh */; };
+		66DEAB5F118AA0430052E3A7 /* flat.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 66DEAB5D118AA0250052E3A7 /* flat.vsh */; };
+		66DEAB60118AA0430052E3A7 /* flat.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 66DEAB5B118AA01E0052E3A7 /* flat.fsh */; };
+		66DEAB82118AA9400052E3A7 /* Tri3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66DEAB81118AA9400052E3A7 /* Tri3D.mm */; };
 		66DF895F1178B0FA0004E0E3 /* World.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66DF895E1178B0FA0004E0E3 /* World.mm */; };
 		66E619521136FBD300D17097 /* ArcBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E618281136CD2300D17097 /* ArcBall.cpp */; };
 		66E6E049116E155200353B14 /* losphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 66E6E048116E155200353B14 /* losphere.obj */; };
@@ -228,6 +236,13 @@
 		66D5BFB11131BA43007E67CE /* Cube3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube3D.h; sourceTree = "<group>"; };
 		66D5BFB21131BA43007E67CE /* Cube3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cube3D.mm; sourceTree = "<group>"; };
 		66D5BFF91131CB41007E67CE /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		66DEAB00118A99020052E3A7 /* clink.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clink.wav; sourceTree = "<group>"; };
+		66DEAB16118A99D70052E3A7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		66DEAB26118A9B560052E3A7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		66DEAB5B118AA01E0052E3A7 /* flat.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = flat.fsh; path = Shaders/flat.fsh; sourceTree = "<group>"; };
+		66DEAB5D118AA0250052E3A7 /* flat.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = flat.vsh; path = Shaders/flat.vsh; sourceTree = "<group>"; };
+		66DEAB80118AA9400052E3A7 /* Tri3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tri3D.h; sourceTree = "<group>"; };
+		66DEAB81118AA9400052E3A7 /* Tri3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Tri3D.mm; sourceTree = "<group>"; };
 		66DF895D1178B0FA0004E0E3 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		66DF895E1178B0FA0004E0E3 /* World.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = World.mm; sourceTree = "<group>"; };
 		66E618281136CD2300D17097 /* ArcBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArcBall.cpp; sourceTree = "<group>"; };
@@ -994,6 +1009,8 @@
 				28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */,
 				66E6E0E7116E2CAC00353B14 /* CoreGraphics.framework in Frameworks */,
 				6682281F117F5FE70066E239 /* CoreLocation.framework in Frameworks */,
+				66DEAB17118A99D70052E3A7 /* CoreAudio.framework in Frameworks */,
+				66DEAB27118A9B560052E3A7 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,6 +1039,8 @@
 				1D3623250D0F684500981E51 /* glesHelloAppDelegate.mm */,
 				66D5BFAE1131AF55007E67CE /* Obj3D.h */,
 				66D5BFAF1131AF55007E67CE /* Obj3D.mm */,
+				66DEAB80118AA9400052E3A7 /* Tri3D.h */,
+				66DEAB81118AA9400052E3A7 /* Tri3D.mm */,
 				66D5BFB11131BA43007E67CE /* Cube3D.h */,
 				66D5BFB21131BA43007E67CE /* Cube3D.mm */,
 				66D5BFF91131CB41007E67CE /* common.h */,
@@ -1050,6 +1069,8 @@
 		2514C27610084DB600A42282 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				66DEAB5D118AA0250052E3A7 /* flat.vsh */,
+				66DEAB5B118AA01E0052E3A7 /* flat.fsh */,
 				66A8CAA5116F73310040F2C5 /* light2.fsh */,
 				66A8CAA6116F73310040F2C5 /* light2.vsh */,
 				66FED415116464E000A0A536 /* light.fsh */,
@@ -1086,6 +1107,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66DEAB00118A99020052E3A7 /* clink.wav */,
 				66E6E1A3116EF8BD00353B14 /* torus.obj */,
 				66E6E194116EF5F900353B14 /* hisphere.obj */,
 				66E6E048116E155200353B14 /* losphere.obj */,
@@ -1104,6 +1126,8 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				66E6E0E6116E2CAC00353B14 /* CoreGraphics.framework */,
 				6682281E117F5FE70066E239 /* CoreLocation.framework */,
+				66DEAB16118A99D70052E3A7 /* CoreAudio.framework */,
+				66DEAB26118A9B560052E3A7 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2549,6 +2573,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66DEAB5F118AA0430052E3A7 /* flat.vsh in Resources */,
+				66DEAB60118AA0430052E3A7 /* flat.fsh in Resources */,
 				66FED4311164673E00A0A536 /* light.fsh in Resources */,
 				66FED4321164673E00A0A536 /* light.vsh in Resources */,
 				66A8CAB9116F73C40040F2C5 /* light2.fsh in Resources */,
@@ -2559,6 +2585,7 @@
 				66E6E049116E155200353B14 /* losphere.obj in Resources */,
 				66E6E195116EF5F900353B14 /* hisphere.obj in Resources */,
 				66E6E1A4116EF8BD00353B14 /* torus.obj in Resources */,
+				66DEAB01118A99020052E3A7 /* clink.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2737,6 +2764,9 @@
 				66A8CAA7116F73320040F2C5 /* light2.fsh in Sources */,
 				66A8CAA8116F73320040F2C5 /* light2.vsh in Sources */,
 				66DF895F1178B0FA0004E0E3 /* World.mm in Sources */,
+				66DEAB5C118AA01E0052E3A7 /* flat.fsh in Sources */,
+				66DEAB5E118AA0250052E3A7 /* flat.vsh in Sources */,
+				66DEAB82118AA9400052E3A7 /* Tri3D.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,11 @@
 //
 
 #import "ES2Renderer.h"
+#include <AVFoundation/AVAudioPlayer.h>
 #include "Cube3D.h"
 #include "Sphere3D.h"
 #include "TriMesh3D.h"
+#include "Tri3D.h"
 #include "cinder/app/AppCocoaTouch.h"
 #include "cinder/cocoa/CinderCocoaTouch.h"
 #include "cinder/TriMesh.h"
@@ -190,16 +192,41 @@ enum {
 	
 	// --------- MAKE WORLD -----------
 	
-	Shader *worldShader = [shaders objectForKey:@"light2"];
+	Shader *worldShader = [shaders objectForKey:@"flat"];
 	
 	world = new World(physics);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 0.0f, -7.0f), Vec3f(4.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 4.0f, -7.0f), Vec3f(1.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
-	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, -6.0f, -7.0f), Vec3f(3.0f,2.0f,0.5f), btQuaternion(), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 0.0f, -7.0f), Vec3f(4.0f,2.0f,0.5f), btQuaternion(0.01f, 0.01f, 0.01f), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, 4.0f, -7.0f), Vec3f(1.0f,2.0f,0.5f), btQuaternion(0.01f, 0.01f, 0.01f), worldShader	)	);
+	objects.push_back(	world->addStaticCube(	Vec3f(0.0f, -6.0f, -7.0f), Vec3f(3.0f,2.0f,0.5f), btQuaternion(0.01f, 0.01f, 0.01f), worldShader	)	);
 
 	world->setActor(sphTri);
 	objects.push_back(  world->addGoal(Vec3f(1.0f, 1.0f, -7.0f), Vec3f(1.0f,1.0f,1.0f), btQuaternion(), worldShader ) );
 	// --------------------------------
+	
+	
+	// --- audio stuff
+	collisionPlayers = [[NSMutableDictionary alloc] init];
+	
+	NSString *clinkPath = [[NSBundle mainBundle] pathForResource: @"clink" ofType: @"wav"];
+	
+	NSURL *clinkURL = [[NSURL alloc] initFileURLWithPath: clinkPath];
+	
+	for(int i = 0; i < objects.size(); i++)
+	{
+		std::string obid = objects[i]->getId();
+		
+		if(!obid.empty()) 
+		{
+			if(obid.find("cube") != std::string::npos)
+			{
+				AVAudioPlayer *newPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: clinkURL error: nil];
+				[collisionPlayers setObject:newPlayer forKey:[NSString stringWithUTF8String:obid.c_str()]];
+				[newPlayer prepareToPlay];
+			}
+		}
+	}
+	
+	[clinkURL release];
 	
 	
 	
@@ -222,9 +249,10 @@ enum {
 {
 	physics->m_dynamicsWorld->stepSimulation(1.0f, 2);
 	
-	physics->m_dynamicsWorld->contactPairTest(world->getActor()->body, world->getGoal()->body, world->getActorGoalCallback());
+//	physics->m_dynamicsWorld->contactPairTest(world->getActor()->body, world->getGoal()->body, world->getActorGoalCallback());
 	
-	/*
+	
+	
 	
 	int numManifolds = physics->m_dynamicsWorld->getDispatcher()->getNumManifolds();
 	for (int i=0;i<numManifolds;i++)
@@ -233,31 +261,67 @@ enum {
 		btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
 		btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
 		
-		void* uptrA = obA->getCollisionShape()->getUserPointer();
-		void* uptrB = obB->getCollisionShape()->getUserPointer();
+		void* uptrA = obA->getUserPointer();
+		void* uptrB = obB->getUserPointer();
 		Obj3D* objectA = NULL;
 		Obj3D* objectB = NULL;
 		
 		
 		if(uptrA){
 			objectA = static_cast<Obj3D*>(uptrA);
-		//	NSLog(@"A: %@",[NSString stringWithCString:objectA->getId().c_str()]);
+	//		if(objectA) NSLog(@"A: %@",[NSString stringWithCString:objectA->getId().c_str()]);
 		}
 		if(uptrB){
 			objectB = static_cast<Obj3D*>(uptrB);
-		//	NSLog(@"B: %@",[NSString stringWithCString:objectB->getId().c_str()]);
+	//		if(objectB) NSLog(@"B: %@",[NSString stringWithCString:objectB->getId().c_str()]);
 		}
 		
 		if(objectA && objectB){
-			
+		//	NSLog(@"COLLIDE:");
+			Cube3D* cb = dynamic_cast<Cube3D*>(objectA);
+			Cube3D* cb2 = 0;
+			if(cb == 0)
+				cb = dynamic_cast<Cube3D*>(objectB);
+			else
+				cb2 = dynamic_cast<Cube3D*>(objectB);
+			if(cb != 0 && cb2 != 0){
+				if(cb->getId().find("cube") != std::string::npos && cb2->getId().find("cube") != std::string::npos)
+				{
+					AVAudioPlayer *plyr = [collisionPlayers objectForKey:[NSString stringWithUTF8String:cb->getId().c_str()]];
+					[plyr play];
+					
+					/*
+					int numContacts = contactManifold->getNumContacts();
+					for (int j=0;j<numContacts;j++)
+					{
+						btManifoldPoint& pt = contactManifold->getContactPoint(j);
+
+						
+						btVector3 ptA = pt.getPositionWorldOnA();
+						btVector3 ptB = pt.getPositionWorldOnB();
+						
+						Tri3D *tri = new Tri3D();
+						tri->init();
+						tri->position = Vec3f((float)ptA.x(), (float)ptA.y(), (float)ptA.z());
+						tri->shader = [shaders objectForKey:@"light"];
+						tri->scale = Vec3f(0.05f, 0.05f, 0.05f);
+						objects.push_back(tri);
+					}
+					 */
+				}
+				
+				//if(cb2 != 0) NSLog(@"COLLIDE %@ -- %@", [NSString stringWithUTF8String:cb->getId().c_str()], [NSString stringWithUTF8String:cb2->getId().c_str()]);
+				
+			}
 		}
 		
 		
 		
 	}
-	*/
+	
 	angle += dt * 36.0f;
 	
+	std::vector<int> toRemove;
 	
 	for (int i = 0; i < objects.size(); i++) 
 	{
@@ -267,6 +331,13 @@ enum {
 	//	esMatrixLoadIdentity(&esmTf);
 	//	esMatrixMultiply([obj tfMatrix], &esmTf, &perspective);
 		o->update(dt);
+		
+		if(o->remove) toRemove.push_back(i);
+	}
+	
+	for(int i = toRemove.size() - 1; i >= 0; i--)
+	{
+		objects.erase(objects.begin() + toRemove[i]);
 	}
 	
 //	esMatrixLoadIdentity( &modelview );
@@ -393,7 +464,7 @@ enum {
 	lastAccX = x;
 	lastAccY = y;
 	lastAccZ = z;
-	NSLog(@"%f,%f,%f", x, y, z);
+	//NSLog(@"%f,%f,%f", x, y, z);
 	physics->setGravity(Vec3f(x,y,z));
 }
 
@@ -422,7 +493,7 @@ enum {
 {
 	shaders = [[NSMutableDictionary alloc] init];
 	
-	NSArray *names =[[NSArray alloc] initWithObjects: @"light", @"light2", nil];
+	NSArray *names =[[NSArray alloc] initWithObjects: @"light", @"light2", @"flat", nil];
 	
 	for(int i = 0; i < [names count]; i++)
 	{
